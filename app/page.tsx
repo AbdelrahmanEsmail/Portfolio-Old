@@ -171,7 +171,7 @@ const experience = [
   },
   {
     period: 'Jun — Sep 2026',
-    role: 'Backend Developer',
+    role: 'Full Stack Developer',
     company: 'Sukoon',
     description:
       'Developed property discovery and visit-booking APIs with JWT/OAuth security, Cloudinary media, Redis-backed WebSockets, query optimization, and 100+ automated tests.',
@@ -211,7 +211,7 @@ const experience = [
   },
   {
     period: 'Aug — Oct 2022',
-    role: 'Backend Developer Intern',
+    role: 'Full Stack Developer Intern',
     company: 'Mansoura University',
     description:
       'Developed Django backend modules, REST APIs, and PostgreSQL-backed functionality for academic projects.',
