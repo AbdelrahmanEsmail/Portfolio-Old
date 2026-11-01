@@ -198,6 +198,23 @@ const projects: Project[] = [
     categories: ['Platform'],
     accent: 'cobalt',
   },
+  {
+    title: 'Bee3a (بيعة)',
+    liveUrl: 'https://bee3a.site/',
+    label: 'Business management SaaS',
+    description:
+      'An Arabic-first, bilingual SaaS for Egyptian small businesses, combining POS, inventory, bookings, and online ordering with tenant isolation, role-based access, local payment verification, and dedicated business and platform administration apps.',
+    image: assetPath('/assets/project-bee3a.svg'),
+    imageAlt: 'Conceptual Bee3a business dashboard showing point of sale, inventory, and appointment bookings',
+    technologies: ['React', 'TypeScript', 'Express', 'MongoDB'],
+    stats: [
+      { value: '3', label: 'Business systems' },
+      { value: 'AR / EN', label: 'Bilingual & RTL' },
+      { value: 'PWA', label: 'Mobile & desktop' },
+    ],
+    categories: ['SaaS', 'Commerce'],
+    accent: 'emerald',
+  },
 ];
 
 const experience = [
