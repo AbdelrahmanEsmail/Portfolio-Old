@@ -181,6 +181,23 @@ const projects: Project[] = [
     categories: ['Platform'],
     accent: 'sand',
   },
+  {
+    title: 'Aljadriya',
+    liveUrl: 'https://aljadriya-platform.vercel.app/track',
+    label: 'Learning & corporate training',
+    description:
+      'A multi-country training platform combining AI placement assessments, structured learning tracks, certificates, and real-time messaging with corporate agreements, localized pricing, and financial management.',
+    image: assetPath('/assets/project-aljadriya.svg'),
+    imageAlt: 'Conceptual Aljadriya learning dashboard with course tracks, progress, and corporate training',
+    technologies: ['Next.js', 'Django REST', 'PostgreSQL', 'Channels'],
+    stats: [
+      { value: 'AI', label: 'Placement & study plans' },
+      { value: 'Multi-country', label: 'Regional operations' },
+      { value: 'Corporate', label: 'Training agreements' },
+    ],
+    categories: ['Platform'],
+    accent: 'cobalt',
+  },
 ];
 
 const experience = [
@@ -576,7 +593,7 @@ export default function Home() {
                 <div><strong>Full-stack</strong><small>API to interface</small></div>
               </div>
               <div className="floating-card floating-card-projects">
-                <strong>06</strong><small>selected builds</small>
+                <strong>{String(projects.length).padStart(2, '0')}</strong><small>selected builds</small>
               </div>
             </div>
           </div>
@@ -585,7 +602,7 @@ export default function Home() {
         <section className="proof-strip" aria-label="Portfolio highlights" data-reveal>
           <p>Built for the whole product</p>
           <div className="proof-item"><strong>07</strong><span>professional roles</span></div>
-          <div className="proof-item"><strong>06</strong><span>selected projects</span></div>
+          <div className="proof-item"><strong>{String(projects.length).padStart(2, '0')}</strong><span>selected projects</span></div>
           <div className="proof-item"><strong>∞</strong><span>room to keep learning</span></div>
         </section>
 
