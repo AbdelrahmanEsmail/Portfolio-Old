@@ -69,6 +69,7 @@ type Project = {
 const projects: Project[] = [
   {
     title: 'Multi-Tenant SaaS ERP',
+    liveUrl: 'https://adex-erp-react.vercel.app/',
     label: 'ERP & financial systems',
     description:
       'A schema-per-tenant ERP with double-entry accounting, multi-currency COGS, controlled payroll workflows, and transaction-safe financial services.',
