@@ -57,6 +57,12 @@ type Project = {
   stats: { value: string; label: string }[];
   categories: Exclude<ProjectFilter, 'All'>[];
   accent: string;
+  liveUrl?: string;
+  appLinks?: {
+    label: string;
+    googlePlay: string;
+    appStore: string;
+  }[];
   featured?: boolean;
 };
 
@@ -80,6 +86,7 @@ const projects: Project[] = [
   },
   {
     title: 'China ERP Systems',
+    liveUrl: 'https://www.china-systems.com/',
     label: 'Multi-tenant B2B trade',
     description:
       'A tenant-isolated trade platform per company with resilient CSV/XLSX imports, automated balance-sheet aggregation, and multi-currency foreign-exchange tracking.',
@@ -96,6 +103,7 @@ const projects: Project[] = [
   },
   {
     title: 'Sahifatty',
+    liveUrl: 'https://sahifati.org/#top',
     label: 'Quran learning & assessment',
     description:
       'A modular education API for Quran content, assessments, study plans, teacher–student groups, recommendations, onboarding, and secure family accounts.',
@@ -111,7 +119,19 @@ const projects: Project[] = [
     accent: 'emerald',
   },
   {
-    title: 'AquaCloud / Geenade',
+    title: 'Ghaith Adex',
+    appLinks: [
+      {
+        label: 'Customer app',
+        googlePlay: 'https://play.google.com/store/apps/details?id=com.adex.aquacloud.junaidi',
+        appStore: 'https://apps.apple.com/us/app/6795517365',
+      },
+      {
+        label: 'Driver app',
+        googlePlay: 'https://play.google.com/store/apps/details?id=com.adex.aquacloud.junaidi.driver',
+        appStore: 'https://apps.apple.com/us/app/6796311081',
+      },
+    ],
     label: 'Multi-tenant delivery platform',
     description:
       'A delivery backend spanning tenants, branches, orders, prepaid-coupon ledgers, real-time notifications, and Celery-powered recurring tours.',
@@ -128,6 +148,7 @@ const projects: Project[] = [
   },
   {
     title: 'Barcode Jackets',
+    liveUrl: 'https://barcodejackets.com/',
     label: 'Custom apparel commerce',
     description:
       'A custom-apparel API with layered garment personalization, multi-store catalogs, inventory reservations, pricing rules, and atomic payment/refund lifecycles.',
@@ -144,6 +165,7 @@ const projects: Project[] = [
   },
   {
     title: 'Sukoon',
+    liveUrl: 'https://sukoon.rent/',
     label: 'Real estate platform API',
     description:
       'A versioned property-discovery and visit-booking API with hardened authentication, query optimization, Cloudinary media, and Redis-backed WebSockets.',
@@ -305,6 +327,46 @@ function ProjectCard({ project, index, inDialog = false }: ProjectCardProps) {
             </div>
           ))}
         </dl>
+        {project.liveUrl && (
+          <a
+            className="project-live-link"
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit ${project.title} live site (opens in a new tab)`}
+          >
+            Visit live site <span aria-hidden="true">↗</span>
+          </a>
+        )}
+        {project.appLinks && (
+          <div className="project-apps">
+            {project.appLinks.map((app) => (
+              <div className="project-app" key={app.label} role="group" aria-label={`${project.title} ${app.label}`}>
+                <p className="project-app-label">{app.label}</p>
+                <div className="project-app-links">
+                  <a
+                    className="project-live-link"
+                    href={app.googlePlay}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.title} ${app.label} on Google Play (opens in a new tab)`}
+                  >
+                    Google Play <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    className="project-live-link"
+                    href={app.appStore}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.title} ${app.label} on the App Store (opens in a new tab)`}
+                  >
+                    App Store <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </article>
   );
