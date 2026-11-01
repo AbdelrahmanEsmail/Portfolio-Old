@@ -189,7 +189,7 @@ const experience = [
     company: 'Adex',
     description:
       'Building production backends across multi-tenant ERP, B2B trade, education, delivery, and commerce—covering financial ledgers, secure identity, real-time workflows, and high-volume data.',
-    tag: 'Amman, Jordan',
+    tag: 'Remote · Amman, Jordan',
   },
   {
     period: 'Jun — Sep 2026',
@@ -205,7 +205,7 @@ const experience = [
     company: 'Freelance',
     description:
       'Delivered full-stack web applications, pairing Django APIs and PostgreSQL data models with responsive React and Next.js interfaces.',
-    tag: 'Remote · Egypt',
+    tag: 'Egypt',
   },
   {
     period: 'Oct 2024 — Mar 2025',
