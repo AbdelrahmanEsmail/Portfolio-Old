@@ -1,0 +1,338 @@
+{
+  "updated": "2026-11-04",
+  "projects": [
+    {
+      "slug": "barcode-jackets",
+      "businessSources": [
+        "../adex/jackets/README.md",
+        "../adex/jackets/frontend/src/components/shared/studio/StudioPage.jsx",
+        "../adex/jackets/frontend/src/components/shared/studio/steps/ReviewStep.jsx"
+      ],
+      "notes": [
+        "Images pre-exist in older jakets-project checkout; current adex/jackets continues same product. No claim made that screenshots show current production release."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/barcode-jackets/designer-materials.webp",
+          "source": "../jakets-project/jaketets/tools/debug/qa/studio-body-leather.png",
+          "note": "Existing local screenshot of the real product UI from project QA folder. Visually inspected. No customer data visible. Screenshot reflects an older project checkout, not a fresh production capture."
+        },
+        {
+          "file": "/assets/projects/barcode-jackets/designer-artwork.webp",
+          "source": "../jakets-project/jaketets/tools/debug/qa/studio-designs-front.png",
+          "note": "Existing local screenshot of the real product UI from project QA folder. Visually inspected. No customer data visible. Screenshot reflects an older project checkout, not a fresh production capture."
+        },
+        {
+          "file": "/assets/projects/barcode-jackets/design-review.webp",
+          "source": "../jakets-project/jaketets/tools/debug/qa/studio-review.png",
+          "note": "Existing local screenshot of the real product UI from project QA folder. Visually inspected. No customer data visible. Screenshot reflects an older project checkout, not a fresh production capture."
+        },
+        {
+          "file": "/assets/projects/barcode-jackets/product-catalogue.webp",
+          "source": "../jakets-project/jaketets/tools/debug/qa/landing-models.png",
+          "note": "Existing local screenshot of the real product UI from project QA folder. Visually inspected. No customer data visible. Screenshot reflects an older project checkout, not a fresh production capture."
+        },
+        {
+          "file": "/assets/projects/barcode-jackets/mobile-designer.webp",
+          "source": "../jakets-project/jaketets/tools/debug/qa/phone-studio.png",
+          "note": "Existing local screenshot of the real product UI from project QA folder. Visually inspected. No customer data visible. Screenshot reflects an older project checkout, not a fresh production capture."
+        }
+      ]
+    },
+    {
+      "slug": "sukoon",
+      "businessSources": [
+        "../sukoon/Sukoon-API/frontend/landing/src/i18n/dictionaries.ts",
+        "../sukoon/sokoun/docs/verification/property-closure-2026-10-21/REPORT_AR.md",
+        "../sukoon/sokoun/docs/verification/end_to_end_closure/README.md"
+      ],
+      "notes": [
+        "App gallery includes real implemented app screenshots with QA/demo data, not screenshots of customer accounts.",
+        "3D tour is a prepared representative model, not an automatic real-estate scan.",
+        "Public landing copy mentions book viewings, but current mobile-readiness report says retired viewing-date scheduler remains retired. Prefer broad incoming requests wording over newly claiming scheduled live viewings.",
+        "No .env files, credentials, production customer records or logs read."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/sukoon/public-website.webp",
+          "source": "https://sukoon.rent/en",
+          "note": "Public website captured with native browser DevTools on 2026-11-04 at 1280×800. Marketing page includes its own app preview; the other gallery images are actual app captures."
+        },
+        {
+          "file": "/assets/projects/sukoon/app-welcome.webp",
+          "source": "../sukoon/sokoun/docs/qa/mobile-readiness-2026-10-31/screens/welcome-en-390.png",
+          "note": "Actual Flutter-rendered app screen from fixture visual suite; not a design proposal."
+        },
+        {
+          "file": "/assets/projects/sukoon/owner-dashboard.webp",
+          "source": "../sukoon/sokoun/docs/ui-refactor/evidence/dashboards/owner-ar-light.png",
+          "note": "Actual rendered Flutter owner dashboard using Test account/demo data, visibly labeled."
+        },
+        {
+          "file": "/assets/projects/sukoon/virtual-tour-360.webp",
+          "source": "../sukoon/sokoun/docs/verification/property-closure-2026-10-21/ios-panorama-preview.png",
+          "note": "Actual running iOS simulator screenshot, explicit QA tour. Panorama uses CC0 Poly Haven media, not a real rental listing. REPORT_AR.md lines 12,19,43 and iOS verification section describe capture."
+        },
+        {
+          "file": "/assets/projects/sukoon/virtual-tour-3d.webp",
+          "source": "../sukoon/sokoun/docs/verification/property-closure-2026-10-21/ios-model-preview.png",
+          "note": "Actual running iOS simulator screenshot of a QA representative model, not a scan of a customer property. REPORT_AR.md lines 35-43 identifies locally prepared CC0 Kenney model."
+        },
+        {
+          "file": "/assets/projects/sukoon/rental-comparison.webp",
+          "source": "../sukoon/sokoun/docs/verification/end_to_end_closure/comparison-en.png",
+          "note": "Actual Flutter-rendered feature screen with synthetic data. end_to_end_closure/README.md explicitly documents synthetic disposable test fixtures and rendered screen capture."
+        }
+      ]
+    },
+    {
+      "slug": "aljadriya",
+      "businessSources": [
+        "../aljadriya-platform/frontend/src/components/landing/LandingPage.tsx",
+        "../aljadriya-platform/frontend/src/components/landing/LandingSections.tsx",
+        "../aljadriya-platform/frontend/src/components/landing/Audiences.tsx",
+        "../aljadriya-platform/frontend/src/components/landing/Assistants.tsx",
+        "../aljadriya-platform/frontend/src/components/landing/Frames.tsx"
+      ],
+      "notes": [
+        "The repository/project identifier is Aljadriya; current frontend public landing copy uses Masar Academy branding. Consider Aljadriya / Masar Academy for clarity if preserving the portfolio project name.",
+        "Shipped promotional product screenshots contain sample learning content."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/aljadriya/learning-path.webp",
+          "source": "../aljadriya-platform/frontend/public/landing/shot-path.webp",
+          "note": "Existing real product UI screenshot bundled in the project public landing assets. Viewed visually; not a generated portfolio mockup. Promotional/example content shipped by the project, not extracted from a private customer session."
+        },
+        {
+          "file": "/assets/projects/aljadriya/course-catalog.webp",
+          "source": "../aljadriya-platform/frontend/public/landing/shot-explore.webp",
+          "note": "Existing real product UI screenshot bundled in the project public landing assets. Viewed visually; not a generated portfolio mockup. Promotional/example content shipped by the project, not extracted from a private customer session."
+        },
+        {
+          "file": "/assets/projects/aljadriya/course-detail.webp",
+          "source": "../aljadriya-platform/frontend/public/landing/shot-course.webp",
+          "note": "Existing real product UI screenshot bundled in the project public landing assets. Viewed visually; not a generated portfolio mockup. Promotional/example content shipped by the project, not extracted from a private customer session."
+        },
+        {
+          "file": "/assets/projects/aljadriya/mizo-lesson-assistant.webp",
+          "source": "../aljadriya-platform/frontend/public/landing/shot-mizo.webp",
+          "note": "Existing real product UI screenshot bundled in the project public landing assets. Viewed visually; not a generated portfolio mockup. Promotional/example content shipped by the project, not extracted from a private customer session."
+        },
+        {
+          "file": "/assets/projects/aljadriya/mobile-learning-path.webp",
+          "source": "../aljadriya-platform/frontend/public/landing/mobile-path.webp",
+          "note": "Existing real product UI screenshot bundled in the project public landing assets. Viewed visually; not a generated portfolio mockup. Promotional/example content shipped by the project, not extracted from a private customer session."
+        },
+        {
+          "file": "/assets/projects/aljadriya/mobile-waiso-assistant.webp",
+          "source": "../aljadriya-platform/frontend/public/landing/mobile-waiso.webp",
+          "note": "Existing real product UI screenshot bundled in the project public landing assets. Viewed visually; not a generated portfolio mockup. Promotional/example content shipped by the project, not extracted from a private customer session."
+        }
+      ]
+    },
+    {
+      "slug": "bee3a",
+      "businessSources": [
+        "../bee3a/apps/landing/src/locales/en.json",
+        "../bee3a/apps/landing/src/config.ts",
+        "../bee3a/apps/web/vite.config.ts",
+        "../bee3a/apps/web/src/router.tsx",
+        "../bee3a/apps/web/src/features/auth/LoginPage.tsx",
+        "../bee3a/packages/mock/src/seed.ts",
+        "../bee3a/packages/mock/src/market.ts",
+        "../za-studio/src/content/portfolio.json"
+      ],
+      "notes": [
+        "The browser-local fixture app is used for captures; no production customer session.",
+        "Existing demo previews matched against application components and source fixture data. No original capture script located; these are not new production captures."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/bee3a/cover.webp",
+          "source": "../za-studio/public/media/bee3a/hero.jpg",
+          "note": "Existing composited previews of actual Bee3a demo product UI, copied from the user’s za-studio code assets. They were inspected and matched to Bee3a source components and seeded example data. Not newly captured and not asserted to represent current production."
+        },
+        {
+          "file": "/assets/projects/bee3a/point-of-sale.webp",
+          "source": "../za-studio/public/media/bee3a/app-01.jpg",
+          "note": "Existing composited previews of actual Bee3a demo product UI, copied from the user’s za-studio code assets. They were inspected and matched to Bee3a source components and seeded example data. Not newly captured and not asserted to represent current production."
+        },
+        {
+          "file": "/assets/projects/bee3a/sales-dashboard.webp",
+          "source": "../za-studio/public/media/bee3a/app-02.jpg",
+          "note": "Existing composited previews of actual Bee3a demo product UI, copied from the user’s za-studio code assets. They were inspected and matched to Bee3a source components and seeded example data. Not newly captured and not asserted to represent current production."
+        },
+        {
+          "file": "/assets/projects/bee3a/booking-calendar.webp",
+          "source": "../za-studio/public/media/bee3a/app-03.jpg",
+          "note": "Existing composited previews of actual Bee3a demo product UI, copied from the user’s za-studio code assets. They were inspected and matched to Bee3a source components and seeded example data. Not newly captured and not asserted to represent current production."
+        },
+        {
+          "file": "/assets/projects/bee3a/mobile-experience.webp",
+          "source": "../za-studio/public/media/bee3a/app-04.jpg",
+          "note": "Existing composited previews of actual Bee3a demo product UI, copied from the user’s za-studio code assets. They were inspected and matched to Bee3a source components and seeded example data. Not newly captured and not asserted to represent current production."
+        }
+      ]
+    },
+    {
+      "slug": "sahifatty",
+      "businessSources": [
+        "https://sahifati.org/",
+        "https://apps.apple.com/us/app/sahifati-for-the-holy-quran/id6758934985"
+      ],
+      "notes": [
+        "Django README is a generic starter README; use official product copy instead.",
+        "The separate SAHIFATI_API repo is a NestJS/MongoDB API; avoid assuming all current product code is Django based only on folder name."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/sahifatty/sahifati-01.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/00/20/ce/0020ce42-c6e2-c063-f2ef-5fafb02f23db/01login1260__U00d7_2736.jpg/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/sahifatty/sahifati-02.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/bf/ca/e4/bfcae4b1-3168-5bdd-3097-2f4907ebd60d/02reading1260__U00d7_2736.jpg/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/sahifatty/sahifati-03.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/76/bb/af/76bbafa4-be7e-2699-bd3d-1f4d4b7ce0ac/03evalu1260__U00d7_2736.jpg/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/sahifatty/sahifati-04.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/32/ac/f6/32acf68d-b9c3-5fd9-d65c-4fdb21861d05/04evalu1260__U00d7_2736.jpg/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/sahifatty/cover.webp",
+          "derivedFrom": [
+            "/assets/projects/sahifatty/sahifati-02.webp",
+            "/assets/projects/sahifatty/sahifati-03.webp",
+            "/assets/projects/sahifatty/sahifati-04.webp"
+          ],
+          "note": "Simple arrangement of three authentic screenshots on a neutral background. No generated UI."
+        }
+      ]
+    },
+    {
+      "slug": "ghaith-adex",
+      "businessSources": [
+        "https://apps.apple.com/us/app/id6795517365",
+        "https://apps.apple.com/us/app/id6796311081",
+        "https://play.google.com/store/apps/details?id=com.adex.aquacloud.junaidi",
+        "https://play.google.com/store/apps/details?id=com.adex.aquacloud.junaidi.driver"
+      ],
+      "notes": [
+        "Published screenshots currently use Al Junaidi Water branding, despite portfolio engineering title Ghaith Adex. State that relationship clearly.",
+        "Customer 03 visibly contains test product copy; prefer customer 01, 05, 08 and 09 for gallery.",
+        "Driver 01 is an empty daily-routes state; authentic but no populated driver-route screenshot in the store."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/ghaith-adex/customer-01.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/b8/a0/8a/b8a08a23-e03b-18bc-110e-ac355054f377/Simulator_Screenshot_-_iPhone_17_Pro_Max_-_2026-08-07_at_18.04.55.png/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/customer-02.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b3/12/51/b31251bc-0d0a-9f3b-ed83-0f1cd2afc983/Simulator_Screenshot_-_iPhone_17_Pro_Max_-_2026-08-07_at_18.04.40.png/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/customer-05.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/40/73/7d/40737db4-bb5d-efe2-6bf2-17d50a77aeb6/Simulator_Screenshot_-_iPhone_17_Pro_Max_-_2026-08-07_at_18.05.12.png/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/customer-08.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/13/3b/f8/133bf894-01fd-ced5-3c96-e76e811f086d/Simulator_Screenshot_-_iPhone_17_Pro_Max_-_2026-08-07_at_18.04.59.png/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/customer-09.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/40/b3/5f/40b35f94-025c-6c42-6cec-eca419fd0078/Simulator_Screenshot_-_iPhone_17_Pro_Max_-_2026-08-07_at_18.05.01.png/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/driver-01.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/6a/9e/2f/6a9e2f41-5f1e-fa1f-7657-ad826c59fe8e/Simulator_Screenshot_-_iPhone_Air_-_2026-07-30_at_17.20.17.png/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/cover.webp",
+          "derivedFrom": [
+            "/assets/projects/ghaith-adex/customer-01.webp",
+            "/assets/projects/ghaith-adex/customer-05.webp",
+            "/assets/projects/ghaith-adex/customer-08.webp"
+          ],
+          "note": "Simple arrangement of three authentic screenshots on a neutral background. No generated UI."
+        }
+      ]
+    },
+    {
+      "slug": "saas-erp",
+      "businessSources": [
+        "../adex-erp-react/src/locales/en/landing.json",
+        "../adex-erp-react/src/locales/en/nav.json",
+        "../adex-erp-react/src/routes/appRoutes.jsx",
+        "../za-studio/src/content/portfolio.json"
+      ],
+      "notes": [
+        "Code folder adex-erp-react and matching adex-erp backend are newly present and correct.",
+        "adex/adex_mathaq_django is a different food/delivery backend; do not use for this ERP project.",
+        "Source landing currently brands itself UnifiedCore. Prefer portfolio engineering title unless user wants product brand.",
+        "Internal finance/HR pages are authenticated and API-backed. Do not capture private production financial or employee data.",
+        "Existing demo previews matched against application components and source fixture data. No original capture script located; these are not new production captures."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/saas-erp/erp-dashboard-preview.webp",
+          "source": "../za-studio/public/media/saas-erp/hero.jpg",
+          "note": "Existing raster app previews from za-studio. UI structure, controls, copy and styles strongly correspond to the real adex-erp-react source; actual source screenshots are placed in browser/phone presentation frames. No independent capture session or capture script located. Reused as existing demo app previews, not newly captured live screens.",
+          "dataset": "Nile Valley Trading demo tenant, as explicitly described in za-studio/src/content/portfolio.json. Visible Demo names, warehouse/category labels, .test emails and zero-filled contact numbers correspond to backend seed_demo_data.py."
+        },
+        {
+          "file": "/assets/projects/saas-erp/erp-sales-invoices.webp",
+          "source": "../za-studio/public/media/saas-erp/app-01.jpg",
+          "note": "Existing raster app previews from za-studio. UI structure, controls, copy and styles strongly correspond to the real adex-erp-react source; actual source screenshots are placed in browser/phone presentation frames. No independent capture session or capture script located. Reused as existing demo app previews, not newly captured live screens.",
+          "dataset": "Nile Valley Trading demo tenant, as explicitly described in za-studio/src/content/portfolio.json. Visible Demo names, warehouse/category labels, .test emails and zero-filled contact numbers correspond to backend seed_demo_data.py."
+        },
+        {
+          "file": "/assets/projects/saas-erp/erp-inventory-overview.webp",
+          "source": "../za-studio/public/media/saas-erp/app-02.jpg",
+          "note": "Existing raster app previews from za-studio. UI structure, controls, copy and styles strongly correspond to the real adex-erp-react source; actual source screenshots are placed in browser/phone presentation frames. No independent capture session or capture script located. Reused as existing demo app previews, not newly captured live screens.",
+          "dataset": "Nile Valley Trading demo tenant, as explicitly described in za-studio/src/content/portfolio.json. Visible Demo names, warehouse/category labels, .test emails and zero-filled contact numbers correspond to backend seed_demo_data.py."
+        },
+        {
+          "file": "/assets/projects/saas-erp/erp-items-catalog.webp",
+          "source": "../za-studio/public/media/saas-erp/app-03.jpg",
+          "note": "Existing raster app previews from za-studio. UI structure, controls, copy and styles strongly correspond to the real adex-erp-react source; actual source screenshots are placed in browser/phone presentation frames. No independent capture session or capture script located. Reused as existing demo app previews, not newly captured live screens.",
+          "dataset": "Nile Valley Trading demo tenant, as explicitly described in za-studio/src/content/portfolio.json. Visible Demo names, warehouse/category labels, .test emails and zero-filled contact numbers correspond to backend seed_demo_data.py."
+        },
+        {
+          "file": "/assets/projects/saas-erp/erp-purchase-orders.webp",
+          "source": "../za-studio/public/media/saas-erp/app-04.jpg",
+          "note": "Existing raster app previews from za-studio. UI structure, controls, copy and styles strongly correspond to the real adex-erp-react source; actual source screenshots are placed in browser/phone presentation frames. No independent capture session or capture script located. Reused as existing demo app previews, not newly captured live screens.",
+          "dataset": "Nile Valley Trading demo tenant, as explicitly described in za-studio/src/content/portfolio.json. Visible Demo names, warehouse/category labels, .test emails and zero-filled contact numbers correspond to backend seed_demo_data.py."
+        }
+      ]
+    },
+    {
+      "slug": "china-erp",
+      "businessSources": [
+        "../adex/china-system-django/docs/index.md",
+        "../adex/china-system-django/docs/architecture.md",
+        "../adex/china-system-django/docs/adr/0004-shared-company-wide-data.md"
+      ],
+      "notes": [
+        "Avoid old tenant-isolated/per-user-isolated branding: ADR-0004 supersedes ADR-0003 and business records are shared company-wide across staff.",
+        "Retain API/data-import/reporting story but remove unsupported 50K-row scale metric unless independently validated.",
+        "Do not fabricate screens; remove concept visuals until matching frontend or approved real screenshots are available."
+      ],
+      "assets": []
+    }
+  ]
+}

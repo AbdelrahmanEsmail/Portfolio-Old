@@ -1,6 +1,7 @@
 import { About } from './components/about/About';
 import { Contact } from './components/contact/Contact';
 import { Effects } from './components/effects/Effects';
+import { SitePets } from './components/effects/SitePets';
 import { Experience } from './components/experience/Experience';
 import { Hero } from './components/hero/Hero';
 import { Marquee } from './components/hero/Marquee';
@@ -31,6 +32,7 @@ export default function Home() {
       <CommandPalette />
       <Toaster />
       <Effects />
+      <SitePets />
     </>
   );
 }

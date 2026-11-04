@@ -6,7 +6,7 @@ Live site: [demo-23home.github.io/Portfolio-Website](https://demo-23home.github.
 
 ## Design
 
-A dark-first "systems diorama" theme sampled from the project cover renders: charcoal surfaces, ivory panels, brass hairlines, and lime and periwinkle signal lines. A light "ivory paper" theme is also available.
+A dark-first theme with charcoal surfaces, ivory panels, brass hairlines, and lime and periwinkle signals surrounding original product screenshots. A light "ivory paper" theme is also available.
 
 - **Hero** — a "Systems depth. Product polish." headline: the word *depth* is stacked in layers and *polish* has a moving shine. Next to it, an animated system diagram connects the portrait to frontend, API, database, and deployment nodes, with packets moving between them and a live `system.log`.
 - **⌘K command palette** — jump to any section or project, copy the email address, open the résumé, or switch the theme (also opened with `/`).
@@ -40,7 +40,9 @@ Each project opens an animated case-study dialog. Edit its overview and engineer
 { src: asset('/assets/screens/bee3a-pos.webp'), alt: 'Bee3a point-of-sale interface', caption: 'Point of sale' }
 ```
 
-The concept cover appears automatically and is labeled separately from real product screens. Additional images enable thumbnails, previous/next image controls, and keyboard navigation in the expanded gallery. Live and app-store links come from `app/content.ts`.
+The gallery uses the project's explicit `screens` list; the cover is not duplicated automatically. Images retain their original proportions, including portrait app screenshots. Use `kind: 'demo'` for fixture captures or `kind: 'app-store'` for official store screenshots. Thumbnails, previous/next controls, and arrow keys browse the expanded gallery. Live and app-store links come from `app/content.ts`.
+
+Authentic media lives in `public/assets/projects/<slug>/`. See [project media sources](docs/project-media-sources.md) for source repositories, public listings, and capture notes. Add new screenshots and their provenance together. If a project has no verified screenshot or live URL, omit those fields; the case study still shows its story without a fabricated interface.
 
 The social preview is rendered from the editable template in `scripts/generate-og.mjs`. After changing its copy, run `node scripts/generate-og.mjs` to regenerate `public/og.svg` and `public/og.png`.
 

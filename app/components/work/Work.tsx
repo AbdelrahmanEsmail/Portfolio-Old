@@ -29,7 +29,7 @@ export function Work() {
             data-reveal=""
             style={{ '--delay': '120ms' } as CSSProperties}
           >
-            {countWord(total)} production systems across multi-tenant SaaS, financial platforms, commerce,
+            {countWord(total)} software products across multi-tenant SaaS, financial platforms, commerce,
             and real-time products.
           </p>
         </header>

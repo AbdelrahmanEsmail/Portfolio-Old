@@ -1,6 +1,6 @@
 /* ==========================================================================
    02 · Selected work
-   Each project is a diorama "tile": the cover sits in an inset charcoal frame
+   Each project's original imagery sits in an inset frame
    with a spec plate under it, the story beside it. On roomy desktop viewports
    the tiles stack: each card sticks a little lower than the one before and
    the next slides over it, like tiles piled on the tabletop.
@@ -262,7 +262,7 @@
   border-color: color-mix(in srgb, var(--accent) 55%, var(--line-strong));
 }
 
-/* Media: the diorama in an inset charcoal frame (dark in both themes). */
+/* Real screenshots retain their original colors and full composition. */
 .media {
   grid-area: media;
   position: relative;
@@ -270,11 +270,7 @@
   isolation: isolate;
   aspect-ratio: 3 / 2;
   border-radius: calc(var(--r-lg) - var(--pad));
-  /* Shown while the render loads: an empty, softly lit tabletop. */
-  background:
-    radial-gradient(70% 60% at 50% 42%, color-mix(in srgb, var(--ivory) 7%, transparent), transparent 72%),
-    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--ivory) 9%, transparent) 1px, transparent 0) 0 0 / 22px 22px,
-    var(--on-ivory);
+  background: #e9e9e4;
 }
 
 /* Inner bezel + top/bottom scrims so the overlay tags stay legible. */
@@ -300,15 +296,35 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: 50% 50%;
   transform: scale(1.001);
   transition: transform 1.1s var(--ease-out);
 }
 
-.card:hover .image {
-  transform: scale(1.03);
+.card:hover .image { transform: scale(1.012); }
+
+.media[data-empty] { background: var(--bg-raise); }
+.mediaUnavailable {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 12px;
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--ink);
 }
+.mediaUnavailable svg { color: var(--accent); }
+.mediaUnavailable > span {
+  color: var(--muted);
+  font: 0.6875rem var(--font-code);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.mediaUnavailable strong { font-size: clamp(1.5rem, 3vw, 2.75rem); }
+.mediaUnavailable small { color: var(--muted); font-size: 0.75rem; }
 
 .mediaTop,
 .mediaBottom {

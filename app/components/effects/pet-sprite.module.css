@@ -1,0 +1,38 @@
+.sprite {
+  display: block;
+  flex: none;
+  overflow: visible;
+  pointer-events: none;
+}
+.claude { color: var(--coral, #ff8f70); }
+.gpt { color: #82d9b6; }
+.body { animation: pet-bob 900ms ease-in-out infinite; }
+.highlight { fill: #fff8e7; opacity: 0.22; }
+.face { fill: #183c34; }
+.eyes, .smile { fill: #35251e; }
+.gpt .eyes, .gpt .smile { fill: #e7fff0; }
+.eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pet-blink 5.8s steps(1, end) infinite;
+}
+.antenna { fill: var(--lime, #c5f24a); animation: antenna-tilt 3s ease-in-out infinite; }
+.leftArm, .rightArm, .antenna { transform-box: fill-box; transform-origin: center bottom; }
+.walking .leftFoot, .walking .rightFoot { animation: pet-step 500ms steps(2, end) infinite; }
+.walking .rightFoot { animation-delay: -250ms; }
+.waving .rightArm { animation: pet-wave 650ms ease-in-out infinite; }
+.waving .body { animation-duration: 1.4s; }
+.sleeping .body { animation: pet-breathe 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center bottom; }
+.sleeping .eyes { transform: scaleY(0.25); animation: none; }
+.sleeping .antenna { animation: none; }
+
+@keyframes pet-bob { 50% { transform: translateY(-1px); } }
+@keyframes pet-blink { 0%, 42%, 46%, 100% { transform: scaleY(1); } 43%, 45% { transform: scaleY(0.15); } }
+@keyframes pet-step { 50% { transform: translateY(-2px); } }
+@keyframes pet-wave { 0%, 100% { transform: translateY(-3px) rotate(-12deg); } 50% { transform: translateY(-5px) rotate(24deg); } }
+@keyframes pet-breathe { 50% { transform: scaleY(0.95) translateY(1px); } }
+@keyframes antenna-tilt { 50% { transform: rotate(12deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sprite, .sprite * { animation: none !important; }
+}

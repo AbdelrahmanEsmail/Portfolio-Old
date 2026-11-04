@@ -129,14 +129,13 @@ export function ProjectDialog() {
   if (!project || !active) return null;
 
   const details = projectDetails[project.slug];
-  const screens: ProjectScreen[] = [
-    { src: project.image, alt: project.imageAlt, caption: 'Project concept cover', kind: 'concept' },
-    ...(details?.screens ?? []),
-  ];
+  const screens: ProjectScreen[] = details?.screens.length
+    ? details.screens
+    : project.image ? [{ src: project.image, alt: project.imageAlt, caption: project.title }] : [];
   const selected = screens[screen] ?? screens[0];
   const previous = projects[(index - 1 + projects.length) % projects.length];
   const next = projects[(index + 1) % projects.length];
-  const hostname = project.liveUrl ? new URL(project.liveUrl).hostname.replace(/^www\./, '') : 'Android + iOS';
+  const hostname = project.liveUrl ? new URL(project.liveUrl).hostname.replace(/^www\./, '') : project.appLinks?.length ? 'Android + iOS' : project.title;
 
   const changeProject = (direction: -1 | 1) => {
     if (closing) return;
@@ -153,6 +152,8 @@ export function ProjectDialog() {
   const changeView = (nextView: 'story' | 'gallery') => {
     if (closing || pendingViewRef.current === nextView) return;
     const targetSlug = pendingProjectRef.current ?? active.slug;
+    const target = projects.find((item) => item.slug === targetSlug);
+    if (nextView === 'gallery' && !projectDetails[targetSlug]?.screens.length && !target?.image) return;
     const changesProject = targetSlug !== active.slug;
     pendingViewRef.current = nextView;
     // The in-gallery launch button is replaced with the content; keep focus in a stable control.
@@ -216,9 +217,9 @@ export function ProjectDialog() {
             <button type="button" data-view="story" aria-pressed={view === 'story'} onClick={() => changeView('story')}>
               <Icon name="layers" size={15} /> The story
             </button>
-            <button type="button" data-view="gallery" aria-pressed={view === 'gallery'} onClick={() => changeView('gallery')}>
+            {screens.length > 0 ? <button type="button" data-view="gallery" aria-pressed={view === 'gallery'} onClick={() => changeView('gallery')}>
               <Icon name="layout" size={15} /> Gallery <span>{pad(screens.length)}</span>
-            </button>
+            </button> : null}
             <span className={styles.tabNote}>A closer look, layer by layer.</span>
           </div>
         </header>
@@ -227,6 +228,7 @@ export function ProjectDialog() {
           <div ref={contentRef} key={`${project.slug}-${view}`} className={styles.content} data-gallery={view === 'gallery' ? '' : undefined}>
             <div className={styles.storyGrid} data-gallery={view === 'gallery' ? '' : undefined}>
               <section className={styles.gallery} aria-label={`${project.title} gallery`}>
+                {selected ? <>
                 <div className={styles.browserBar}>
                   <span className={styles.windowDots} aria-hidden="true"><i /><i /><i /></span>
                   <span>{hostname}</span>
@@ -235,12 +237,19 @@ export function ProjectDialog() {
                 <figure className={styles.figure}>
                   <div className={styles.viewer} data-expanded={view === 'gallery' ? '' : undefined}>
                     <Image key={selected.src} src={selected.src} alt={selected.alt} fill sizes="(max-width: 800px) 92vw, 900px" className={styles.screen} />
-                    <span className={styles.imageKind}>{selected.kind === 'concept' ? 'Concept visual' : 'Product screen'}</span>
+                    <span className={styles.imageKind}>{
+                      selected.kind === 'app-store' ? 'App Store screenshot'
+                        : selected.kind === 'demo' ? 'Demo screen'
+                          : selected.kind === 'photo' ? 'Product photo' : 'Product screen'
+                    }</span>
                     {view === 'story' ? (
                       <button type="button" className={styles.expandButton} onClick={() => changeView('gallery')} aria-label="Expand project gallery">
                         Open gallery <Icon name="arrow-up-right" size={16} />
                       </button>
-                    ) : null}
+                    ) : <a className={styles.expandButton} href={selected.src} target="_blank" rel="noopener noreferrer">
+                      Full image <Icon name="arrow-up-right" size={16} />
+                      <span className="visually-hidden">: {selected.caption} (opens in a new tab)</span>
+                    </a>}
                   </div>
                   <figcaption className={styles.caption} aria-live="polite">
                     <span>{selected.caption}</span>
@@ -260,6 +269,11 @@ export function ProjectDialog() {
                     <button type="button" className={styles.iconButton} onClick={() => changeScreen(1)} aria-label="Next image"><Icon name="arrow-right" /></button>
                   </div>
                 ) : null}
+                </> : <div className={styles.previewUnavailable}>
+                  <Icon name="layers" size={32} />
+                  <h3>Screenshots unavailable</h3>
+                  <p>Read the project overview and product highlights.</p>
+                </div>}
               </section>
 
               {view === 'story' ? (
@@ -275,7 +289,7 @@ export function ProjectDialog() {
                     <h3 className={styles.sectionLabel}>Built with</h3>
                     <ul className="chip-list" aria-label="Project technologies">{project.technologies.map((tech) => <li key={tech} className="chip">{tech}</li>)}</ul>
                   </div>
-                  <div className={styles.liveLinks}>
+                  {project.liveUrl || project.appLinks?.length ? <div className={styles.liveLinks}>
                     <h3 className={styles.sectionLabel}>See it live</h3>
                     {project.liveUrl ? (
                       <a className={`btn btn-primary ${styles.liveButton}`} href={project.liveUrl} target="_blank" rel="noopener noreferrer">
@@ -292,7 +306,7 @@ export function ProjectDialog() {
                         </div>
                       </div>
                     ))}
-                  </div>
+                  </div> : null}
                 </section>
               ) : null}
             </div>

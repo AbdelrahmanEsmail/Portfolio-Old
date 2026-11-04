@@ -273,6 +273,19 @@
 .figure {
   margin: 0;
 }
+.previewUnavailable {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 18px;
+  min-height: 300px;
+  padding: 40px;
+  text-align: center;
+  color: var(--muted);
+}
+.previewUnavailable svg { color: var(--project-accent); }
+.previewUnavailable h3 { color: var(--ink); font-size: 1.25rem; }
+.previewUnavailable p { max-width: 28ch; font-size: 0.875rem; line-height: 1.7; }
 .viewer {
   position: relative;
   aspect-ratio: 3 / 2;
@@ -378,7 +391,8 @@
   width: 100%;
   height: 48px;
   border-radius: 4px;
-  object-fit: cover;
+  object-fit: contain;
+  background: #e9e9e4;
 }
 .story {
   display: grid;

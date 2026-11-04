@@ -42,7 +42,7 @@ export const heroStack = ['React', 'TypeScript', 'Next.js', 'Python', 'Django', 
 
 /** Headline numbers, all taken from the project and experience data below. */
 export const heroStats = [
-  { value: '08', label: 'Production products' },
+  { value: '08', label: 'Products built' },
   { value: '25+', label: 'Tenant environments' },
   { value: '100K+', label: 'Ledger records' },
   { value: '07', label: 'Professional roles' },
@@ -99,7 +99,7 @@ export type ProjectCategory = Exclude<ProjectFilter, 'All'>;
 
 export type ProjectAccent = 'violet' | 'sand' | 'emerald' | 'cobalt' | 'coral' | 'amber';
 
-/** Accent colours sampled to sit alongside the project cover renders. */
+/** Portfolio accents used around the original project imagery. */
 export const accentHex: Record<ProjectAccent, string> = {
   violet: '#a596ff',
   sand: '#e0bf8f',
@@ -114,7 +114,7 @@ export type Project = {
   title: string;
   label: string;
   description: string;
-  image: string;
+  image?: string;
   imageAlt: string;
   technologies: string[];
   stats: { value: string; label: string }[];
@@ -132,14 +132,14 @@ export const projects: Project[] = [
     liveUrl: 'https://barcodejackets.com/',
     label: 'Custom apparel commerce',
     description:
-      'A custom-apparel commerce system with layered garment personalization, multi-store catalogs, inventory reservations, pricing rules, and transaction-safe payment and refund APIs.',
-    image: asset('/assets/project-barcode-jackets.webp'),
-    imageAlt: 'Conceptual jacket customization and commerce studio',
-    technologies: ['Django REST', 'SVG engine', 'PostgreSQL', 'OpenAPI'],
+      'A custom-apparel platform where customers choose a garment, personalize materials, colors, and artwork, then review pricing and place individual or group orders.',
+    image: asset('/assets/projects/barcode-jackets/designer-materials.webp'),
+    imageAlt: 'Barcode Jackets’ actual garment designer showing leather materials, color options, and a jacket preview.',
+    technologies: ['React', 'Django REST', 'SVG engine', 'PostgreSQL'],
     stats: [
-      { value: 'Layered', label: 'Customization' },
-      { value: 'Multi-store', label: 'Catalog model' },
-      { value: 'Atomic', label: 'Payments & refunds' },
+      { value: 'Custom', label: 'Materials & artwork' },
+      { value: 'Solo / Group', label: 'Ordering' },
+      { value: 'AR / EN', label: 'Storefront languages' },
     ],
     categories: ['Commerce'],
     accent: 'violet',
@@ -151,14 +151,14 @@ export const projects: Project[] = [
     liveUrl: 'https://sukoon.rent/',
     label: 'Real estate platform',
     description:
-      'Property discovery and visit booking powered by versioned APIs, secure authentication, optimized queries, Cloudinary media, and Redis-backed real-time updates.',
-    image: asset('/assets/project-sukoon.webp'),
-    imageAlt: 'Conceptual real estate discovery and visit-booking interface',
+      'A direct connection between tenants and property owners, bringing rental discovery, comparison, in-app conversations, property tours, and listing management into one experience.',
+    image: asset('/assets/projects/sukoon/public-website.webp'),
+    imageAlt: 'Sukoon’s public website introducing a rental experience that connects tenants directly with property owners.',
     technologies: ['Flutter', 'Django REST', 'PostgreSQL', 'Cloudinary', 'Channels'],
     stats: [
-      { value: '100+', label: 'Automated tests' },
-      { value: 'Real-time', label: 'WebSockets' },
-      { value: 'Versioned', label: 'API contract' },
+      { value: 'Direct', label: 'Owner & tenant connection' },
+      { value: '360° / 3D', label: 'Property tours' },
+      { value: 'AR / EN', label: 'App languages' },
     ],
     categories: ['Platform'],
     accent: 'sand',
@@ -169,10 +169,9 @@ export const projects: Project[] = [
     liveUrl: 'https://bee3a.site/',
     label: 'Business management SaaS',
     description:
-      'An Arabic-first, bilingual SaaS for Egyptian small businesses, combining POS, inventory, bookings, and online ordering with tenant isolation, role-based access, local payment verification, and dedicated business and platform administration apps.',
-    image: asset('/assets/project-bee3a.webp'),
-    imageAlt:
-      'Custom 3D Bee3a scene with a point-of-sale tablet, receipt printer, inventory shelves, booking calendar, and order-tracking phone',
+      'An Arabic-first app for local businesses that brings cashier sales, stock, staff bookings, and online orders into one place. Customers book or order through a shop link without creating an account.',
+    image: asset('/assets/projects/bee3a/point-of-sale.webp'),
+    imageAlt: 'Bee3a’s actual demo shop cashier and mobile booking interface.',
     technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB'],
     stats: [
       { value: '3', label: 'Business systems' },
@@ -184,18 +183,26 @@ export const projects: Project[] = [
   },
   {
     slug: 'sahifatty',
-    title: 'Sahifatty',
+    title: 'Sahifati (صحيفتي)',
     liveUrl: 'https://sahifati.org/#top',
+    appLinks: [
+      {
+        label: 'Sahifati app',
+        googlePlay: 'https://play.google.com/store/apps/details?id=org.sahifati.app',
+        appStore: 'https://apps.apple.com/us/app/id6758934985',
+      },
+    ],
     label: 'Quran learning & assessment',
     description:
-      'A Quran education platform with modular APIs for content, assessments, study plans, teacher–student groups, recommendations, onboarding, and secure family accounts.',
-    image: asset('/assets/project-sahifatty.webp'),
-    imageAlt: 'Respectful conceptual Quran learning and assessment platform',
+      'A Quran companion that assesses memorization and understanding, turns results into a personal learning record, and connects learners with teachers and targeted recommendations.',
+    image: asset('/assets/projects/sahifatty/cover.webp'),
+    imageAlt:
+      'Official Sahifati app screens showing Quran reading, a learner progress record, and verse assessment.',
     technologies: ['Django REST', 'Pytest', 'OAuth & OTP', 'OneSignal'],
     stats: [
-      { value: '6,236', label: 'Quran verses' },
-      { value: 'Weighted', label: 'Progress model' },
-      { value: 'Secure', label: 'Family accounts' },
+      { value: '114', label: 'Surahs' },
+      { value: '2', label: 'Assessment dimensions' },
+      { value: 'Connected', label: 'Teacher follow-up' },
     ],
     categories: ['Platform'],
     accent: 'emerald',
@@ -206,10 +213,10 @@ export const projects: Project[] = [
     liveUrl: 'https://adex-erp-react.vercel.app/',
     label: 'ERP & financial systems',
     description:
-      'A schema-per-tenant ERP with double-entry accounting, multi-currency COGS, controlled payroll workflows, and transaction-safe financial services.',
-    image: asset('/assets/project-erp.webp'),
-    imageAlt: 'Conceptual multi-tenant ERP and financial operations dashboard',
-    technologies: ['Django', 'PostgreSQL', 'Tenant schemas', 'Transactions'],
+      'An integrated workspace for accounting, HR and payroll, inventory, procurement, and reporting, with multiple companies, currencies, role permissions, and Arabic and English interfaces.',
+    image: asset('/assets/projects/saas-erp/erp-sales-invoices.webp'),
+    imageAlt: 'UnifiedCore sales invoices on desktop and mobile, using a documented demo tenant.',
+    technologies: ['React', 'Django', 'PostgreSQL', 'Tenant schemas'],
     stats: [
       { value: '25+', label: 'Tenant environments' },
       { value: '100K+', label: 'Accounting records' },
@@ -222,17 +229,16 @@ export const projects: Project[] = [
     slug: 'aljadriya',
     title: 'Aljadriya',
     liveUrl: 'https://aljadriya-platform.vercel.app/track',
-    label: 'Learning & corporate training',
+    label: 'Masar Academy · professional learning',
     description:
-      'A multi-country training platform combining AI placement assessments, structured learning tracks, certificates, and real-time messaging with corporate agreements, localized pricing, and financial management.',
-    image: asset('/assets/project-aljadriya.webp'),
-    imageAlt:
-      'Custom 3D Aljadriya scene with a learning dashboard, course pathway, assessments, books, and a certificate',
+      'Professional learning for individuals and teams, with assessed learning paths, expert-led courses, live classes, certificates, and lesson-aware AI assistants.',
+    image: asset('/assets/projects/aljadriya/learning-path.webp'),
+    imageAlt: 'Masar Academy learning dashboard with lesson progress and a structured learning path.',
     technologies: ['Next.js', 'Django REST', 'PostgreSQL', 'Channels'],
     stats: [
-      { value: 'AI', label: 'Placement & study plans' },
-      { value: 'Multi-country', label: 'Regional operations' },
-      { value: 'Corporate', label: 'Training agreements' },
+      { value: 'AI', label: 'Learning assistants' },
+      { value: '6', label: 'Regional currencies' },
+      { value: 'Teams', label: 'Corporate training' },
     ],
     categories: ['Platform'],
     accent: 'cobalt',
@@ -252,16 +258,17 @@ export const projects: Project[] = [
         appStore: 'https://apps.apple.com/us/app/6796311081',
       },
     ],
-    label: 'Multi-tenant delivery platform',
+    label: 'Al Junaidi water delivery',
     description:
-      'Delivery operations spanning tenants, branches, orders, prepaid-coupon ledgers, real-time notifications, and Celery-powered recurring tours, serving customer and driver apps.',
-    image: asset('/assets/project-aquacloud.webp'),
-    imageAlt: 'Conceptual delivery operations, routing, and ledger dashboard',
+      'Water delivery for Al Junaidi customers and drivers, connecting bottled-water orders, prepaid coupon balances, scheduled delivery tours, and order follow-up.',
+    image: asset('/assets/projects/ghaith-adex/cover.webp'),
+    imageAlt:
+      'Official Al Junaidi customer app screenshots showing the home screen, prepaid coupon balance, and delivery orders.',
     technologies: ['Django REST', 'Channels', 'Celery', 'Redis'],
     stats: [
-      { value: '60+', label: 'API handlers' },
-      { value: '300+', label: 'Automated tests' },
-      { value: 'Real-time', label: 'Notifications' },
+      { value: '2', label: 'Customer & driver apps' },
+      { value: 'Coupons + cash', label: 'Order payment' },
+      { value: 'iOS / Android', label: 'Mobile platforms' },
     ],
     categories: ['SaaS', 'Platform'],
     accent: 'coral',
@@ -269,17 +276,15 @@ export const projects: Project[] = [
   {
     slug: 'china-erp',
     title: 'China ERP Systems',
-    liveUrl: 'https://www.china-systems.com/',
-    label: 'Multi-tenant B2B trade',
+    label: 'Trade operations & finance',
     description:
-      'A tenant-isolated trade platform per company with resilient CSV/XLSX imports, automated balance-sheet aggregation, and multi-currency foreign-exchange tracking.',
-    image: asset('/assets/project-china-trade.webp'),
-    imageAlt: 'Conceptual international B2B trade and data import dashboard',
+      'A trading-intermediary system connecting manufacturers, purchase orders, sales invoices, partner balances, and multi-currency payments in one company-wide workspace.',
+    imageAlt: '',
     technologies: ['Django', 'PostgreSQL', 'CSV/XLSX', 'Financial reporting'],
     stats: [
-      { value: '50K+', label: 'Rows per batch' },
-      { value: '2', label: 'Import formats' },
-      { value: 'Isolated', label: 'Import failures' },
+      { value: 'CSV / XLSX', label: 'Data imports' },
+      { value: 'Company-wide', label: 'Shared operations' },
+      { value: 'Multi-currency', label: 'Payment records' },
     ],
     categories: ['SaaS'],
     accent: 'amber',

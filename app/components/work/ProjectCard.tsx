@@ -61,7 +61,7 @@ type ProjectCardProps = {
 };
 
 /**
- * One project "tile": the diorama render in an inset frame with a spec plate
+ * One project "tile": authentic product imagery in an inset frame with a spec plate
  * underneath, and the story + links beside it (stacked on small screens).
  */
 export function ProjectCard({ project, index, total }: ProjectCardProps) {
@@ -80,15 +80,20 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
       aria-labelledby={titleId}
       style={{ '--accent': accentHex[project.accent] } as CSSProperties}
     >
-      <div className={styles.media}>
-        <Image
+      <div className={styles.media} data-empty={!project.image ? '' : undefined}>
+        {project.image ? <Image
           className={styles.image}
           src={project.image}
           alt={project.imageAlt}
           width={1536}
           height={1024}
           sizes="(min-width: 1440px) 680px, (min-width: 1024px) 52vw, 94vw"
-        />
+        /> : <div className={styles.mediaUnavailable}>
+          <Icon name="layers" size={38} />
+          <span>{project.label}</span>
+          <strong>{project.title}</strong>
+          <small>Screenshots unavailable</small>
+        </div>}
         <div className={styles.mediaTop} aria-hidden="true">
           <span className={styles.tag}>
             {pad(index + 1)}
