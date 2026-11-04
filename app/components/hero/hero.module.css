@@ -1,0 +1,625 @@
+/* ==========================================================================
+   Hero — "Backend depth. Frontend polish."
+   Left: status, headline puns, intro, CTAs, stats. Right: the system diagram
+   (diagram.module.css). Ambient: lime/peri glows + a receding tabletop grid.
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-height: min(100svh, 980px);
+  padding-top: calc(var(--header-h) + clamp(20px, 5vh, 60px));
+  padding-bottom: clamp(64px, 9vh, 100px);
+  overflow: clip;
+}
+
+/* Pause every loop while the hero is off-screen (set by HeroShell). */
+.hero[data-paused] *,
+.hero[data-paused] *::before,
+.hero[data-paused] *::after {
+  animation-play-state: paused !important;
+}
+
+/* ---------- Ambient ---------- */
+
+.ambient {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  /* Fade out before the section edge so there is no seam above the marquee. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent);
+  mask-image: linear-gradient(to bottom, #000 72%, transparent);
+}
+.glowLime,
+.glowPeri {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: breathe 16s ease-in-out infinite alternate;
+}
+.glowLime {
+  top: -34%;
+  right: -16%;
+  width: min(72vw, 1040px);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--lime) 14%, transparent), transparent);
+}
+.glowPeri {
+  bottom: -46%;
+  left: -20%;
+  width: min(66vw, 940px);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--peri) 15%, transparent), transparent);
+  animation-delay: -8s;
+}
+:global(:root[data-theme='light']) .glowLime {
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--lime) 30%, transparent), transparent);
+}
+:global(:root[data-theme='light']) .glowPeri {
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--peri) 20%, transparent), transparent);
+}
+
+/* The diorama tabletop: a grid receding toward a soft horizon. */
+.floor {
+  --grid: color-mix(in srgb, var(--ink) 7%, transparent);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 56%;
+  perspective: 560px;
+  perspective-origin: 50% 0%;
+  -webkit-mask-image: radial-gradient(ellipse 62% 100% at 50% 100%, #000 30%, transparent 78%);
+  mask-image: radial-gradient(ellipse 62% 100% at 50% 100%, #000 30%, transparent 78%);
+}
+:global(:root[data-theme='light']) .floor {
+  --grid: color-mix(in srgb, var(--ink) 9%, transparent);
+}
+.floorGrid {
+  position: absolute;
+  inset: 0 -60%;
+  transform-origin: 50% 100%;
+  transform: rotateX(68deg);
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-position: center bottom;
+  background-size: 72px 72px;
+  -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 92%);
+  mask-image: linear-gradient(to top, #000 10%, transparent 92%);
+}
+
+/* ---------- Layout ---------- */
+
+.inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(28px, 4vw, 64px);
+}
+
+.copy {
+  min-width: 0;
+  container-type: inline-size;
+}
+
+.visual {
+  position: relative;
+  min-width: 0;
+}
+.diagram {
+  width: 100%;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/* Entrance helper (load, not scroll). Base styles are the final state. */
+.enter {
+  animation: enterUp 0.95s var(--ease-expo) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* ---------- Status pill ---------- */
+
+.status {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin: 0 0 clamp(20px, 3.6vh, 34px);
+  padding: 7px 15px 7px 13px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.statusDivider {
+  width: 1px;
+  height: 14px;
+  background: var(--line-strong);
+}
+.statusPlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.time {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+.time [data-colon] {
+  animation: colon 2s steps(1) infinite;
+}
+
+/* ---------- Headline ---------- */
+
+.title {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: min(7.4rem, 15.8cqi);
+  font-weight: 640;
+  line-height: 0.9;
+  letter-spacing: -0.052em;
+}
+
+/* Each line slides up from behind a mask. The clip box is generous on the
+   sides and bottom so descenders, the italic overhang and the depth stack
+   are never cut. */
+.line {
+  display: block;
+  white-space: nowrap;
+  clip-path: inset(-0.6em -0.6em -0.36em -0.4em);
+}
+.lineInner {
+  display: inline-block;
+  animation: lineUp 1.15s var(--ease-expo) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* "depth." — the word gets real depth: stacked copies build up behind it. */
+.depth {
+  position: relative;
+  display: inline-block;
+}
+.depthFace {
+  position: relative;
+  z-index: 1;
+}
+.depthLayers {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.depthLayer {
+  --step-x: calc(0.036em + var(--px, 0) * 0.014em);
+  --step-y: calc(0.036em + var(--py, 0) * 0.012em);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--c);
+  opacity: var(--o);
+  white-space: nowrap;
+  transform: translate(calc(var(--i) * var(--step-x)), calc(var(--i) * var(--step-y)));
+}
+.depthLayer:nth-child(1) {
+  --c: var(--brass);
+  --o: 0.3;
+}
+.depthLayer:nth-child(2) {
+  --c: color-mix(in oklab, var(--peri) 30%, var(--brass));
+  --o: 0.5;
+}
+.depthLayer:nth-child(3) {
+  --c: color-mix(in oklab, var(--peri) 65%, var(--brass));
+  --o: 0.72;
+}
+.depthLayer:nth-child(4) {
+  --c: var(--peri);
+  --o: 0.95;
+}
+:global(:root[data-theme='light']) .depthLayer:nth-child(4) {
+  --c: var(--peri-deep);
+  --o: 0.85;
+}
+:global(:root[data-theme='light']) .depthLayer:nth-child(3) {
+  --c: color-mix(in oklab, var(--peri-deep) 60%, var(--brass));
+  --o: 0.62;
+}
+:global(:root[data-theme='light']) .depthLayer:nth-child(2) {
+  --o: 0.45;
+}
+.depthLayerInner {
+  display: block;
+  animation: layerIn 0.95s var(--ease-expo) both;
+  animation-delay: calc(0.7s + var(--i) * 0.1s);
+}
+.depthLayerInner::before {
+  content: attr(data-text);
+}
+
+/* "polish." — serif italic with a periodic gloss sweep. */
+.polish {
+  --shine: color-mix(in srgb, var(--ivory) 82%, var(--lime));
+  position: relative;
+  display: inline-block;
+  margin: 0 -0.12em -0.08em -0.03em;
+  padding: 0 0.12em 0.08em 0.03em;
+  background-image: linear-gradient(
+    105deg,
+    var(--accent-text) 40%,
+    var(--shine) 47%,
+    var(--shine) 50%,
+    var(--accent-text) 58%
+  );
+  background-position: 0% 0;
+  background-size: 320% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: var(--accent-text);
+  font-family: var(--font-accent);
+  font-size: 1.1em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  -webkit-text-fill-color: transparent;
+  animation: shine 8s var(--ease-in-out) 2.3s infinite;
+}
+:global(:root[data-theme='light']) .polish {
+  --shine: var(--lime);
+}
+.polish::selection {
+  -webkit-text-fill-color: var(--on-lime);
+}
+.sparkle {
+  position: absolute;
+  top: 0.1em;
+  right: -0.06em;
+  width: 0.24em;
+  height: 0.24em;
+  color: var(--accent-text);
+  fill: currentColor;
+  opacity: 0;
+  animation: twinkle 8s var(--ease-out) 2.3s infinite;
+  pointer-events: none;
+}
+@media (forced-colors: active) {
+  .polish {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
+}
+
+/* ---------- Intro + actions ---------- */
+
+.intro {
+  max-width: 35rem;
+  margin: clamp(22px, 3.6vh, 34px) 0 0;
+  color: var(--ink-2);
+  font-size: clamp(1.0625rem, 0.95rem + 0.38vw, 1.25rem);
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+.hl {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: clamp(24px, 4vh, 38px);
+}
+.paletteHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 6px;
+  padding: 8px 6px;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  transition: color var(--dur-fast) ease;
+}
+.paletteHint:hover {
+  color: var(--ink);
+}
+.paletteHint:hover :global(.kbd) {
+  border-color: color-mix(in srgb, var(--ink) 30%, transparent);
+  color: var(--ink);
+}
+@media (hover: none), (pointer: coarse) {
+  .paletteHint {
+    display: none;
+  }
+}
+
+/* ---------- Stats ---------- */
+
+.stats {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 40rem;
+  margin: clamp(32px, 5.6vh, 58px) 0 0;
+  border-top: 1px solid var(--line-strong);
+}
+/* Junction where the signal line starts. */
+.stats::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border: 1.5px solid var(--accent-text);
+  border-radius: 50%;
+  background: var(--bg);
+}
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 8px;
+  min-width: 0;
+  padding: 18px 16px 0;
+  border-left: 1px solid var(--line);
+}
+.stat:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.statValue {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: clamp(1.75rem, 1.2rem + 1.15vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.statSuffix {
+  margin-left: 0.03em;
+  color: var(--accent-text);
+}
+.statLabel {
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---------- Scroll cue ---------- */
+
+.scrollCue {
+  position: absolute;
+  bottom: clamp(14px, 2.6vh, 28px);
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: 0.625rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  translate: -50% 0;
+  transition: color var(--dur-fast) ease;
+}
+.scrollCue:hover {
+  color: var(--ink);
+}
+.scrollTrack {
+  position: relative;
+  width: 7px;
+  height: 36px;
+  overflow: hidden;
+  background: linear-gradient(var(--line-strong), var(--line-strong)) center / 1px 100% no-repeat;
+}
+.scrollTrack::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-text);
+  box-shadow: 0 0 8px var(--glow-lime);
+  animation: scrollDot 2.6s var(--ease-in-out) 2s infinite both;
+}
+
+/* ---------- Responsive ---------- */
+
+/* Short desktop viewports: tighten the vertical rhythm so the stats stay on screen. */
+@media (min-width: 1101px) and (max-height: 820px) {
+  .title {
+    font-size: min(6.6rem, 15.2cqi);
+  }
+  .scrollCue {
+    display: none;
+  }
+  .stats {
+    margin-top: 28px;
+  }
+  .stat {
+    padding-top: 14px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    min-height: 0;
+    padding-bottom: clamp(72px, 10vw, 112px);
+  }
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(56px, 9vw, 88px);
+  }
+  .title {
+    font-size: min(7.6rem, 16cqi);
+  }
+  .scrollCue {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    /* Lower optical sizes of Bricolage are wider: leave more room. */
+    font-size: 14.6cqi;
+  }
+  .status {
+    font-size: 0.75rem;
+  }
+  .actions :global(.btn) {
+    flex: 1 1 auto;
+  }
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .stat:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .stat:nth-child(n + 3) {
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .status {
+    gap: 8px 9px;
+    padding-inline: 11px 13px;
+    font-size: 0.71875rem;
+  }
+  .statusPlace {
+    gap: 6px;
+    letter-spacing: 0.06em;
+  }
+  .country {
+    display: none;
+  }
+}
+
+/* ---------- Motion ---------- */
+
+@keyframes enterUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+@keyframes lineUp {
+  from {
+    transform: translateY(1.3em);
+  }
+}
+@keyframes layerIn {
+  from {
+    opacity: 0;
+    transform: translate(calc(var(--i) * -0.036em), calc(var(--i) * -0.036em));
+  }
+}
+@keyframes shine {
+  0% {
+    background-position: 100% 0;
+  }
+  22%,
+  100% {
+    background-position: 0% 0;
+  }
+}
+@keyframes twinkle {
+  0%,
+  13% {
+    opacity: 0;
+    transform: scale(0.2) rotate(-60deg);
+  }
+  19% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  28%,
+  100% {
+    opacity: 0;
+    transform: scale(0.3) rotate(60deg);
+  }
+}
+@keyframes breathe {
+  from {
+    opacity: 0.75;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+@keyframes colon {
+  50% {
+    opacity: 0.3;
+  }
+}
+@keyframes scrollDot {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  25%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter,
+  .lineInner,
+  .depthLayerInner,
+  .polish,
+  .sparkle,
+  .glowLime,
+  .glowPeri,
+  .time [data-colon],
+  .scrollTrack::after {
+    animation: none !important;
+  }
+  .scrollTrack::after {
+    top: 15px;
+  }
+  .depthLayer {
+    --step-x: 0.036em;
+    --step-y: 0.036em;
+  }
+}

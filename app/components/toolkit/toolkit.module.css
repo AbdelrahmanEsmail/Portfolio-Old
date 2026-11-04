@@ -1,0 +1,503 @@
+/* ==========================================================================
+   04 · Toolkit — skills bento
+   ========================================================================== */
+
+.header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 22.5rem);
+  align-items: end;
+  gap: 28px 64px;
+  margin-bottom: clamp(44px, 5.5vw, 76px);
+}
+
+.intro {
+  margin: 0 0 0.4rem;
+  color: var(--ink-2);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+/* ---------- Bento grid ---------- */
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(12px, 1.3vw, 18px);
+}
+.bento[data-offscreen] {
+  --play: paused;
+}
+
+/* data-reveal lives on the cell; the card inside keeps its own transforms. */
+.cell {
+  display: flex;
+  min-width: 0;
+}
+.cellBackend {
+  grid-column: 1 / span 7;
+  grid-row: 1 / span 2;
+}
+.cellFrontend {
+  grid-column: 8 / span 5;
+  grid-row: 1;
+}
+.cellPlatform {
+  grid-column: 8 / span 5;
+  grid-row: 2;
+}
+.cellNow {
+  grid-column: 1 / span 4;
+  grid-row: 3;
+}
+.cellPrinciples {
+  grid-column: 5 / span 8;
+  grid-row: 3;
+}
+
+/* ---------- Card shell ---------- */
+
+.backend,
+.now {
+  --tk-accent: var(--accent-text);
+}
+.frontend {
+  --tk-accent: var(--accent-2-text);
+}
+.platform {
+  --tk-accent: var(--brass-text);
+}
+.principlesCard {
+  --tk-accent: var(--accent-text);
+}
+
+.card {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'top'
+    'head'
+    'visual'
+    'skills';
+  grid-template-rows: auto auto 1fr auto;
+  align-content: start;
+  gap: 22px;
+  padding: clamp(22px, 2.3vw, 32px);
+  transition: border-color var(--dur) var(--ease-out);
+}
+.card:hover {
+  border-color: var(--line-strong);
+}
+
+.cardTop {
+  display: flex;
+  grid-area: top;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.index {
+  color: var(--tk-accent);
+}
+
+/* Signal line with a junction dot, running into the icon chip. */
+.rule {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--line), var(--line-strong));
+}
+.rule::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 5px;
+  height: 5px;
+  margin-top: -2.5px;
+  border-radius: 50%;
+  background: var(--tk-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tk-accent) 16%, transparent);
+}
+
+.iconChip {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--surface-2) 80%, transparent);
+  color: var(--tk-accent);
+  box-shadow: inset 0 1px 0 var(--edge);
+}
+
+.cardHead {
+  grid-area: head;
+  min-width: 0;
+}
+.cardTitle {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: clamp(1.9rem, 1.3rem + 1.2vw, 2.55rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+.cardDesc {
+  margin: 10px 0 0;
+  color: var(--ink-2);
+  font-size: 1rem;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.visual {
+  grid-area: visual;
+  min-width: 0;
+}
+
+.skills {
+  grid-area: skills;
+  align-self: end;
+}
+.skill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--tk-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tk-accent) 16%, transparent);
+}
+
+/* ---------- Backend (hero card) ---------- */
+
+.backend .cardTitle {
+  font-size: clamp(2.5rem, 1.45rem + 2.6vw, 4.1rem);
+}
+.backend .cardDesc {
+  margin-top: 14px;
+  font-size: clamp(1.0625rem, 0.98rem + 0.3vw, 1.2rem);
+}
+.backend .visual {
+  display: grid;
+  align-self: stretch;
+  min-height: 0;
+}
+.backend .skill {
+  padding: 7px 12px;
+  font-size: 0.8125rem;
+}
+
+/* ---------- Frontend ---------- */
+
+.frontend {
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'top top'
+    'head visual'
+    'skills skills';
+  grid-template-rows: auto 1fr auto;
+}
+.frontend .visual {
+  align-self: center;
+  margin: -14px -8px -6px 0;
+}
+
+/* ---------- Now ---------- */
+
+.now {
+  grid-template-areas:
+    'top'
+    'head'
+    'meta'
+    'link';
+  grid-template-rows: auto auto 1fr auto;
+}
+.nowLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+}
+.hash {
+  color: var(--accent-2-text);
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+.nowRole {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: clamp(1.6rem, 1.2rem + 0.9vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+.nowCompany {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-2);
+  font-family: var(--font-accent);
+  font-size: 1.12em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.nowCompany em {
+  color: var(--accent-text);
+  font-style: italic;
+}
+.nowMeta {
+  display: grid;
+  grid-area: meta;
+  align-content: start;
+  gap: 6px;
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.nowMeta dd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+.nowMeta dd::before {
+  content: '';
+  width: 14px;
+  height: 1px;
+  background: var(--line-strong);
+}
+.nowLink {
+  display: inline-flex;
+  grid-area: link;
+  align-items: center;
+  justify-self: start;
+  gap: 10px;
+  padding: 4px 0;
+  color: var(--ink);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  background: linear-gradient(var(--accent-text), var(--accent-text)) 0 100% / 0 1px no-repeat;
+  transition:
+    background-size var(--dur) var(--ease-out),
+    color var(--dur-fast) ease;
+}
+.nowLink svg {
+  color: var(--accent-text);
+  transition: transform var(--dur) var(--ease-out);
+}
+.nowLink:hover {
+  background-size: 100% 1px;
+}
+.nowLink:hover svg {
+  transform: translateX(3px);
+}
+
+/* ---------- Principles ---------- */
+
+.principlesCard {
+  grid-template-areas:
+    'top'
+    'list';
+  grid-template-rows: auto 1fr;
+}
+.principlesCard .iconChip {
+  margin-left: auto;
+}
+.miniTitle {
+  margin: 0;
+  color: var(--ink);
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.principles {
+  display: grid;
+  grid-area: list;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-self: end;
+  margin: 8px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line-strong);
+  list-style: none;
+}
+.principle {
+  position: relative;
+  padding: 26px 22px 2px 0;
+}
+.principle + .principle {
+  padding-left: 22px;
+  border-left: 1px solid var(--line);
+}
+/* Junction dots where the separators meet the signal line. */
+.principle::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border: 1.5px solid var(--tk-accent);
+  border-radius: 50%;
+  background: var(--surface);
+}
+.principle + .principle::before {
+  left: -4px;
+}
+.principleNum {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--tk-accent);
+  font-family: var(--font-code);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.14em;
+}
+.principleTitle {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: clamp(1.15rem, 1rem + 0.4vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+.principleDesc {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1100px) {
+  .bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cellBackend,
+  .cellNow,
+  .cellPrinciples {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .cellFrontend,
+  .cellPlatform {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .backend {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    grid-template-areas:
+      'top top'
+      'head visual'
+      'skills visual';
+    grid-template-rows: auto auto 1fr;
+    column-gap: clamp(24px, 3vw, 40px);
+  }
+
+  .now {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'top top'
+      'head meta'
+      'head link';
+    grid-template-rows: auto auto 1fr;
+    column-gap: 32px;
+  }
+  .now .nowLink {
+    align-self: end;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .intro {
+    max-width: 36rem;
+  }
+
+  .backend {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'top'
+      'head'
+      'visual'
+      'skills';
+    grid-template-rows: auto;
+  }
+
+  .frontend {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'top'
+      'head'
+      'visual'
+      'skills';
+    grid-template-rows: auto auto 1fr auto;
+  }
+  .frontend .visual {
+    justify-self: center;
+    margin: -6px 0 -4px;
+  }
+
+  .principles {
+    grid-template-columns: minmax(0, 1fr);
+    border-top: 0;
+    border-left: 1px solid var(--line-strong);
+  }
+  .principle,
+  .principle + .principle {
+    padding: 4px 0 4px 26px;
+    border-left: 0;
+  }
+  .principle + .principle {
+    margin-top: 22px;
+  }
+  .principle::before,
+  .principle + .principle::before {
+    top: 6px;
+    left: -4px;
+  }
+  .principleNum {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .bento {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cellFrontend,
+  .cellPlatform {
+    grid-column: 1 / -1;
+  }
+  .card {
+    gap: 20px;
+  }
+  .now {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'top'
+      'head'
+      'meta'
+      'link';
+    grid-template-rows: auto;
+  }
+}

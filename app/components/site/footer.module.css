@@ -1,0 +1,347 @@
+/* ==========================================================================
+   Footer — the closing note: signal-line top edge, a huge Arabic signature
+   watermark, brand + tagline, index, elsewhere, and a back-to-top.
+   ========================================================================== */
+
+.footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-bottom: 28px;
+}
+
+/* ---------- Top edge: signal line with junctions + a travelling packet ---------- */
+
+.signal {
+  position: relative;
+  height: 1px;
+}
+.signalLine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--accent-text),
+    color-mix(in srgb, var(--accent-text) 25%, var(--line-strong)) 14%,
+    var(--line-strong) 40%,
+    var(--line) 78%,
+    color-mix(in srgb, var(--accent-2-text) 50%, var(--line)) 100%
+  );
+}
+.junction,
+.junctionEnd {
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  margin-top: -4.5px;
+  border-radius: 50%;
+  background: var(--bg);
+}
+.junction {
+  left: -4.5px;
+  border: 1.5px solid var(--accent-text);
+  box-shadow: 0 0 12px var(--glow-lime);
+}
+.junction::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  border-radius: 50%;
+  background: var(--accent-text);
+}
+.junctionEnd {
+  right: -4.5px;
+  border: 1.5px solid var(--accent-2-text);
+  box-shadow: 0 0 12px var(--glow-peri);
+}
+.packetTrack {
+  position: absolute;
+  inset: 0;
+  animation: packet-travel 9s var(--ease-in-out) infinite;
+}
+.packet {
+  position: absolute;
+  top: -2px;
+  left: -2.5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 10px 2px var(--glow-lime);
+  animation: packet-fade 9s linear infinite;
+}
+:global(:root[data-theme='light']) .packet {
+  background: var(--accent-text);
+}
+
+@keyframes packet-travel {
+  0%,
+  8% {
+    transform: translate3d(0, 0, 0);
+  }
+  72%,
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+@keyframes packet-fade {
+  0%,
+  6% {
+    opacity: 0;
+  }
+  12%,
+  64% {
+    opacity: 1;
+  }
+  72%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ---------- Watermark signature ---------- */
+
+.signature {
+  position: absolute;
+  z-index: -1;
+  bottom: 0.02em;
+  left: 50%;
+  margin: 0;
+  color: transparent;
+  font-family: var(--font-ar);
+  font-size: clamp(4.5rem, 15vw, 13.5rem);
+  font-weight: 600;
+  line-height: 1.25;
+  white-space: nowrap;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--ink) 10%, transparent) 0%,
+    color-mix(in srgb, var(--ink) 6%, transparent) 55%,
+    color-mix(in srgb, var(--ink) 2%, transparent) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  transform: translateX(-50%);
+  pointer-events: none;
+  user-select: none;
+}
+:global(:root[data-theme='light']) .signature {
+  background-image: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--ink) 9%, transparent) 0%,
+    color-mix(in srgb, var(--ink) 5%, transparent) 55%,
+    color-mix(in srgb, var(--ink) 2%, transparent) 100%
+  );
+}
+
+/* ---------- Main grid ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 0.8fr) minmax(0, 0.8fr);
+  gap: 48px;
+  padding-top: clamp(64px, 8vw, 104px);
+}
+
+.intro {
+  display: grid;
+  align-content: start;
+  gap: 26px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  justify-self: start;
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: 1.0625rem;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+.tagline {
+  margin: 0;
+  max-width: 12ch;
+  font-family: var(--font-head);
+  font-size: clamp(2.4rem, 1.4rem + 3.4vw, 4.4rem);
+  font-weight: 620;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+.tagline em {
+  font-family: var(--font-accent);
+  font-size: 1.08em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--accent-text);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--fs-small);
+}
+
+.col {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+
+.colLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+.colLabel::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+
+.links {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 36px;
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: color var(--dur-fast) ease;
+}
+.link:hover {
+  color: var(--ink);
+}
+
+.index {
+  color: var(--accent-text);
+  font-family: var(--font-code);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+}
+
+.linkIcon {
+  color: var(--muted);
+  transition: color var(--dur-fast) ease;
+}
+.link:hover .linkIcon {
+  color: var(--ink);
+}
+
+.linkArrow {
+  color: var(--muted);
+  opacity: 0;
+  transform: translate3d(-4px, 4px, 0);
+  transition:
+    opacity var(--dur-fast) ease,
+    transform var(--dur) var(--ease-out);
+}
+.link:hover .linkArrow,
+.link:focus-visible .linkArrow {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Base row ---------- */
+
+.base {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 28px;
+  margin-top: clamp(72px, 9vw, 128px);
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 22px;
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.meta span + span::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+
+.base .toTop {
+  margin-left: auto;
+  min-height: 44px;
+  gap: 12px;
+  padding: 0 6px 0 18px;
+  font-size: 0.875rem;
+}
+.toTop :global(.btn-icon) {
+  width: 32px;
+  height: 32px;
+}
+/* The shared button rotates its icon chip on hover; an up arrow should rise instead. */
+.base .toTop:hover :global(.btn-icon) {
+  transform: translateY(-2px);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 44px 32px;
+  }
+  .intro {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .base {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .base .toTop {
+    margin-left: 0;
+  }
+  .signature {
+    bottom: -0.16em;
+    font-size: 27vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .packetTrack {
+    display: none;
+  }
+}

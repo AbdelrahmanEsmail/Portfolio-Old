@@ -1,0 +1,257 @@
+/* zeyad.py — an editor window rendered with hand-written syntax highlighting. */
+
+.window {
+  --code-size: 0.875rem;
+  position: relative;
+  margin: 0;
+  border-radius: var(--r-lg);
+  font-family: var(--font-code);
+}
+
+/* ---------- Title bar ---------- */
+
+.bar {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  height: 48px;
+  padding: 0 12px 0 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.lights {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.lights span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--surface-3);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.lights span:nth-child(1) {
+  background: color-mix(in srgb, var(--coral) 78%, var(--surface));
+}
+.lights span:nth-child(2) {
+  background: color-mix(in srgb, var(--brass) 82%, var(--surface));
+}
+.lights span:nth-child(3) {
+  background: color-mix(in srgb, var(--lime) 80%, var(--surface));
+}
+
+/* Active editor tab. */
+.tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 6px;
+  padding: 0 16px;
+  border-inline: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface-2) 70%, transparent);
+  color: var(--ink);
+  font-size: 0.78125rem;
+  letter-spacing: 0.01em;
+}
+.tab::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  height: 2px;
+  background: var(--accent-text);
+}
+.tabIcon {
+  color: var(--accent-2-text);
+}
+
+.lang {
+  align-self: center;
+  margin-left: auto;
+  padding: 4px 10px;
+  font-size: 0.6875rem;
+}
+.lang::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brass);
+}
+
+/* ---------- Code ---------- */
+
+.code {
+  margin: 0;
+  padding: 18px 0 20px;
+  font-family: var(--font-code);
+  font-size: var(--code-size);
+  line-height: 1.8;
+  tab-size: 4;
+  color: var(--ink);
+}
+
+.line {
+  display: grid;
+  grid-template-columns: 3.4em minmax(0, 1fr);
+  padding-right: 22px;
+  transition:
+    opacity 0.45s var(--ease-out),
+    transform 0.7s var(--ease-expo);
+  transition-delay: calc(var(--i, 0) * 70ms + 320ms);
+}
+
+/* Lines type in, one after another, once the card scrolls into view. */
+:global(.reveal-ready [data-reveal]:not(.is-visible)) .line {
+  opacity: 0;
+  transform: translate3d(-12px, 0, 0);
+  transition: none;
+}
+
+.ln {
+  padding-right: 1.25em;
+  color: var(--faint);
+  text-align: right;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Soft wrap with a hanging indent so narrow screens never scroll sideways. */
+.lc {
+  min-height: 1.8em;
+  padding-left: calc((var(--indent, 0) + 4) * 1ch);
+  text-indent: calc((var(--indent, 0) + 4) * -1ch);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Git gutter: the method was the latest change. */
+.added .ln {
+  box-shadow: inset -2px 0 0 color-mix(in srgb, var(--accent-text) 55%, transparent);
+}
+
+/* Current line — where the caret rests. */
+.active {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--ink) 5%, transparent),
+    color-mix(in srgb, var(--ink) 2%, transparent)
+  );
+}
+.active .ln {
+  color: var(--ink-2);
+}
+
+.caret {
+  display: inline-block;
+  width: 0.58em;
+  height: 1.2em;
+  margin-left: 3px;
+  vertical-align: -0.24em;
+  background: var(--accent-text);
+  animation: caret-blink 1.1s steps(1, end) infinite;
+}
+
+/* Syntax */
+.kw {
+  color: var(--accent-2-text);
+}
+.cls,
+.fn {
+  color: var(--brass-text);
+}
+/* Strings and comments wrap as whole units on narrow screens. */
+.str {
+  color: var(--accent-text);
+  white-space: nowrap;
+}
+.com {
+  color: var(--muted);
+  font-style: italic;
+  white-space: nowrap;
+}
+.pun,
+.op {
+  color: var(--ink-2);
+}
+.id {
+  color: var(--ink);
+}
+.self,
+.arg {
+  color: var(--ink-2);
+  font-style: italic;
+}
+
+/* ---------- Status bar ---------- */
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 34px;
+  padding: 0 16px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.branch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-text);
+}
+.cursor {
+  margin-left: auto;
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1240px) {
+  .window {
+    --code-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .window {
+    --code-size: 0.75rem;
+  }
+  .bar {
+    gap: 10px;
+    height: 44px;
+    padding-left: 14px;
+  }
+  .tab {
+    padding: 0 12px;
+  }
+  .line {
+    grid-template-columns: 2.9em minmax(0, 1fr);
+    padding-right: 14px;
+  }
+  .ln {
+    padding-right: 1em;
+  }
+  .status {
+    gap: 14px;
+  }
+  .optional {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(.reveal-ready [data-reveal]:not(.is-visible)) .line {
+    opacity: 1;
+    transform: none;
+  }
+}

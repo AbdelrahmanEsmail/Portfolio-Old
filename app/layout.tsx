@@ -1,15 +1,50 @@
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
+import {
+  Bricolage_Grotesque,
+  Geist,
+  Instrument_Serif,
+  JetBrains_Mono,
+  Reem_Kufi,
+} from 'next/font/google';
 import './globals.css';
 
-const geist = Geist({
-  variable: '--font-geist',
+// Body copy.
+const sans = Geist({
+  variable: '--nf-sans',
   subsets: ['latin'],
+  display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+// Display headlines — variable optical size gives the big type its ink-trap character.
+const display = Bricolage_Grotesque({
+  variable: '--nf-display',
   subsets: ['latin'],
+  axes: ['opsz'],
+  display: 'swap',
+});
+
+// Italic accent words inside headlines.
+const serif = Instrument_Serif({
+  variable: '--nf-serif',
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  display: 'swap',
+});
+
+// Technical labels, code, numbers.
+const mono = JetBrains_Mono({
+  variable: '--nf-mono',
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+// Arabic signature + Arabic project names. Only downloaded when Arabic glyphs render.
+const arabic = Reem_Kufi({
+  variable: '--nf-arabic',
+  subsets: ['arabic'],
+  display: 'swap',
+  preload: false,
 });
 
 const defaultSiteUrl = 'https://zeyad-salama-portfolio.afnaai-5664.chatgpt.site';
@@ -18,20 +53,24 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const pageUrl = `${basePath}/`;
 const publicAsset = (path: string) => `${basePath}${path}`;
 
+const title = 'Zeyad Salama — Backend Software Engineer';
+const description =
+  'Zeyad Salama builds secure, transaction-heavy products with Python, Django, and PostgreSQL — multi-tenant SaaS, ERP and financial systems, and real-time APIs.';
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Zeyad Salama — Backend Software Engineer',
-  description:
-    'Portfolio of Zeyad Salama, a backend software engineer building secure, transaction-heavy products with Python, Django, Django REST Framework, and PostgreSQL.',
-  alternates: {
-    canonical: pageUrl,
-  },
+  title,
+  description,
+  alternates: { canonical: pageUrl },
   icons: {
-    icon: publicAsset('/assets/code.png'),
+    icon: [
+      { url: publicAsset('/favicon.svg'), type: 'image/svg+xml' },
+      { url: publicAsset('/assets/code.png'), type: 'image/png' },
+    ],
   },
   openGraph: {
-    title: 'Zeyad Salama — Backend Software Engineer',
-    description: 'Backend depth. Product thinking. Explore selected software engineering work by Zeyad Salama.',
+    title,
+    description: 'Backend depth. Frontend polish. Selected software engineering work by Zeyad Salama.',
     url: pageUrl,
     siteName: 'Zeyad Salama — Portfolio',
     type: 'website',
@@ -46,18 +85,35 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zeyad Salama — Backend Software Engineer',
-    description: 'Backend depth. Product thinking. Explore selected software engineering work by Zeyad Salama.',
+    title,
+    description: 'Backend depth. Frontend polish. Selected software engineering work by Zeyad Salama.',
     images: [publicAsset('/og.png')],
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0b0c0a' },
+    { media: '(prefers-color-scheme: light)', color: '#f1eee6' },
+  ],
+};
+
+// Runs before first paint: applies the saved theme (dark by default) and marks
+// the document as JS-enabled so reveal animations can start hidden without a flash.
+const bootScript = `(function(){var d=document.documentElement;try{var t=localStorage.getItem('portfolio-theme');d.dataset.theme=t==='light'?'light':'dark';}catch(e){d.dataset.theme='dark';}d.classList.add('js');})();`;
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geist.variable} ${geistMono.variable}`}>{children}</body>
+    <html
+      lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
+      className={`${sans.variable} ${display.variable} ${serif.variable} ${mono.variable} ${arabic.variable}`}
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
