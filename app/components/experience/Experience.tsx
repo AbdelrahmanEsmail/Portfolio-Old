@@ -25,8 +25,8 @@ export function Experience() {
             </h2>
           </div>
           <p className={styles.intro} data-reveal style={delay(120)}>
-            From infrastructure and systems administration to production backend architecture, each role sharpened
-            how I build secure, observable, and transaction-safe software.
+            From infrastructure and systems administration to full-stack product development, each role sharpened
+            how I connect the interface, application logic, and data into dependable software.
           </p>
         </header>
 

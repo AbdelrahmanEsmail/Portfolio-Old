@@ -7,6 +7,7 @@ import {
   Reem_Kufi,
 } from 'next/font/google';
 import './globals.css';
+import { site } from './content';
 
 // Body copy.
 const sans = Geist({
@@ -53,9 +54,9 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const pageUrl = `${basePath}/`;
 const publicAsset = (path: string) => `${basePath}${path}`;
 
-const title = 'Zeyad Salama — Backend Software Engineer';
+const title = `${site.name} — Software Engineer | Full Stack`;
 const description =
-  'Zeyad Salama builds secure, transaction-heavy products with Python, Django, and PostgreSQL — multi-tenant SaaS, ERP and financial systems, and real-time APIs.';
+  'Zeyad Salama is a software engineer building full-stack web products with React, Next.js, TypeScript, Python, Django, and PostgreSQL — from responsive interfaces to reliable APIs and data systems.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title,
-    description: 'Backend depth. Frontend polish. Selected software engineering work by Zeyad Salama.',
+    description,
     url: pageUrl,
     siteName: 'Zeyad Salama — Portfolio',
     type: 'website',
@@ -79,14 +80,14 @@ export const metadata: Metadata = {
         url: publicAsset('/og.png'),
         width: 1200,
         height: 630,
-        alt: 'Zeyad Salama — Backend depth. Frontend polish.',
+        alt: `${site.name} — Software Engineer, Full Stack. ${site.tagline}`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title,
-    description: 'Backend depth. Frontend polish. Selected software engineering work by Zeyad Salama.',
+    description,
     images: [publicAsset('/og.png')],
   },
 };

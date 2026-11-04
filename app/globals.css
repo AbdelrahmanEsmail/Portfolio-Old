@@ -19,10 +19,10 @@
   --surface-3: #23271f;
   --ink: #ece8dc;
   --ink-2: #c4c0b3;
-  --muted: #8d8b80;
+  --muted: #9b998e;
   --faint: #5d5c54;
-  --line: rgba(236, 232, 220, 0.09);
-  --line-strong: rgba(236, 232, 220, 0.17);
+  --line: rgba(236, 232, 220, 0.11);
+  --line-strong: rgba(236, 232, 220, 0.2);
   --edge: rgba(255, 255, 255, 0.06);
   --shadow: rgba(0, 0, 0, 0.55);
 
@@ -63,17 +63,17 @@
 
   /* Type scale (fluid) */
   --fs-hero: clamp(3.4rem, 1.1rem + 8.6vw, 9.5rem);
-  --fs-h2: clamp(2.6rem, 1.35rem + 4.7vw, 6.1rem);
+  --fs-h2: clamp(2.5rem, 1.35rem + 4.1vw, 5.4rem);
   --fs-h3: clamp(1.6rem, 1.1rem + 1.6vw, 2.5rem);
   --fs-lead: clamp(1.125rem, 0.95rem + 0.6vw, 1.5rem);
   --fs-body: 1rem;
   --fs-small: 0.875rem;
-  --fs-micro: 0.6875rem;
+  --fs-micro: 0.75rem;
 
   /* Layout */
   --container: 1240px;
   --gutter: clamp(20px, 4vw, 48px);
-  --section-y: clamp(104px, 12vw, 176px);
+  --section-y: clamp(88px, 10vw, 136px);
   --header-h: 72px;
 
   /* Radii */
@@ -178,11 +178,11 @@ body::after {
   inset: 0;
   z-index: var(--z-grain);
   pointer-events: none;
-  opacity: 0.045;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 :root[data-theme='light'] body::after {
-  opacity: 0.07;
+  opacity: 0.035;
 }
 
 a {
@@ -276,7 +276,7 @@ samp {
   font-size: var(--fs-micro);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 .eyebrow::before {
@@ -308,8 +308,8 @@ samp {
   font-family: var(--font-head);
   font-size: var(--fs-h2);
   font-weight: 620;
-  line-height: 0.96;
-  letter-spacing: -0.045em;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
   text-wrap: balance;
 }
 .heading em,
@@ -341,7 +341,7 @@ samp {
   font-family: var(--font-code);
   font-size: var(--fs-micro);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -399,6 +399,7 @@ samp {
 }
 .btn-ghost {
   --btn-bg: color-mix(in srgb, var(--surface) 55%, transparent);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 .btn-ghost:hover {
@@ -546,12 +547,10 @@ samp {
 
 .js [data-reveal] {
   opacity: 0;
-  transform: translate3d(0, 28px, 0);
-  filter: blur(6px);
+  transform: translate3d(0, 20px, 0);
   transition:
-    opacity 0.9s var(--ease-expo) var(--delay, 0ms),
-    transform 0.9s var(--ease-expo) var(--delay, 0ms),
-    filter 0.9s var(--ease-expo) var(--delay, 0ms);
+    opacity 0.65s var(--ease-expo) var(--delay, 0ms),
+    transform 0.65s var(--ease-expo) var(--delay, 0ms);
 }
 .js [data-reveal].is-visible {
   opacity: 1;

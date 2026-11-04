@@ -26,66 +26,29 @@ function ProjectTitle({ text }: { text: string }) {
   );
 }
 
-const NEW_TAB = '(opens in a new tab)';
-
 function ProjectLinks({ project }: { project: Project }) {
   return (
     <div className={styles.links} data-tail="">
+      <button
+        type="button"
+        className={`btn btn-ghost ${styles.detailButton}`}
+        data-project-open=""
+        aria-haspopup="dialog"
+        aria-controls="project-dialog"
+        aria-label={`Explore ${project.title}`}
+      >
+        Explore project
+        <span className="btn-icon">
+          <Icon name="arrow-up-right" size={16} />
+        </span>
+      </button>
       {project.liveUrl ? (
-        <a
-          className={`btn btn-ghost ${styles.liveBtn}`}
-          href={project.liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Visit live site
-          <span className="visually-hidden">
-            : {project.title} {NEW_TAB}
-          </span>
-          <span className="btn-icon">
-            <Icon name="arrow-up-right" size={16} />
-          </span>
+        <a className={styles.quickLink} href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+          Live site <Icon name="arrow-up-right" size={15} />
+          <span className="visually-hidden">: {project.title} (opens in a new tab)</span>
         </a>
       ) : null}
-
-      {project.appLinks?.length ? (
-        <ul className={styles.apps}>
-          {project.appLinks.map((app) => (
-            <li key={app.label} className={styles.app}>
-              <span className={styles.appLabel}>
-                <Icon name="smartphone" size={14} />
-                {app.label}
-              </span>
-              <span className={styles.stores}>
-                <a
-                  className={`btn btn-ghost ${styles.storeBtn}`}
-                  href={app.googlePlay}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Google Play
-                  <span className="visually-hidden">
-                    : {project.title} {app.label} {NEW_TAB}
-                  </span>
-                  <Icon name="arrow-up-right" size={14} />
-                </a>
-                <a
-                  className={`btn btn-ghost ${styles.storeBtn}`}
-                  href={app.appStore}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  App Store
-                  <span className="visually-hidden">
-                    : {project.title} {app.label} {NEW_TAB}
-                  </span>
-                  <Icon name="arrow-up-right" size={14} />
-                </a>
-              </span>
-            </li>
-          ))}
-        </ul>
-      ) : null}
+      {project.appLinks?.length ? <span className={styles.appHint}>iOS + Android</span> : null}
     </div>
   );
 }

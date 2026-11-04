@@ -33,7 +33,8 @@ export function Contact() {
                 Have a system to build—or an idea to make <em>real?</em>
               </h2>
               <p className={styles.intro}>
-                I&apos;m open to software engineering roles, ambitious products, and thoughtful collaborations.
+                I&apos;m open to software engineering and full-stack roles, ambitious products, and thoughtful
+                collaborations.
               </p>
 
               <div className={styles.emailRow} data-reveal style={delay(160)}>

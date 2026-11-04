@@ -21,8 +21,7 @@ export function About() {
             <span className="eyebrow-index">01</span>About
           </p>
           <h2 id="about-heading" className={`heading ${styles.heading}`}>
-            {/* U+2060 word joiner keeps the dash on the first line. */}
-            I enjoy the invisible work{'⁠'}—<em>and</em> the interface people remember.
+            From the first interaction to the last <em>transaction.</em>
           </h2>
         </header>
 
@@ -60,13 +59,15 @@ export function About() {
 
           <div className={styles.text} data-reveal style={delay(120)}>
             <p className={`lead ${styles.lead}`}>
-              I&apos;m a backend software engineer specializing in Python, Django, Django REST Framework, and
-              PostgreSQL. My sweet spot is turning complex business rules into dependable product systems.
+              I&apos;m a software engineer building full-stack web applications with React, Next.js, TypeScript,
+              Python, Django, and PostgreSQL. I turn complex requirements into clear interfaces and dependable
+              systems.
             </p>
             <p className={styles.body}>
               I&apos;ve worked across multi-tenant SaaS, ERP, finance, delivery, education, e-commerce, and real
-              estate—designing transactional workflows, secure authentication, real-time systems, background jobs,
-              tests, and production-ready APIs that remain clear as they grow.
+              estate—connecting responsive interfaces with secure authentication, real-time features,
+              transactional workflows, and production-ready APIs. I care about how a product feels to use as much
+              as how reliably it runs.
             </p>
           </div>
 

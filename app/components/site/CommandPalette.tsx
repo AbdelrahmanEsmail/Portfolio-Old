@@ -47,7 +47,7 @@ const SECTION_META: Record<string, { icon: IconName; keywords: string }> = {
   about: { icon: 'sparkle', keywords: 'bio profile who story me intro' },
   work: { icon: 'layout', keywords: 'projects portfolio case studies products selected' },
   experience: { icon: 'commit', keywords: 'career jobs history timeline roles git log cv' },
-  stack: { icon: 'layers', keywords: 'skills toolkit tech technologies tools backend frontend' },
+  stack: { icon: 'layers', keywords: 'skills toolkit tech technologies tools full stack fullstack backend frontend' },
   contact: { icon: 'mail', keywords: 'hire email reach talk connect message' },
 };
 

@@ -2,6 +2,18 @@
 // command palette) even when the Work filter currently hides it.
 
 export const PROJECT_REVEAL_EVENT = 'portfolio:project-reveal';
+export const PROJECT_OPEN_EVENT = 'portfolio:project-open';
+
+export type ProjectOpenDetail = {
+  slug: string;
+  origin?: { x: number; y: number; width: number; height: number };
+  trigger?: HTMLElement;
+};
+
+/** Open the project file, expanding from the card that launched it. */
+export function openProject(detail: ProjectOpenDetail) {
+  window.dispatchEvent(new CustomEvent<ProjectOpenDetail>(PROJECT_OPEN_EVENT, { detail }));
+}
 
 /**
  * Scroll to a project card by slug. If the active filter hides it, the Work

@@ -24,7 +24,7 @@ export const LOG: Box = { x: 8, y: 412, w: 412, h: 200 };
 export const LOG_SM: Box = { x: 0, y: 298, w: 360, h: 196 };
 
 export type ServiceNode = {
-  id: 'api' | 'db' | 'realtime' | 'jobs';
+  id: 'api' | 'db' | 'frontend' | 'platform';
   icon: IconName;
   title: string;
   sub: string;
@@ -60,14 +60,15 @@ export const NODES: ServiceNode[] = [
     face: 1,
   },
   {
-    id: 'realtime',
-    icon: 'zap',
-    title: 'Channels + Redis',
-    sub: 'Realtime',
+    id: 'frontend',
+    icon: 'layout',
+    title: 'React + Next.js',
+    sub: 'Frontend',
     tone: 'peri',
     port: 'bottom',
     box: { x: 392, y: 0, w: 168, h: 58 },
     portX: 0.5,
+    sm: { box: { x: 210, y: 12, w: 150, h: 52 }, portX: 0.72, port: 'bottom' },
     float: [6.4, -3.1],
     enter: 1150,
     face: -1,
@@ -81,16 +82,15 @@ export const NODES: ServiceNode[] = [
     port: 'top',
     box: { x: 0, y: 292, w: 168, h: 58 },
     portX: 0.5,
-    sm: { box: { x: 210, y: 12, w: 150, h: 52 }, portX: 0.72, port: 'bottom' },
     float: [8, -5.2],
     enter: 1250,
     face: 1,
   },
   {
-    id: 'jobs',
-    icon: 'layers',
-    title: 'Celery',
-    sub: 'Jobs',
+    id: 'platform',
+    icon: 'server',
+    title: 'Docker + CI/CD',
+    sub: 'Platform',
     tone: 'lime',
     port: 'top',
     box: { x: 392, y: 300, w: 168, h: 58 },
@@ -117,14 +117,14 @@ export type Route = {
 /** Desktop wiring. Each route starts on the portrait frame and ends 10 units under its node. */
 export const ROUTES: Route[] = [
   { id: 'api', tone: 'lime', label: 'HTTP', labelAt: [128, 142], points: [[172, 152], [84, 152], [84, 68]], dur: 4.6, begin: 2.4 },
-  { id: 'realtime', tone: 'peri', label: 'WS', labelAt: [446, 132], points: [[424, 140], [476, 140], [476, 48]], dur: 3.8, begin: 3 },
+  { id: 'frontend', tone: 'peri', label: 'UI', labelAt: [446, 132], points: [[424, 140], [476, 140], [476, 48]], dur: 3.8, begin: 3 },
   { id: 'db', tone: 'peri', label: 'SQL', labelAt: [128, 238], points: [[172, 246], [84, 246], [84, 302]], dur: 5.2, begin: 3.5 },
-  { id: 'jobs', tone: 'lime', label: 'QUEUE', labelAt: [450, 222], points: [[424, 230], [476, 230], [476, 310]], dur: 6, begin: 4.1 },
+  { id: 'platform', tone: 'lime', label: 'SHIP', labelAt: [450, 222], points: [[424, 230], [476, 230], [476, 310]], dur: 6, begin: 4.1 },
 ];
 
 export const ROUTES_SM: Route[] = [
   { id: 'api', tone: 'lime', label: 'HTTP', labelAt: [64, 146], points: [[88, 154], [45, 154], [45, 42]], dur: 4.6, begin: 2.4 },
-  { id: 'db', tone: 'peri', label: 'SQL', labelAt: [296, 160], points: [[272, 168], [318, 168], [318, 54]], dur: 5.2, begin: 3.2 },
+  { id: 'frontend', tone: 'peri', label: 'UI', labelAt: [296, 160], points: [[272, 168], [318, 168], [318, 54]], dur: 5.2, begin: 3.2 },
 ];
 
 /** Orthogonal polyline → SVG path with softly rounded corners. */

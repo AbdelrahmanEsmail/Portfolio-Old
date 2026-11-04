@@ -43,11 +43,11 @@ export function Hero() {
             </span>
           </p>
 
-          {/* Accessible name: "Backend depth. Frontend polish." — the stacked copies are aria-hidden. */}
+          {/* Accessible name: "Systems depth. Product polish." — the stacked copies are aria-hidden. */}
           <h1 id="hero-title" className={styles.title}>
             <span className={styles.line}>
               <span className={styles.lineInner} style={delay(120)}>
-                Backend{' '}
+                Systems{' '}
                 <span className={styles.depth}>
                   <span className={styles.depthLayers} aria-hidden="true">
                     {DEPTH_LAYERS.map((i) => (
@@ -63,7 +63,7 @@ export function Hero() {
             </span>{' '}
             <span className={styles.line}>
               <span className={styles.lineInner} style={delay(240)}>
-                Frontend{' '}
+                Product{' '}
                 <span className={styles.polish}>
                   polish.
                   <Icon name="sparkle" className={styles.sparkle} />
@@ -73,9 +73,9 @@ export function Hero() {
           </h1>
 
           <p className={`${styles.intro} ${styles.enter}`} style={delay(420)}>
-            I&rsquo;m {site.firstName} — a backend software engineer building secure, transaction-heavy products
-            with <span className={styles.hl}>Python, Django, and PostgreSQL</span>, from multi-tenant ERP and
-            financial systems to real-time product APIs.
+            I&rsquo;m {site.firstName}, a software engineer building across the full stack with{' '}
+            <span className={styles.hl}>React, Next.js, TypeScript, and Django</span> — from responsive interfaces
+            to reliable APIs and data systems.
           </p>
 
           <div className={`${styles.actions} ${styles.enter}`} style={delay(540)}>

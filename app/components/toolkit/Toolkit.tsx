@@ -132,12 +132,12 @@ export function Toolkit() {
               <span className="eyebrow-index">04</span>Toolkit
             </p>
             <h2 id="stack-title" className="heading">
-              Backend is home. Frontend makes it <em>whole.</em>
+              The tools to build the <em>whole product.</em>
             </h2>
           </div>
           <p className={styles.intro} data-reveal style={delay(120)}>
-            Python, Django, and PostgreSQL are where I go deepest. React and Next.js carry that work all the way to
-            the screen, and Docker and CI/CD carry it into production.
+            React, Next.js, and TypeScript for the interface. Python, Django, and PostgreSQL for the systems
+            behind it. Docker and CI/CD to bring everything into production.
           </p>
         </header>
 

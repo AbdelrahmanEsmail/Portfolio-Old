@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type MouseEvent, type ReactNode } from 'react';
 import { projectFilters, type ProjectCategory, type ProjectFilter } from '../../content';
-import { PROJECT_REVEAL_EVENT } from './events';
+import { openProject, PROJECT_REVEAL_EVENT } from './events';
 import styles from './work.module.css';
 
 export type StackItem = {
@@ -77,6 +77,23 @@ export function ProjectStack({ items }: { items: StackItem[] }) {
     setStatus(describe(next, countFor(next)));
   };
 
+  const onProjectClick = (event: MouseEvent<HTMLOListElement>) => {
+    if (!(event.target instanceof Element)) return;
+    const control = event.target.closest('a, button, input, select, textarea');
+    if (control && !control.hasAttribute('data-project-open')) return;
+    if (!control && window.getSelection()?.toString()) return;
+    const item = event.target.closest<HTMLElement>(`li.${styles.item}`);
+    if (!item || item.parentElement !== listRef.current) return;
+    const card = item.querySelector<HTMLElement>('[data-card]');
+    if (!card || !card.contains(event.target)) return;
+    const rect = card.getBoundingClientRect();
+    openProject({
+      slug: item.id.slice('project-'.length),
+      origin: { x: rect.x, y: rect.y, width: rect.width, height: rect.height },
+      trigger: item.querySelector<HTMLElement>('[data-project-open]') ?? undefined,
+    });
+  };
+
   // Safety net for the sticky stack: if any visible card's content would not
   // fit the fixed card height (browser zoom, a larger default font, ...), fall
   // back to the plain list instead of clipping. Re-checked on resize, after
@@ -136,7 +153,8 @@ export function ProjectStack({ items }: { items: StackItem[] }) {
 
     const onFocusIn = (event: FocusEvent) => {
       if (list.dataset.fit === 'no' || !stackEligible(list)) return;
-      const item = event.target instanceof Element ? event.target.closest('li') : null;
+      // App-store links have their own nested list items; find the project item.
+      const item = event.target instanceof Element ? event.target.closest<HTMLElement>(`li.${styles.item}`) : null;
       if (!item || item.parentElement !== list) return;
       const card = item.querySelector<HTMLElement>('[data-card]');
       // Only focus inside the card (links). Focus moved to the <li> itself is a
@@ -236,7 +254,7 @@ export function ProjectStack({ items }: { items: StackItem[] }) {
       </div>
 
       <div className={styles.stack}>
-        <ol ref={listRef} className={styles.list} role="list">
+        <ol ref={listRef} className={styles.list} role="list" onClick={onProjectClick}>
           {items.map((item) => {
             const position = visible.indexOf(item);
             const shown = position !== -1;

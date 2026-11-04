@@ -7,7 +7,7 @@ import styles from './footer.module.css';
 /** Evaluated on the server (build time for the static export); the client island corrects it. */
 const BUILD_YEAR = new Date().getFullYear();
 
-/** "Backend depth. Frontend polish." → second sentence gets the serif accent. */
+/** The second sentence of the tagline gets the serif accent. */
 const [taglineLead, ...taglineRest] = site.tagline.split('. ');
 const taglineAccent = taglineRest.join('. ');
 

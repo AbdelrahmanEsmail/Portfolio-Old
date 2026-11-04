@@ -1,5 +1,5 @@
-// Single source of truth for every piece of portfolio content.
-// Components import from here; never hard-code copy or links in a section.
+// Shared portfolio content and links. Longer project stories and screenshot
+// galleries live in project-details.ts, keyed by the project slugs below.
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
@@ -11,8 +11,8 @@ export const site = {
   firstName: 'Zeyad',
   nameArabic: 'زياد سلامة',
   initials: 'ZS',
-  role: 'Backend Software Engineer',
-  tagline: 'Backend depth. Frontend polish.',
+  role: 'Software Engineer',
+  tagline: 'Systems depth. Product polish.',
   email: 'zeyadslama23@gmail.com',
   phone: '+201017595972',
   phoneDisplay: '+20 101 759 5972',
@@ -38,7 +38,7 @@ export const navigation: NavItem[] = [
   { label: 'Contact', href: '#contact', index: '05' },
 ];
 
-export const heroStack = ['Python', 'Django', 'DRF', 'PostgreSQL', 'Redis', 'React', 'Next.js'];
+export const heroStack = ['React', 'TypeScript', 'Next.js', 'Python', 'Django', 'PostgreSQL', 'Redis'];
 
 /** Headline numbers, all taken from the project and experience data below. */
 export const heroStats = [
@@ -49,9 +49,18 @@ export const heroStats = [
 ];
 
 export const marqueeSkills = [
+  'React',
+  'React Native',
+  'Flutter',
+  'TypeScript',
+  'Next.js',
+  'Node.js',
   'Python',
   'Django',
   'Django REST',
+  'Responsive UI',
+  'HTML & CSS',
+  'Tailwind CSS',
   'PostgreSQL',
   'Multi-Tenancy',
   'Transactions',
@@ -68,14 +77,13 @@ export const marqueeSkills = [
   'OpenAPI',
   'CI/CD',
   'AWS S3',
-  'React',
-  'Next.js',
-  'TypeScript',
 ];
 
 /** Log lines for the hero's live "system" console. Purely illustrative. */
 export const systemLog = [
+  { method: 'UI', text: 'React · responsive interface', status: 'READY', meta: 'client' },
   { method: 'POST', text: '/api/v1/orders', status: '201', meta: '42ms' },
+  { method: 'BUILD', text: 'Next.js · production build', status: 'PASS', meta: 'web' },
   { method: 'SQL', text: 'BEGIN · SELECT … FOR UPDATE · COMMIT', status: 'OK', meta: 'atomic' },
   { method: 'TASK', text: 'payroll.run[tenant=acme]', status: 'DONE', meta: 'celery' },
   { method: 'WS', text: 'driver:17 ▸ order.assigned', status: 'SENT', meta: 'channels' },
@@ -124,7 +132,7 @@ export const projects: Project[] = [
     liveUrl: 'https://barcodejackets.com/',
     label: 'Custom apparel commerce',
     description:
-      'A custom-apparel API with layered garment personalization, multi-store catalogs, inventory reservations, pricing rules, and atomic payment/refund lifecycles.',
+      'A custom-apparel commerce system with layered garment personalization, multi-store catalogs, inventory reservations, pricing rules, and transaction-safe payment and refund APIs.',
     image: asset('/assets/project-barcode-jackets.webp'),
     imageAlt: 'Conceptual jacket customization and commerce studio',
     technologies: ['Django REST', 'SVG engine', 'PostgreSQL', 'OpenAPI'],
@@ -141,12 +149,12 @@ export const projects: Project[] = [
     slug: 'sukoon',
     title: 'Sukoon',
     liveUrl: 'https://sukoon.rent/',
-    label: 'Real estate platform API',
+    label: 'Real estate platform',
     description:
-      'A versioned property-discovery and visit-booking API with hardened authentication, query optimization, Cloudinary media, and Redis-backed WebSockets.',
+      'Property discovery and visit booking powered by versioned APIs, secure authentication, optimized queries, Cloudinary media, and Redis-backed real-time updates.',
     image: asset('/assets/project-sukoon.webp'),
     imageAlt: 'Conceptual real estate discovery and visit-booking interface',
-    technologies: ['Django REST', 'PostgreSQL', 'Cloudinary', 'Channels'],
+    technologies: ['Flutter', 'Django REST', 'PostgreSQL', 'Cloudinary', 'Channels'],
     stats: [
       { value: '100+', label: 'Automated tests' },
       { value: 'Real-time', label: 'WebSockets' },
@@ -165,7 +173,7 @@ export const projects: Project[] = [
     image: asset('/assets/project-bee3a.webp'),
     imageAlt:
       'Custom 3D Bee3a scene with a point-of-sale tablet, receipt printer, inventory shelves, booking calendar, and order-tracking phone',
-    technologies: ['React', 'TypeScript', 'Express', 'MongoDB'],
+    technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB'],
     stats: [
       { value: '3', label: 'Business systems' },
       { value: 'AR / EN', label: 'Bilingual & RTL' },
@@ -180,7 +188,7 @@ export const projects: Project[] = [
     liveUrl: 'https://sahifati.org/#top',
     label: 'Quran learning & assessment',
     description:
-      'A modular education API for Quran content, assessments, study plans, teacher–student groups, recommendations, onboarding, and secure family accounts.',
+      'A Quran education platform with modular APIs for content, assessments, study plans, teacher–student groups, recommendations, onboarding, and secure family accounts.',
     image: asset('/assets/project-sahifatty.webp'),
     imageAlt: 'Respectful conceptual Quran learning and assessment platform',
     technologies: ['Django REST', 'Pytest', 'OAuth & OTP', 'OneSignal'],
@@ -246,7 +254,7 @@ export const projects: Project[] = [
     ],
     label: 'Multi-tenant delivery platform',
     description:
-      'A delivery backend spanning tenants, branches, orders, prepaid-coupon ledgers, real-time notifications, and Celery-powered recurring tours.',
+      'Delivery operations spanning tenants, branches, orders, prepaid-coupon ledgers, real-time notifications, and Celery-powered recurring tours, serving customer and driver apps.',
     image: asset('/assets/project-aquacloud.webp'),
     imageAlt: 'Conceptual delivery operations, routing, and ledger dashboard',
     technologies: ['Django REST', 'Channels', 'Celery', 'Redis'],
@@ -295,7 +303,7 @@ export const experience: Experience[] = [
     role: 'Full Stack Developer',
     company: 'Adex',
     description:
-      'Building production backends across multi-tenant ERP, B2B trade, education, delivery, and commerce—covering financial ledgers, secure identity, real-time workflows, and high-volume data.',
+      'Building production software across multi-tenant ERP, B2B trade, education, delivery, and commerce, with secure identity, financial workflows, real-time features, and high-volume data.',
     tag: 'Remote · Amman, Jordan',
     hash: 'a7e3f19',
     current: true,
@@ -392,6 +400,7 @@ export const skillGroups: SkillGroup[] = [
     description: 'The systems behind the screen.',
     skills: [
       'Python',
+      'Node.js',
       'Django',
       'Django REST Framework',
       'Django Channels',
@@ -404,7 +413,7 @@ export const skillGroups: SkillGroup[] = [
     number: '02',
     title: 'Frontend',
     description: 'The experience people remember.',
-    skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML & CSS'],
+    skills: ['React', 'React Native', 'Flutter', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML & CSS'],
   },
   {
     number: '03',

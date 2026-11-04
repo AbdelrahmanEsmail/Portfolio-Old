@@ -3,6 +3,7 @@ import { projects, site } from '../../content';
 import { Icon } from '../ui/Icon';
 import { ProjectCard } from './ProjectCard';
 import { ProjectStack } from './ProjectStack';
+import { ProjectDialog } from './ProjectDialog';
 import styles from './work.module.css';
 
 const NUMBER_WORDS = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
@@ -20,7 +21,7 @@ export function Work() {
               <span className="eyebrow-index">02</span>Selected work
             </p>
             <h2 className="heading" id="work-title">
-              Products with a strong <em>backbone.</em>
+              Engineering the complete <em>experience.</em>
             </h2>
           </div>
           <p
@@ -40,6 +41,7 @@ export function Work() {
             card: <ProjectCard project={project} index={index} total={total} />,
           }))}
         />
+        <ProjectDialog />
 
         <div className={styles.outro} data-reveal="">
           <div>

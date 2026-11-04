@@ -1,6 +1,6 @@
 # Zeyad Salama — Portfolio
 
-Personal portfolio of Zeyad Salama, a backend software engineer building secure, transaction-heavy products with Python, Django, and PostgreSQL. Built with React, Next.js, TypeScript, and Vinext.
+Personal portfolio of Zeyad Salama, a software engineer building full-stack web products with React, Next.js, TypeScript, Python, Django, and PostgreSQL. Built with React, Next.js, TypeScript, and Vinext.
 
 Live site: [demo-23home.github.io/Portfolio-Website](https://demo-23home.github.io/Portfolio-Website/)
 
@@ -8,7 +8,7 @@ Live site: [demo-23home.github.io/Portfolio-Website](https://demo-23home.github.
 
 A dark-first "systems diorama" theme sampled from the project cover renders: charcoal surfaces, ivory panels, brass hairlines, and lime and periwinkle signal lines. A light "ivory paper" theme is also available.
 
-- **Hero** — a "Backend depth. Frontend polish." headline: the word *depth* is stacked in layers and *polish* has a moving shine. Next to it, an animated system diagram connects the portrait to API, database, real-time, and job-queue nodes, with packets moving between them and a live `system.log`.
+- **Hero** — a "Systems depth. Product polish." headline: the word *depth* is stacked in layers and *polish* has a moving shine. Next to it, an animated system diagram connects the portrait to frontend, API, database, and deployment nodes, with packets moving between them and a live `system.log`.
 - **⌘K command palette** — jump to any section or project, copy the email address, open the résumé, or switch the theme (also opened with `/`).
 - **Selected work** — all eight projects as sticky, stacking case cards with category filters, stats, and live/app-store links.
 - **About** — includes a `zeyad.py` code card. **Experience** — a git-log timeline whose spine fills as you scroll, with `HEAD → main` on the current role.
@@ -33,6 +33,16 @@ app/
 ```
 
 To update content, edit `app/content.ts`. Sections read from it, so copy and links aren't repeated in the components.
+
+Each project opens an animated case-study dialog. Edit its overview and engineering highlights in `app/project-details.ts`. To add screenshots, append entries using its imported `asset` helper to the project's `screens` array:
+
+```ts
+{ src: asset('/assets/screens/bee3a-pos.webp'), alt: 'Bee3a point-of-sale interface', caption: 'Point of sale' }
+```
+
+The concept cover appears automatically and is labeled separately from real product screens. Additional images enable thumbnails, previous/next image controls, and keyboard navigation in the expanded gallery. Live and app-store links come from `app/content.ts`.
+
+The social preview is rendered from the editable template in `scripts/generate-og.mjs`. After changing its copy, run `node scripts/generate-og.mjs` to regenerate `public/og.svg` and `public/og.png`.
 
 ## Local development
 

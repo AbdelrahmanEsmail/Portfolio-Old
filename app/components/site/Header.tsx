@@ -72,7 +72,7 @@ export function Header() {
   const recomputeRef = useRef<() => void>(() => {});
 
   // Scrollspy: the active section is the last one whose top has crossed a line
-  // ~38% down the viewport. IntersectionObserver tells us when anything crosses.
+  // ~38% down the viewport. The shared scroll frame below keeps this in sync.
   useEffect(() => {
     const compute = () => {
       if (performance.now() < spyPauseRef.current) return;
@@ -89,14 +89,10 @@ export function Header() {
       setActive(current);
     };
     recomputeRef.current = compute;
-
-    const top = SPY_LINE * 100;
-    const io = new IntersectionObserver(compute, { rootMargin: `-${top}% 0px -${99 - top}% 0px` });
-    for (const id of ['top', ...SECTION_IDS]) {
-      const element = document.getElementById(id);
-      if (element) io.observe(element);
-    }
-    return () => io.disconnect();
+    compute();
+    return () => {
+      recomputeRef.current = () => {};
+    };
   }, []);
 
   // Scroll: progress line, "scrolled" style, hide on scroll-down / show on scroll-up.
@@ -111,7 +107,6 @@ export function Header() {
     let direction = 0;
     let hidden = false;
     let scrolled: boolean | null = null;
-    let atBottom = false;
 
     const setHidden = (next: boolean) => {
       if (next === hidden) return;
@@ -145,11 +140,7 @@ export function Header() {
       else if (direction > 0 && y - anchorY > 16) setHidden(true);
       else if (direction < 0 && anchorY - y > 8) setHidden(false);
 
-      const nextAtBottom = y >= max - 4;
-      if (nextAtBottom !== atBottom) {
-        atBottom = nextAtBottom;
-        recomputeRef.current();
-      }
+      recomputeRef.current();
     };
 
     const schedule = () => {

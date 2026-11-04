@@ -34,12 +34,13 @@
 }
 
 .track {
+  --marquee-duration: 180s;
   display: flex;
   width: max-content;
-  animation: marquee var(--dur, 150s) linear infinite;
+  animation: marquee var(--marquee-duration) linear infinite;
 }
 .trackReverse {
-  --dur: 70s;
+  --marquee-duration: 140s;
   animation-direction: reverse;
 }
 .marquee:hover .track,
