@@ -1,0 +1,399 @@
+/* 01 About — the person behind the systems. */
+
+.about {
+  --about-gap: clamp(32px, 4.5vw, 64px);
+  --signal: var(--lime);
+}
+:global(:root[data-theme='light']) .about {
+  --signal: var(--accent-text);
+}
+
+.head {
+  margin-bottom: clamp(44px, 5vw, 68px);
+}
+.head .heading {
+  max-width: 19ch;
+}
+
+/* ---------- Layout ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'photo text'
+    'photo code';
+  column-gap: var(--about-gap);
+  row-gap: clamp(28px, 3vw, 40px);
+}
+
+/* ---------- Photo panel ---------- */
+
+.photoCol {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  grid-area: photo;
+}
+.photoReveal {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.frame {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  margin: 0;
+  padding: 10px;
+}
+
+.photo {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: clamp(380px, 40vw, 560px);
+  overflow: hidden;
+  border-radius: calc(var(--r-lg) - 10px);
+  background: var(--surface-2);
+}
+.photo::after {
+  /* Inner vignette + a soft floor so the caption always reads. */
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 8%, transparent);
+  background:
+    radial-gradient(130% 90% at 50% 30%, transparent 55%, color-mix(in srgb, var(--bg) 38%, transparent)),
+    linear-gradient(180deg, transparent 62%, color-mix(in srgb, var(--bg) 55%, transparent));
+}
+.img {
+  object-fit: cover;
+  object-position: 50% 26%;
+  filter: saturate(0.86) contrast(1.03);
+  transition:
+    transform 1.4s var(--ease-expo),
+    filter var(--dur-slow) var(--ease-out);
+}
+.frame:hover .img {
+  transform: scale(1.03);
+  filter: saturate(0.98) contrast(1.03);
+}
+
+.caption {
+  position: absolute;
+  z-index: 2;
+  bottom: 24px;
+  left: 24px;
+  max-width: calc(100% - 48px);
+  padding: 8px 13px 8px 11px;
+  border-color: color-mix(in srgb, var(--ink) 16%, transparent);
+  background: color-mix(in srgb, var(--bg) 66%, transparent);
+  color: var(--ink);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  white-space: normal;
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+}
+.caption strong {
+  color: var(--accent-text);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.captionDot {
+  width: 6px;
+  height: 6px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 10px var(--glow-lime);
+}
+
+/* Lime sticker slapped on the frame. The wrapper reveals; the note rotates. */
+.stickerWrap {
+  position: absolute;
+  z-index: 3;
+  top: -18px;
+  right: -16px;
+}
+.sticker {
+  position: relative;
+  margin: 0;
+  padding: 12px 18px 13px 15px;
+  border-radius: 10px;
+  background: linear-gradient(315deg, transparent 11px, var(--lime) 11px);
+  color: var(--on-lime);
+  font-family: var(--font-head);
+  font-size: 1.0625rem;
+  font-weight: 650;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  transform: rotate(4deg);
+  filter: drop-shadow(0 14px 18px color-mix(in srgb, var(--shadow) 70%, transparent));
+  transition: transform var(--dur) var(--ease-out);
+}
+.sticker::after {
+  /* Peeling corner. */
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 15.5px;
+  height: 15.5px;
+  border-top-left-radius: 3px;
+  background: linear-gradient(315deg, transparent 50%, var(--lime-deep) 50%);
+}
+.stickerLine {
+  display: block;
+}
+.stickerWrap:hover .sticker {
+  transform: rotate(2deg) scale(1.02);
+}
+
+/* ---------- Copy ---------- */
+
+.text {
+  display: grid;
+  grid-area: text;
+  align-content: start;
+  gap: 22px;
+}
+.text .lead {
+  max-width: 40ch;
+  color: var(--ink);
+}
+.body {
+  max-width: 58ch;
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+/* ---------- Code card + connector ---------- */
+
+.code {
+  position: relative;
+  grid-area: code;
+  align-self: start;
+}
+
+/* Signal line plugging the photo panel into the editor, like the covers' cables. */
+.connector {
+  position: absolute;
+  top: 24px;
+  right: 100%;
+  width: var(--about-gap);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--signal) 30%, transparent),
+    color-mix(in srgb, var(--signal) 75%, transparent)
+  );
+  pointer-events: none;
+}
+.connector::before,
+.connector::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.connector::before {
+  left: -4px;
+  border: 1px solid color-mix(in srgb, var(--signal) 70%, transparent);
+  background: var(--bg);
+}
+.connector::after {
+  right: -4px;
+  background: var(--signal);
+  box-shadow: 0 0 10px var(--glow-lime);
+}
+.packet {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 10px 2px var(--glow-lime);
+  opacity: 0;
+  animation: packet 4.2s var(--ease-in-out) 1.2s infinite;
+}
+
+/* ---------- Spec sheet ---------- */
+
+.facts {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: clamp(40px, 5vw, 64px) 0 0;
+  border-top: 1px solid var(--line-strong);
+}
+.facts::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--signal) 14%, transparent);
+}
+.fact {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 24px 24px 4px 0;
+}
+.fact + .fact {
+  padding-left: 24px;
+  border-left: 1px solid var(--line);
+}
+.factLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.factIndex {
+  color: var(--accent-text);
+}
+.factValue {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+}
+.factPrimary {
+  color: var(--ink);
+  font-size: 1.0625rem;
+  font-weight: 550;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+.factSecondary {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+@keyframes packet {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  12% {
+    opacity: 1;
+  }
+  62% {
+    opacity: 1;
+    transform: translateX(calc(var(--about-gap) - 5px));
+  }
+  72%,
+  100% {
+    opacity: 0;
+    transform: translateX(calc(var(--about-gap) - 5px));
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1099px) {
+  .grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      'photo text'
+      'code code';
+  }
+  .photo {
+    min-height: 360px;
+  }
+  .connector {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .fact,
+  .fact + .fact {
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 16px;
+    padding: 20px 0;
+    border-left: 0;
+  }
+  .fact + .fact {
+    border-top: 1px solid var(--line);
+  }
+  .factLabel {
+    padding-top: 4px;
+  }
+}
+
+@media (max-width: 639px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'photo'
+      'text'
+      'code';
+  }
+  .photo {
+    min-height: 0;
+    aspect-ratio: 4 / 4.4;
+  }
+  .stickerWrap {
+    top: -16px;
+    right: 14px;
+  }
+  .sticker {
+    font-size: 0.9375rem;
+    transform: rotate(4deg);
+  }
+  .caption {
+    bottom: 18px;
+    left: 18px;
+    max-width: calc(100% - 36px);
+    align-items: flex-start;
+    padding: 9px 14px 9px 12px;
+    border-radius: 14px;
+    line-height: 1.45;
+  }
+  .captionDot {
+    margin-top: 5px;
+  }
+  .captionText strong {
+    display: block;
+  }
+  .captionSep {
+    display: none;
+  }
+  .text {
+    gap: 18px;
+  }
+  .body {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .fact,
+  .fact + .fact {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+  .factLabel {
+    padding-top: 0;
+  }
+}

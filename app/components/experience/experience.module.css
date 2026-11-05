@@ -1,0 +1,478 @@
+/* 03 Experience — `git log --graph` of a career. */
+
+.experience {
+  --rail-w: 104px; /* graph column: year ruler + spine */
+  --node-x: 80px; /* spine centre within the rail */
+  --node-y: 48px; /* node centre from the top of an entry */
+  --node: 13px;
+  --signal: var(--lime);
+  --signal-soft: color-mix(in srgb, var(--lime) 16%, transparent);
+}
+:global(:root[data-theme='light']) .experience {
+  --signal: var(--accent-text);
+  --signal-soft: color-mix(in srgb, var(--accent-text) 14%, transparent);
+}
+
+/* ---------- Header ---------- */
+
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 24px clamp(32px, 5vw, 64px);
+  margin-bottom: clamp(44px, 5vw, 68px);
+}
+.head .heading {
+  max-width: 13ch;
+}
+.intro {
+  max-width: 44ch;
+  margin: 0 0 0.35em;
+  color: var(--ink-2);
+  font-size: clamp(1.0625rem, 0.95rem + 0.35vw, 1.25rem);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+/* ---------- Terminal prompt ---------- */
+
+.prompt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 0.6ch;
+  margin: 0 0 6px;
+  padding-left: calc(var(--node-x) - 0.5ch);
+  color: var(--ink-2);
+  font-family: var(--font-code);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+.sign {
+  margin-right: 0.4ch;
+  color: var(--accent-text);
+}
+.flags {
+  color: var(--muted);
+}
+.comment {
+  margin-left: auto;
+  color: var(--muted);
+}
+
+/* ---------- Graph ---------- */
+
+.log,
+.graph {
+  position: relative;
+}
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Closing hairline under the root commit (cards draw the ones above). */
+.list::after {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-left: var(--rail-w);
+  background: var(--line);
+}
+
+.commit {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--rail-w) minmax(0, 1fr);
+}
+
+.rail {
+  position: relative;
+}
+/* Base spine: each entry draws the segment down to the next node. */
+.rail::after {
+  content: '';
+  position: absolute;
+  top: var(--node-y);
+  left: calc(var(--node-x) - 0.5px);
+  width: 1px;
+  height: 100%;
+  background: var(--line-strong);
+}
+.commit:last-child .rail::after {
+  display: none;
+}
+
+.node {
+  position: absolute;
+  z-index: 2;
+  top: var(--node-y);
+  left: var(--node-x);
+  display: grid;
+  width: var(--node);
+  height: var(--node);
+  place-items: center;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--bg);
+  transform: translate(-50%, -50%);
+  transition:
+    border-color var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out),
+    transform var(--dur) var(--ease-out);
+}
+.node::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--signal);
+  transform: scale(0);
+  transition: transform 0.5s var(--ease-expo);
+}
+.commit[data-lit] .node {
+  border-color: var(--signal);
+  box-shadow:
+    0 0 0 4px var(--signal-soft),
+    0 0 16px -2px var(--glow-lime);
+}
+.commit[data-lit] .node::after {
+  transform: scale(1);
+}
+.commit:hover .node {
+  transform: translate(-50%, -50%) scale(1.18);
+}
+
+/* HEAD: filled lime commit with a slow ping. */
+.commit[data-current] .node {
+  --node: 17px;
+  border-color: var(--signal);
+  background: var(--lime);
+  box-shadow:
+    0 0 0 5px var(--signal-soft),
+    0 0 22px var(--glow-lime);
+}
+.commit[data-current] .node::after {
+  display: none;
+}
+.commit[data-current] .node::before {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  border: 1px solid var(--signal);
+  border-radius: 50%;
+  opacity: 0;
+  animation: head-ping 4.8s var(--ease-out) infinite;
+}
+
+/* Year ruler: shown where the start year changes. */
+.year {
+  position: absolute;
+  top: var(--node-y);
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: calc(var(--node-x) - var(--node) / 2 - 8px);
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+.year::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--line-strong) 0 3px, transparent 3px 6px);
+}
+
+/* Scroll-linked fill (positioned and sized by CareerSpine). */
+.track {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: calc(var(--node-x) - 1px);
+  width: 2px;
+  height: 0;
+  pointer-events: none;
+}
+.fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--signal) 60%, transparent),
+    var(--signal)
+  );
+  box-shadow: 0 0 12px -1px var(--glow-lime);
+  transform: scaleY(0);
+  transform-origin: 50% 0;
+  will-change: transform;
+}
+.tip {
+  position: absolute;
+  top: -4.5px;
+  left: -3.5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow:
+    0 0 0 4px var(--signal-soft),
+    0 0 18px 3px var(--glow-lime);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease-out);
+  will-change: transform;
+}
+.tip[data-on] {
+  opacity: 1;
+}
+
+/* ---------- Entry ---------- */
+
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 184px minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-areas: 'meta main desc';
+  align-items: baseline;
+  column-gap: clamp(24px, 2.6vw, 36px);
+  padding: 30px 24px 32px;
+  border-radius: var(--r-md);
+}
+/* Hairline separator (::before belongs to the spotlight). */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: var(--line);
+}
+.commit[data-current] .card {
+  background: radial-gradient(
+    90% 150% at 0% 0%,
+    color-mix(in srgb, var(--signal) 5%, transparent),
+    transparent 62%
+  );
+}
+
+.main {
+  grid-area: main;
+  min-width: 0;
+}
+.role {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: clamp(1.5rem, 1.05rem + 1.15vw, 2rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+.company {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  margin: 10px 0 0;
+}
+.companyName {
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tag svg {
+  flex: none;
+  opacity: 0.8;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  grid-area: meta;
+  gap: 10px;
+  margin: 0;
+  font-family: var(--font-code);
+}
+.ref {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.hash {
+  color: var(--accent-2-text);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+}
+.headRef {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border: 1px solid color-mix(in srgb, var(--signal) 45%, transparent);
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--signal) 10%, transparent);
+  color: var(--accent-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.headName {
+  color: var(--accent-2-text);
+}
+.arrow {
+  color: var(--muted);
+  font-weight: 400;
+}
+.period {
+  color: var(--muted);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.desc {
+  grid-area: desc;
+  max-width: 60ch;
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 1rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+/* `less` pager footer under the root commit. */
+.end {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 22px 0 0;
+  padding-left: calc(var(--node-x) - 0.5ch);
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+}
+.endMark {
+  padding: 1px 5px;
+  background: var(--ink);
+  color: var(--bg);
+}
+
+@keyframes head-ping {
+  0% {
+    opacity: 0.75;
+    transform: scale(0.65);
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1099px) {
+  .experience {
+    --rail-w: 92px;
+    --node-x: 72px;
+    --node-y: 40px;
+  }
+  .card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    grid-template-areas:
+      'meta desc'
+      'main desc';
+    align-items: start;
+    row-gap: 14px;
+    padding: 28px 24px 32px;
+  }
+  .desc {
+    grid-row: 1 / span 2;
+  }
+}
+
+@media (max-width: 900px) {
+  .head {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+  .experience {
+    --rail-w: 40px;
+    --node-x: 12px;
+    --node-y: 38px;
+  }
+  .year {
+    display: none;
+  }
+  .card {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'meta'
+      'main'
+      'desc';
+    row-gap: 12px;
+    padding: 26px 20px 30px;
+  }
+  .desc {
+    grid-row: auto;
+  }
+  .meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 14px;
+  }
+}
+
+@media (max-width: 639px) {
+  .experience {
+    --rail-w: 30px;
+    --node-x: 8px;
+    --node-y: 35px;
+  }
+  .prompt {
+    font-size: 0.75rem;
+  }
+  .comment {
+    display: none;
+  }
+  .card {
+    padding: 24px 0 28px 4px;
+  }
+  .commit[data-current] .card {
+    padding-right: 12px;
+  }
+  .role {
+    font-size: 1.5rem;
+  }
+  .desc {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .commit[data-current] .node::before {
+    opacity: 0.35;
+    transform: scale(1.15);
+  }
+}

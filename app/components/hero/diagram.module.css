@@ -1,0 +1,656 @@
+/* ==========================================================================
+   Hero system diagram — a living version of the project-cover dioramas.
+   Stage geometry comes from diagram.ts: inline --W/--H (desktop) and
+   --Wsm/--Hsm (≤640px); every box carries --x/--y/--w/--h (+ --sx… for small).
+   --u is one design unit, so the whole stage scales as one piece.
+   ========================================================================== */
+
+.stage {
+  --u: calc(100cqw / var(--W));
+  --tone-lime: var(--lime);
+  --tone-peri: var(--peri);
+  --tone-coral: var(--coral);
+  --shade: var(--on-ivory);
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--W) / var(--H);
+  container-type: inline-size;
+}
+:global(:root[data-theme='light']) .stage {
+  --tone-lime: var(--accent-text);
+  --tone-peri: var(--accent-2-text);
+  --tone-coral: color-mix(in srgb, var(--coral) 62%, var(--ink));
+}
+
+.stage [data-tone='lime'] {
+  --tone: var(--tone-lime);
+}
+.stage [data-tone='peri'] {
+  --tone: var(--tone-peri);
+}
+
+.box {
+  position: absolute;
+  left: calc(var(--x) / var(--W) * 100%);
+  top: calc(var(--y) / var(--H) * 100%);
+  width: calc(var(--w) / var(--W) * 100%);
+  height: calc(var(--h) / var(--H) * 100%);
+}
+
+/* ---------- Layers (pointer parallax: --px/--py come from HeroShell) ---------- */
+
+.layer {
+  position: absolute;
+  inset: 0;
+}
+.layerMid {
+  transform: translate3d(calc(var(--px, 0) * 7px), calc(var(--py, 0) * 5px), 0);
+}
+.layerFront {
+  z-index: 2;
+  transform: translate3d(calc(var(--px, 0) * 15px), calc(var(--py, 0) * 10px), 0);
+}
+
+/* Soft light pooled under the core, like a lamp over the tabletop. */
+.halo {
+  position: absolute;
+  left: 8%;
+  right: 4%;
+  top: 6%;
+  bottom: 22%;
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side at 62% 40%, color-mix(in srgb, var(--lime) 13%, transparent), transparent),
+    radial-gradient(closest-side at 34% 70%, color-mix(in srgb, var(--peri) 14%, transparent), transparent);
+  filter: blur(18px);
+  transform: translate3d(calc(var(--px, 0) * -6px), calc(var(--py, 0) * -4px), 0);
+  animation: fadeIn 1.6s ease 0.2s both;
+}
+:global(:root[data-theme='light']) .halo {
+  opacity: 0.8;
+}
+
+/* ---------- Portrait core ---------- */
+
+.portrait {
+  z-index: 1;
+  padding: calc(var(--u) * 7);
+  border: 1px solid var(--line);
+  border-top-color: color-mix(in srgb, var(--brass) 62%, transparent);
+  border-radius: calc(var(--u) * 32);
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  box-shadow:
+    inset 0 1px 0 var(--edge),
+    0 calc(var(--u) * 44) calc(var(--u) * 90) calc(var(--u) * -34) var(--shadow);
+  animation: portraitIn 1.2s var(--ease-expo) 0.2s both;
+}
+
+.photo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: calc(var(--u) * 25);
+  background: var(--shade);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--brass) 38%, transparent);
+}
+
+.photoImg {
+  object-fit: cover;
+  object-position: 46% 30%;
+  transform: scale(1.34);
+  transform-origin: 46% 38%;
+  filter: saturate(0.8) contrast(1.06) brightness(0.97);
+}
+
+.photoShade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(130% 95% at 50% 28%, transparent 52%, color-mix(in srgb, var(--shade) 52%, transparent) 100%),
+    linear-gradient(180deg, transparent 58%, color-mix(in srgb, var(--shade) 62%, transparent) 100%);
+  box-shadow: inset 0 0 calc(var(--u) * 30) color-mix(in srgb, var(--shade) 45%, transparent);
+}
+
+.photoBar {
+  position: absolute;
+  left: calc(var(--u) * 11);
+  right: calc(var(--u) * 11);
+  bottom: calc(var(--u) * 24);
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 7);
+  padding: calc(var(--u) * 7) calc(var(--u) * 10);
+  border: 1px solid color-mix(in srgb, var(--ivory) 14%, transparent);
+  border-radius: calc(var(--u) * 11);
+  background: color-mix(in srgb, var(--shade) 58%, transparent);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  color: color-mix(in srgb, var(--ivory) 78%, transparent);
+  font-family: var(--font-code);
+  font-size: calc(var(--u) * 10);
+  line-height: 1.2;
+  white-space: nowrap;
+  animation: fadeUp 0.8s var(--ease-expo) 1.1s both;
+}
+.photoBarDot {
+  width: calc(var(--u) * 6);
+  height: calc(var(--u) * 6);
+  flex: none;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 calc(var(--u) * 8) var(--glow-lime);
+}
+.photoBarText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.photoBarUser {
+  color: var(--lime);
+}
+.photoBarPath {
+  color: var(--peri);
+}
+.caret {
+  width: calc(var(--u) * 6);
+  height: calc(var(--u) * 11);
+  flex: none;
+  margin-left: calc(var(--u) * -3);
+  background: color-mix(in srgb, var(--ivory) 80%, transparent);
+  animation: blink 1.1s steps(1) infinite;
+}
+
+/* ---------- Wiring ---------- */
+
+.wires {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.wiresSm {
+  display: none;
+}
+
+.cropMarks {
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 1;
+  stroke-opacity: 0.55;
+  animation: fadeIn 1s ease 0.9s both;
+}
+
+.route {
+  color: var(--tone);
+}
+.wire {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: draw 1.1s var(--ease-in-out) both;
+  animation-delay: calc(0.75s + var(--i) * 0.13s);
+}
+.wireGlow {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-opacity: 0.07;
+  animation: fadeIn 1s ease both;
+  animation-delay: calc(1.4s + var(--i) * 0.13s);
+}
+.wireLabel {
+  fill: var(--muted);
+  font-family: var(--font-code);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  animation: fadeIn 0.8s ease both;
+  animation-delay: calc(1.5s + var(--i) * 0.13s);
+}
+.junction {
+  fill: var(--bg);
+  stroke: currentColor;
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pop 0.6s var(--ease-expo) both;
+  animation-delay: calc(0.7s + var(--i) * 0.13s);
+}
+
+.packetCore {
+  fill: var(--tone);
+}
+.packetHalo {
+  fill: var(--tone);
+  opacity: 0.22;
+}
+
+/* ---------- Service nodes ---------- */
+
+.nodeSlot {
+  z-index: 3;
+  animation: nodeIn 0.9s var(--ease-expo) both;
+  animation-delay: var(--enter);
+}
+.nodeFloat {
+  height: 100%;
+  animation: float var(--float-dur) ease-in-out var(--float-delay) infinite;
+}
+
+.node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 9);
+  height: 100%;
+  padding: 0 calc(var(--u) * 12) 0 calc(var(--u) * 9);
+  border: 1px solid var(--line);
+  border-top-color: var(--line-strong);
+  border-radius: calc(var(--u) * 15);
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  box-shadow:
+    inset 0 1px 0 var(--edge),
+    0 calc(var(--u) * 18) calc(var(--u) * 36) calc(var(--u) * -14) var(--shadow);
+  transform: perspective(640px) rotateY(calc(var(--face) * 10deg)) rotateX(7deg);
+}
+
+.nodeIcon {
+  display: grid;
+  width: calc(var(--u) * 32);
+  height: calc(var(--u) * 32);
+  flex: none;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--tone) 30%, transparent);
+  border-radius: calc(var(--u) * 10);
+  background: color-mix(in srgb, var(--tone) 13%, transparent);
+  color: var(--tone);
+}
+.nodeIcon svg {
+  width: calc(var(--u) * 16);
+  height: calc(var(--u) * 16);
+}
+
+.nodeText {
+  display: grid;
+  min-width: 0;
+  gap: calc(var(--u) * 3);
+}
+.nodeSub {
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: calc(var(--u) * 8);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.nodeTitle {
+  overflow: hidden;
+  color: var(--ink);
+  font-family: var(--font-code);
+  font-size: calc(var(--u) * 11);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Activity LED, top-right. */
+.nodeLed {
+  position: absolute;
+  top: calc(var(--u) * 8);
+  right: calc(var(--u) * 9);
+  width: calc(var(--u) * 5);
+  height: calc(var(--u) * 5);
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 calc(var(--u) * 6) var(--tone);
+  animation: led var(--float-dur) ease-in-out var(--float-delay) infinite;
+}
+
+/* Where the wire plugs in. */
+.nodePort {
+  position: absolute;
+  left: calc(var(--port-x) * 100%);
+  width: calc(var(--u) * 9);
+  height: calc(var(--u) * 9);
+  border: 1.5px solid var(--tone);
+  border-radius: 50%;
+  background: var(--bg);
+  transform: translate(-50%, -50%);
+}
+.nodeSlot[data-port='top'] .nodePort {
+  top: 0;
+}
+.nodeSlot[data-port='bottom'] .nodePort {
+  top: 100%;
+}
+
+/* ---------- Log console ---------- */
+
+.log {
+  height: auto;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-top-color: var(--line-strong);
+  border-radius: calc(var(--u) * 18);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--surface-2) 90%, transparent),
+    color-mix(in srgb, var(--surface) 94%, transparent)
+  );
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  box-shadow:
+    inset 0 1px 0 var(--edge),
+    0 calc(var(--u) * 34) calc(var(--u) * 70) calc(var(--u) * -30) var(--shadow);
+  font-family: var(--font-code);
+  font-size: calc(var(--u) * 10.5);
+  line-height: 1.2;
+  animation: logIn 1s var(--ease-expo) 0.85s both;
+}
+
+.logBar {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 10);
+  height: calc(var(--u) * 34);
+  padding: 0 calc(var(--u) * 14);
+  border-bottom: 1px solid var(--line);
+}
+.logDots {
+  display: flex;
+  gap: calc(var(--u) * 5);
+}
+.logDots i {
+  width: calc(var(--u) * 7);
+  height: calc(var(--u) * 7);
+  border-radius: 50%;
+  background: var(--surface-3);
+}
+.logDots i:nth-child(1) {
+  background: color-mix(in srgb, var(--coral) 80%, transparent);
+}
+.logDots i:nth-child(2) {
+  background: color-mix(in srgb, var(--brass) 80%, transparent);
+}
+.logDots i:nth-child(3) {
+  background: color-mix(in srgb, var(--tone-lime) 80%, transparent);
+}
+.logTitle {
+  color: var(--ink-2);
+  letter-spacing: 0.02em;
+}
+.logLive {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--u) * 6);
+  margin-left: auto;
+  color: var(--muted);
+  font-size: calc(var(--u) * 8.5);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.logLiveDot {
+  width: calc(var(--u) * 6);
+  height: calc(var(--u) * 6);
+  border-radius: 50%;
+  background: var(--tone-lime);
+  animation: led 1.8s ease-in-out infinite;
+}
+
+.logRows {
+  --row: calc(var(--u) * 25);
+  position: relative;
+  height: calc(var(--row) * 5);
+  margin: calc(var(--u) * 8) 0 calc(var(--u) * 10);
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+}
+.logRow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: var(--row);
+  padding: 0 calc(var(--u) * 8);
+  transform: translateY(calc(var(--slot) * var(--row)));
+  transition:
+    transform 0.7s var(--ease-expo),
+    opacity 0.45s ease;
+}
+.logRow[data-leaving] {
+  opacity: 0;
+}
+.logRowInner {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 9);
+  height: 100%;
+  padding: 0 calc(var(--u) * 6);
+  border-radius: calc(var(--u) * 7);
+  animation:
+    rowIn 0.6s var(--ease-expo) both,
+    rowFlash 2s ease-out both;
+}
+.logRow[data-initial] .logRowInner {
+  animation: rowIn 0.6s var(--ease-expo) both;
+  animation-delay: calc(1.25s + var(--seq) * 0.14s);
+}
+
+.logMethod {
+  flex: none;
+  min-width: calc(var(--u) * 38);
+  padding: calc(var(--u) * 3) calc(var(--u) * 5);
+  border-radius: calc(var(--u) * 5);
+  background: color-mix(in srgb, var(--m, var(--ink-2)) 13%, transparent);
+  color: var(--m, var(--ink-2));
+  font-size: calc(var(--u) * 8.5);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+.logMethod[data-method='POST'] {
+  --m: var(--tone-lime);
+}
+.logMethod[data-method='GET'] {
+  --m: var(--tone-peri);
+}
+.logMethod[data-method='SQL'] {
+  --m: var(--brass-text);
+}
+.logMethod[data-method='WS'] {
+  --m: var(--tone-coral);
+}
+.logText {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ink-2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.logStatus {
+  flex: none;
+  color: var(--tone-lime);
+  font-weight: 600;
+}
+.logMeta {
+  flex: none;
+  min-width: calc(var(--u) * 44);
+  color: var(--muted);
+  text-align: right;
+}
+
+/* ---------- Small screens: own geometry, two services ---------- */
+
+@media (max-width: 640px) {
+  .stage {
+    --u: calc(100cqw / var(--Wsm));
+    aspect-ratio: var(--Wsm) / var(--Hsm);
+  }
+  .box {
+    left: calc(var(--sx) / var(--Wsm) * 100%);
+    top: calc(var(--sy) / var(--Hsm) * 100%);
+    width: calc(var(--sw) / var(--Wsm) * 100%);
+    height: calc(var(--sh) / var(--Hsm) * 100%);
+  }
+  .log {
+    height: auto;
+  }
+  .wiresLg {
+    display: none;
+  }
+  .wiresSm {
+    display: block;
+  }
+  .nodeSlot:not([data-sm]) {
+    display: none;
+  }
+  .nodePort {
+    left: calc(var(--port-x-sm) * 100%);
+  }
+  .nodeSlot[data-port-sm='top'] .nodePort {
+    top: 0;
+  }
+  .nodeSlot[data-port-sm='bottom'] .nodePort {
+    top: 100%;
+  }
+  .node {
+    transform: perspective(640px) rotateY(calc(var(--face) * 6deg)) rotateX(5deg);
+  }
+  .photoBar {
+    left: calc(var(--u) * 8);
+    right: calc(var(--u) * 8);
+    gap: calc(var(--u) * 5);
+    padding-inline: calc(var(--u) * 8);
+    font-size: calc(var(--u) * 8.6);
+    letter-spacing: -0.01em;
+  }
+  .photoBarDot {
+    display: none;
+  }
+}
+
+/* ---------- Motion ---------- */
+
+@keyframes portraitIn {
+  from {
+    opacity: 0;
+    transform: translateY(26px) scale(0.965);
+  }
+}
+@keyframes nodeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.9);
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(calc(var(--u) * -3));
+  }
+  50% {
+    transform: translateY(calc(var(--u) * 3));
+  }
+}
+@keyframes led {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@keyframes logIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+@keyframes rowIn {
+  from {
+    opacity: 0;
+    transform: translateY(65%);
+  }
+}
+@keyframes rowFlash {
+  from {
+    background: color-mix(in srgb, var(--tone-lime) 13%, transparent);
+  }
+  to {
+    background: transparent;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .halo,
+  .portrait,
+  .photoBar,
+  .caret,
+  .cropMarks,
+  .wire,
+  .wireGlow,
+  .wireLabel,
+  .junction,
+  .nodeSlot,
+  .nodeFloat,
+  .nodeLed,
+  .log,
+  .logLiveDot,
+  .logRowInner,
+  .logRow[data-initial] .logRowInner {
+    animation: none !important;
+  }
+  .packet {
+    display: none;
+  }
+  .layer,
+  .halo {
+    transform: none;
+  }
+  .logRow {
+    transition: none;
+  }
+}

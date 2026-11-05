@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#bde7cf"/>
+  <circle cx="1110" cy="100" r="280" fill="#a7d9be"/>
+  <circle cx="80" cy="850" r="260" fill="#d5efdf"/>
+  <rect x="100" y="130" width="1000" height="640" rx="24" fill="#f7fcf9"/>
+  <path d="M888 130h188a24 24 0 0 1 24 24v592a24 24 0 0 1-24 24H888Z" fill="#173f33"/>
+  <g font-family="Arial, sans-serif">
+    <text x="1065" y="195" text-anchor="end" font-size="32" font-weight="700" fill="#fff">Bee3a · بيعة</text>
+    <g font-size="18" fill="#c0ddce" text-anchor="end">
+      <text x="1065" y="280">Point of sale</text>
+      <text x="1065" y="340">Inventory</text>
+      <text x="1065" y="400">Bookings</text>
+      <text x="1065" y="460">Online orders</text>
+      <text x="1065" y="520">Customers</text>
+    </g>
+    <text x="146" y="197" font-size="15" fill="#5b7c6d">YOUR BUSINESS, CONNECTED</text>
+    <text x="146" y="244" font-size="34" font-weight="700" fill="#173f33">Everyday business. Simplified.</text>
+    <rect x="144" y="284" width="216" height="132" rx="16" fill="#e1f2e8"/>
+    <rect x="384" y="284" width="216" height="132" rx="16" fill="#e1f2e8"/>
+    <rect x="624" y="284" width="216" height="132" rx="16" fill="#e1f2e8"/>
+    <g font-size="15" fill="#5b7c6d">
+      <text x="164" y="321">SELL</text>
+      <text x="404" y="321">SCHEDULE</text>
+      <text x="644" y="321">CONNECT</text>
+    </g>
+    <g font-size="24" font-weight="700" fill="#173f33">
+      <text x="164" y="369">Point of sale</text>
+      <text x="404" y="369">Bookings</text>
+      <text x="644" y="369">Online orders</text>
+    </g>
+    <rect x="144" y="442" width="696" height="196" rx="16" fill="#fff" stroke="#d6e7dd"/>
+    <text x="168" y="483" font-size="21" font-weight="700" fill="#173f33">One workspace for your team</text>
+    <g font-size="17" fill="#5b7c6d">
+      <text x="168" y="526">Sales &amp; inventory</text>
+      <text x="168" y="565">Customers &amp; staff</text>
+      <text x="168" y="604">Cash · InstaPay · Mobile wallets</text>
+    </g>
+    <g fill="#4c9c76">
+      <rect x="605" y="511" width="206" height="10" rx="5"/>
+      <rect x="605" y="550" width="154" height="10" rx="5"/>
+      <rect x="605" y="589" width="181" height="10" rx="5"/>
+    </g>
+    <rect x="144" y="664" width="696" height="60" rx="14" fill="#173f33"/>
+    <text x="168" y="702" font-size="18" fill="#fff">Built for Egyptian small businesses</text>
+    <text x="810" y="702" text-anchor="end" font-size="16" fill="#c0ddce">AR / EN</text>
+  </g>
+</svg>

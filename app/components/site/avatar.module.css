@@ -1,0 +1,23 @@
+.avatar {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--surface-3);
+  /* Brass hairline ring, like the edges on the cover dioramas. */
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--brass) 60%, transparent),
+    0 6px 16px -8px var(--shadow);
+  isolation: isolate;
+}
+
+/* object-fit: cover + position 45% 30% frames the upper body; zoom 2.7× about
+   the head so the face fills the circle (head ≈ 55% of the height). */
+.image {
+  transform: scale(2.7);
+  transform-origin: 41.7% 29.8%;
+  filter: saturate(0.88) contrast(1.04);
+}

@@ -1,0 +1,87 @@
+.habitat {
+  position: relative;
+  grid-area: 2 / 1;
+  height: 44px;
+  margin: 0 20px 4px;
+  pointer-events: none;
+  user-select: none;
+}
+.roam {
+  position: absolute;
+  bottom: 3px;
+  left: 8%;
+  width: 36px;
+  height: 32px;
+  color: var(--coral);
+  animation: wander 30.6s linear infinite;
+}
+.pet {
+  position: relative;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--coral) 12%, transparent));
+}
+.body { animation: bob 500ms steps(2, end) infinite; }
+.highlight { fill: var(--ivory); opacity: 0.18; }
+.eyes {
+  fill: #251c18;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blink 6.8s steps(1, end) infinite;
+}
+.leftFeet, .rightFeet { animation: feet 500ms steps(2, end) infinite; }
+.rightFeet { animation-delay: -250ms; }
+.shadow {
+  position: absolute;
+  right: 4px;
+  bottom: 0;
+  left: 4px;
+  height: 3px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--coral) 15%, transparent);
+}
+.bubble {
+  position: absolute;
+  right: -3px;
+  bottom: 36px;
+  padding: 3px 6px;
+  border: 1px solid color-mix(in srgb, var(--coral) 25%, transparent);
+  border-radius: 5px 5px 1px 5px;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-family: var(--font-code);
+  font-size: 0.5rem;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(3px);
+  transition: opacity 250ms, transform 250ms;
+}
+.spark {
+  position: absolute;
+  top: 0;
+  right: -8px;
+  width: 5px;
+  height: 5px;
+  background: var(--accent-text);
+  opacity: 0;
+}
+.celebrating .pet { animation: hop 600ms var(--ease-out) 2; }
+.celebrating .bubble { opacity: 1; transform: translateY(0); }
+.celebrating .spark { animation: sparkle 1.2s ease-out both; }
+
+@keyframes wander {
+  0%, 7% { left: 8%; }
+  25%, 32% { left: 45%; }
+  49%, 57% { left: calc(100% - 40px); }
+  76%, 83% { left: 35%; }
+  100% { left: 8%; }
+}
+@keyframes bob { 50% { transform: translateY(-1px); } }
+@keyframes feet { 50% { transform: translateY(-2px); } }
+@keyframes blink { 0%, 43%, 47%, 100% { transform: scaleY(1); } 44%, 46% { transform: scaleY(0.15); } }
+@keyframes hop { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(-8px) rotate(-5deg); } 70% { transform: translateY(-3px) rotate(3deg); } }
+@keyframes sparkle { 0% { opacity: 0; transform: translateY(3px) rotate(0); } 25% { opacity: 1; } 100% { opacity: 0; transform: translateY(-15px) rotate(90deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .habitat *, .habitat *::after { animation: none !important; transition: none !important; }
+}

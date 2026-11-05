@@ -1,0 +1,198 @@
+/* Cameos live in the margins, beneath navigation and modal dialogs. */
+.scene {
+  --pet-edge: clamp(6px, calc((100vw - 1240px) / 4 - 8px), 32px);
+  --pet-size: 40px;
+  position: fixed;
+  z-index: 40;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  contain: strict;
+}
+.character { display: block; width: 100%; height: auto; }
+
+.ceilingRig {
+  position: absolute;
+  top: 0;
+  left: var(--pet-edge);
+  width: var(--pet-size);
+  height: clamp(170px, 26vh, 240px);
+  opacity: 0;
+  transform: translateY(-270px);
+  animation: ceiling-drop 38s linear 1.5s infinite;
+}
+.hanging {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 0;
+  animation: silk-sway 3.8s ease-in-out infinite;
+}
+.thread {
+  position: absolute;
+  top: -280px;
+  bottom: 29px;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(transparent, color-mix(in srgb, var(--brass-text) 60%, transparent) 65%);
+}
+.hangingPet { position: absolute; bottom: 0; width: 100%; }
+.hello, .coffeeBreak, .psst {
+  position: absolute;
+  padding: 4px 5px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px 6px 2px 6px;
+  background: var(--surface);
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--shadow) 25%, transparent);
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: 8px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.hello {
+  bottom: 45px;
+  left: 50%;
+  opacity: 0;
+  transform: translateX(-50%);
+  animation: hanging-thought 38s linear 1.5s infinite;
+}
+
+.courier {
+  position: absolute;
+  right: var(--pet-edge);
+  bottom: 12vh;
+  width: var(--pet-size);
+  opacity: 0;
+  transform: translateY(150px);
+  animation: scooter-ride 32s linear 3s infinite;
+}
+.scooter { position: relative; padding-bottom: 7px; transform: rotate(-7deg); }
+.board {
+  position: absolute;
+  right: 1px;
+  bottom: 6px;
+  left: 1px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--accent-2-text);
+}
+.board > span {
+  position: absolute;
+  bottom: -5px;
+  width: 5px;
+  height: 5px;
+  border: 1px solid var(--accent-2-text);
+  border-radius: 50%;
+  background: var(--surface-3);
+}
+.board > span:first-child { left: 5px; }
+.board > span:last-child { right: 5px; }
+.speedLines {
+  position: absolute;
+  right: 7px;
+  bottom: -9px;
+  width: 1px;
+  height: 12px;
+  background: var(--line-strong);
+  box-shadow: -6px 4px var(--line-strong);
+  animation: zoom-lines 700ms ease-out infinite;
+}
+.coffeeBreak {
+  bottom: calc(100% + 5px);
+  left: 50%;
+  opacity: 0;
+  transform: translateX(-50%);
+  animation: coffee-thought 32s linear 3s infinite;
+}
+
+.peeker {
+  position: absolute;
+  bottom: 24vh;
+  left: -7px;
+  width: var(--pet-size);
+  opacity: 0;
+  transform: translateX(-50px) rotate(24deg);
+  animation: peekaboo 44s ease-in-out 9s infinite;
+}
+.psst {
+  bottom: calc(100% + 6px);
+  left: 12px;
+  transform: rotate(-24deg);
+}
+
+.motionControl {
+  position: fixed;
+  z-index: 41;
+  bottom: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: 9px;
+  cursor: pointer;
+  transition: border-color 200ms, color 200ms;
+}
+.motionControl:hover { border-color: var(--line-strong); color: var(--ink); }
+.motionControl[aria-pressed='true'] { color: var(--accent-text); }
+
+.scene[data-paused='true'] *, .scene[data-sleeping='true'] * { animation-play-state: paused !important; }
+:global(body:has(dialog[open])) .scene, :global(body:has(dialog[open])) .motionControl { visibility: hidden; }
+:global(body:has(dialog[open])) .scene * { animation-play-state: paused; }
+
+@keyframes ceiling-drop {
+  0%, 2% { opacity: 0; transform: translateY(-270px); }
+  3% { opacity: 1; transform: translateY(-270px); }
+  9% { opacity: 1; transform: translateY(8px); }
+  11% { opacity: 1; transform: translateY(-12px); }
+  14%, 29% { opacity: 1; transform: translateY(0); }
+  32% { opacity: 1; transform: translateY(15px); }
+  39% { opacity: 1; transform: translateY(-270px); }
+  40%, 100% { opacity: 0; transform: translateY(-270px); }
+}
+@keyframes silk-sway { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+@keyframes hanging-thought { 0%, 16%, 29%, 100% { opacity: 0; } 19%, 25% { opacity: 1; } }
+@keyframes scooter-ride {
+  0%, 3% { opacity: 0; transform: translateY(150px) rotate(4deg); }
+  7% { opacity: 1; transform: translateY(0) rotate(-4deg); }
+  20% { opacity: 1; transform: translateY(-90px) rotate(3deg); }
+  30%, 41% { opacity: 1; transform: translateY(-140px) rotate(0); }
+  48% { opacity: 1; transform: translateY(-160px) rotate(-10deg); }
+  57% { opacity: 1; transform: translateY(30px) rotate(7deg); }
+  63%, 100% { opacity: 0; transform: translateY(160px) rotate(7deg); }
+}
+@keyframes coffee-thought { 0%, 29%, 43%, 100% { opacity: 0; } 32%, 39% { opacity: 1; } }
+@keyframes zoom-lines { from { opacity: 0.7; transform: translateY(0); } to { opacity: 0; transform: translateY(6px); } }
+@keyframes peekaboo {
+  0%, 3%, 38%, 100% { opacity: 0; transform: translateX(-50px) rotate(24deg); }
+  10%, 16% { opacity: 1; transform: translateX(-7px) rotate(24deg); }
+  20% { opacity: 1; transform: translateX(-22px) rotate(10deg); }
+  25%, 31% { opacity: 1; transform: translateX(3px) rotate(18deg); }
+}
+
+@media (max-width: 1359px) {
+  .scene { --pet-size: 30px; --pet-edge: 5px; }
+  .hello, .coffeeBreak { display: none; }
+  .motionControl { left: 5px; bottom: 5px; padding: 0; }
+  .motionControl > span { display: none; }
+}
+@media (max-width: 639px) {
+  .scene { --pet-size: 24px; --pet-edge: 1px; }
+  .ceilingRig { height: 165px; }
+  .hello, .coffeeBreak, .peeker { display: none; }
+  .courier { bottom: 18vh; }
+  .board { height: 2px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene, .motionControl { display: none; }
+  .scene * { animation: none !important; }
+}

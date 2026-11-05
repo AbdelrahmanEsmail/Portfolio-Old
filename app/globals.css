@@ -1,0 +1,603 @@
+@import 'tailwindcss';
+
+/* ==========================================================================
+   Design system — "Systems diorama"
+   Charcoal tabletop · ivory panels · brass hairlines · lime + periwinkle signals.
+   Original product screenshots sit within the portfolio's consistent frame.
+   Section styles live in CSS Modules next to each component; only tokens,
+   base rules, and shared primitives belong in this file.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* Surfaces & ink — dark (default) */
+  --bg: #0b0c0a;
+  --bg-raise: #10120f;
+  --surface: #141612;
+  --surface-2: #1a1d18;
+  --surface-3: #23271f;
+  --ink: #ece8dc;
+  --ink-2: #c4c0b3;
+  --muted: #9b998e;
+  --faint: #5d5c54;
+  --line: rgba(236, 232, 220, 0.11);
+  --line-strong: rgba(236, 232, 220, 0.2);
+  --edge: rgba(255, 255, 255, 0.06);
+  --shadow: rgba(0, 0, 0, 0.55);
+
+  /* Signals (fills) */
+  --lime: #c5f24a;
+  --lime-deep: #a6d62a;
+  --on-lime: #0e100b;
+  --peri: #8f95ff;
+  --peri-deep: #5d63f5;
+  --brass: #c8a46b;
+  --coral: #ff8f70;
+  --ivory: #ece6d6;
+  --on-ivory: #141510;
+
+  /* Signals as text on the page background (contrast-safe per theme) */
+  --accent-text: #c5f24a;
+  --accent-2-text: #8f95ff;
+  --brass-text: #c8a46b;
+
+  /* Effects */
+  --spot: rgba(197, 242, 74, 0.075);
+  --glow-lime: rgba(197, 242, 74, 0.38);
+  --glow-peri: rgba(143, 149, 255, 0.38);
+
+  /* Inverse panel — flips against the current theme (ivory in dark mode) */
+  --inv-bg: #ece6d6;
+  --inv-ink: #141510;
+  --inv-muted: #5f5c50;
+  --inv-line: rgba(20, 21, 16, 0.14);
+  --inv-accent: #3f6300;
+
+  /* Type families (next/font provides the --nf-* variables) */
+  --font-body: var(--nf-sans), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif, var(--nf-arabic);
+  --font-head: var(--nf-display), var(--nf-sans), ui-sans-serif, system-ui, sans-serif, var(--nf-arabic);
+  --font-accent: var(--nf-serif), 'Iowan Old Style', Georgia, serif;
+  --font-code: var(--nf-mono), ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --font-ar: var(--nf-arabic), 'Geeza Pro', 'Noto Kufi Arabic', sans-serif;
+
+  /* Type scale (fluid) */
+  --fs-hero: clamp(3.4rem, 1.1rem + 8.6vw, 9.5rem);
+  --fs-h2: clamp(2.5rem, 1.35rem + 4.1vw, 5.4rem);
+  --fs-h3: clamp(1.6rem, 1.1rem + 1.6vw, 2.5rem);
+  --fs-lead: clamp(1.125rem, 0.95rem + 0.6vw, 1.5rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-micro: 0.75rem;
+
+  /* Layout */
+  --container: 1240px;
+  --gutter: clamp(20px, 4vw, 48px);
+  --section-y: clamp(88px, 10vw, 136px);
+  --header-h: 72px;
+
+  /* Radii */
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 26px;
+  --r-xl: 34px;
+  --r-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 160ms;
+  --dur: 320ms;
+  --dur-slow: 800ms;
+
+  /* Stacking */
+  --z-header: 50;
+  --z-overlay: 80;
+  --z-palette: 90;
+  --z-toast: 95;
+  --z-grain: 100;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #f1eee6;
+  --bg-raise: #f6f4ee;
+  --surface: #fbfaf6;
+  --surface-2: #efebe1;
+  --surface-3: #e5e0d2;
+  --ink: #13150f;
+  --ink-2: #3b3d35;
+  --muted: #6a685d;
+  --faint: #a19e91;
+  --line: rgba(19, 21, 15, 0.1);
+  --line-strong: rgba(19, 21, 15, 0.2);
+  --edge: rgba(255, 255, 255, 0.75);
+  --shadow: rgba(52, 44, 24, 0.18);
+
+  --accent-text: #477000;
+  --accent-2-text: #4a50d8;
+  --brass-text: #85632f;
+  --brass: #a8834b;
+
+  --spot: rgba(71, 112, 0, 0.065);
+  --glow-lime: rgba(150, 200, 30, 0.42);
+  --glow-peri: rgba(93, 99, 245, 0.28);
+
+  --inv-bg: #11130f;
+  --inv-ink: #ece8dc;
+  --inv-muted: #9a988c;
+  --inv-line: rgba(236, 232, 220, 0.12);
+  --inv-accent: #c5f24a;
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 28px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scrollbar-color: var(--surface-3) var(--bg);
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: clip;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Theme switch: the new theme grows as a circle from the toggle (see ui/theme.ts). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Matte film grain over everything — the "tabletop" texture of the covers. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-grain);
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+:root[data-theme='light'] body::after {
+  opacity: 0.035;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+img {
+  max-width: 100%;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-code);
+}
+
+::selection {
+  background: var(--lime);
+  color: var(--on-lime);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-2-text);
+  outline-offset: 3px;
+}
+
+[lang='ar'],
+.arabic {
+  font-family: var(--font-ar);
+}
+
+/* ---------- Layout primitives ---------- */
+
+.container {
+  width: min(var(--container), 100% - 2 * var(--gutter));
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  padding-top: var(--section-y);
+}
+
+.skip-link {
+  position: fixed;
+  z-index: calc(var(--z-grain) + 1);
+  top: 12px;
+  left: 12px;
+  padding: 10px 16px;
+  border-radius: var(--r-pill);
+  background: var(--lime);
+  color: var(--on-lime);
+  font-weight: 600;
+  transform: translateY(-160%);
+  transition: transform var(--dur) var(--ease-out);
+}
+.skip-link:focus-visible {
+  transform: none;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* ---------- Typography primitives ---------- */
+
+/* Section label:  ● 02 ──── SELECTED WORK */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  flex: none;
+  border: 1px solid var(--brass-text);
+  background: color-mix(in srgb, var(--brass-text) 15%, transparent);
+  transform: rotate(45deg);
+}
+.eyebrow-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--brass-text);
+}
+.eyebrow-index::after {
+  content: '';
+  width: 34px;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+/* Section headline (h2). Wrap the accent word in <em>. */
+.heading {
+  margin: 0;
+  max-width: 15ch;
+  font-family: var(--font-head);
+  font-size: var(--fs-h2);
+  font-weight: 620;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+.heading em,
+.serif-accent {
+  font-family: var(--font-accent);
+  font-size: 1.08em;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  color: var(--accent-text);
+  padding-right: 0.04em;
+}
+
+.lead {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  letter-spacing: -0.012em;
+  text-wrap: pretty;
+}
+
+.mono {
+  font-family: var(--font-code);
+}
+
+.label {
+  font-family: var(--font-code);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Controls ---------- */
+
+.btn {
+  --btn-bg: transparent;
+  --btn-ink: var(--ink);
+  --btn-line: var(--line-strong);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 52px;
+  padding: 0 24px;
+  border: 1px solid var(--btn-line);
+  border-radius: var(--r-pill);
+  background: var(--btn-bg);
+  color: var(--btn-ink);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform var(--dur) var(--ease-out),
+    background-color var(--dur-fast) ease,
+    border-color var(--dur-fast) ease,
+    box-shadow var(--dur) var(--ease-out),
+    color var(--dur-fast) ease;
+}
+.btn:has(.btn-icon) {
+  padding-right: 7px;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+.btn-primary {
+  --btn-bg: var(--lime);
+  --btn-ink: var(--on-lime);
+  --btn-line: transparent;
+  box-shadow: 0 12px 32px -14px var(--glow-lime);
+}
+.btn-primary:hover {
+  --btn-bg: color-mix(in srgb, var(--lime) 88%, #fff);
+  box-shadow: 0 20px 44px -16px var(--glow-lime);
+}
+.btn-ghost {
+  --btn-bg: color-mix(in srgb, var(--surface) 55%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.btn-ghost:hover {
+  --btn-bg: var(--surface-2);
+  --btn-line: color-mix(in srgb, var(--ink) 35%, transparent);
+}
+/* Round icon "chip" at the end of a button. */
+.btn-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--on-lime);
+  color: var(--lime);
+  transition: transform var(--dur) var(--ease-out);
+}
+.btn-ghost .btn-icon {
+  background: var(--surface-3);
+  color: var(--ink);
+}
+.btn:hover .btn-icon {
+  transform: rotate(-45deg);
+}
+.btn:hover .btn-icon[data-direction='down'] {
+  transform: translateY(2px);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--surface) 60%, transparent);
+  color: var(--ink-2);
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kbd {
+  display: inline-grid;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: 0.6875rem;
+  line-height: 1;
+}
+
+/* Live / status dot with a soft pulse. */
+.status-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 12px var(--glow-lime);
+}
+.status-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--lime);
+  opacity: 0;
+  animation: status-ping 2.4s var(--ease-out) infinite;
+}
+:root[data-theme='light'] .status-dot {
+  background: #6aa300;
+}
+
+/* ---------- Surfaces ---------- */
+
+/* Matte panel with a lit top edge, like the diorama tiles. */
+.panel {
+  position: relative;
+  border: 1px solid var(--line);
+  border-top-color: var(--panel-edge, var(--line-strong));
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--surface), var(--bg-raise));
+  box-shadow:
+    inset 0 1px 0 var(--edge),
+    0 30px 80px -42px var(--shadow);
+}
+.panel-brass {
+  --panel-edge: color-mix(in srgb, var(--brass) 60%, transparent);
+}
+
+/* Theme-inverted panel (ivory in dark mode, charcoal in light mode). */
+.panel-inverse {
+  --ink: var(--inv-ink);
+  --ink-2: var(--inv-ink);
+  --muted: var(--inv-muted);
+  --line: var(--inv-line);
+  --line-strong: color-mix(in srgb, var(--inv-ink) 24%, transparent);
+  --accent-text: var(--inv-accent);
+  --brass-text: color-mix(in srgb, var(--inv-ink) 75%, var(--inv-accent));
+  background: var(--inv-bg);
+  color: var(--inv-ink);
+}
+
+/* Cursor-following glow. Opt in with the data-spotlight attribute; the element
+   must be positioned. ::before is reserved for the effect on these elements. */
+[data-spotlight] {
+  isolation: isolate;
+}
+[data-spotlight]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(560px circle at var(--mx, 50%) var(--my, 0%), var(--spot), transparent 55%);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease-out);
+}
+[data-spotlight]:hover::before {
+  opacity: 1;
+}
+
+/* ---------- Reveal on scroll ---------- */
+/* Add data-reveal to any element; optional style={{ '--delay': '120ms' }}.
+   Don't put data-reveal on an element that needs its own transform/filter —
+   wrap it instead. */
+
+.js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition:
+    opacity 0.65s var(--ease-expo) var(--delay, 0ms),
+    transform 0.65s var(--ease-expo) var(--delay, 0ms);
+}
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+/* Failsafe: if the reveal script never boots, show everything. */
+.js:not(.reveal-ready) [data-reveal] {
+  animation: reveal-failsafe 0.01s linear 2.5s forwards;
+}
+
+@keyframes reveal-failsafe {
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+@keyframes status-ping {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.6);
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

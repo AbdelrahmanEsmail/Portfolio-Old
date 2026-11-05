@@ -1,0 +1,725 @@
+/* ==========================================================================
+   Toolkit card visuals — decorative, aria-hidden.
+   Every ambient loop reads `animation-play-state: var(--play, running)` so the
+   bento can pause them while it is off-screen (see LoopZone).
+   ========================================================================== */
+
+.tonePeri {
+  --tone-fill: var(--peri);
+}
+.toneBrass {
+  --tone-fill: var(--brass);
+}
+.toneLime {
+  --tone-fill: var(--lime);
+}
+
+/* ---------- Backend · schema diagram ---------- */
+
+/* Inset "ERD canvas": stretches to fill the card so spare height reads as canvas. */
+.schema {
+  position: relative;
+  display: grid;
+  height: 100%;
+  min-height: 0;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--surface-2) 42%, transparent);
+  box-shadow: inset 0 1px 0 var(--edge);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Dot grid, fading towards the edges. */
+.schema::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--line-strong) 1px, transparent 1.4px);
+  background-position: center;
+  background-size: 18px 18px;
+  -webkit-mask-image: radial-gradient(ellipse 78% 74% at 50% 55%, #000 30%, transparent 88%);
+  mask-image: radial-gradient(ellipse 78% 74% at 50% 55%, #000 30%, transparent 88%);
+}
+
+.schemaBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px 0;
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.schemaKeys {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.legendPk,
+.legendFk,
+.legendLock {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.legendPk {
+  color: var(--brass-text);
+}
+.legendFk {
+  color: var(--accent-2-text);
+}
+.legendLock {
+  color: var(--accent-text);
+  text-transform: uppercase;
+}
+.legendLock::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--lime) 20%, transparent);
+}
+
+.schemaStage {
+  position: relative;
+  display: grid;
+  min-height: 0;
+  place-items: center;
+  padding: clamp(8px, 1.6vw, 20px) clamp(8px, 1.4vw, 16px) clamp(12px, 1.8vw, 22px);
+}
+
+.schemaSvg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.tbl {
+  fill: var(--surface-2);
+  stroke: var(--line-strong);
+  stroke-width: 1;
+}
+.tblHead {
+  fill: color-mix(in srgb, var(--surface-3) 75%, transparent);
+}
+.tblEdge {
+  fill: none;
+  stroke: color-mix(in srgb, var(--brass) 70%, transparent);
+  stroke-linecap: round;
+  stroke-width: 1;
+}
+.tblGlyph {
+  fill: var(--tone-fill);
+}
+.tblRule {
+  fill: none;
+  stroke: var(--line-strong);
+}
+.rowRule {
+  fill: none;
+  stroke: var(--line);
+}
+
+.tblName,
+.colName,
+.colType,
+.keyPk,
+.keyFk,
+.note,
+.noteMuted {
+  font-family: var(--font-code);
+}
+.tblName {
+  fill: var(--ink);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.colName {
+  fill: var(--ink-2);
+  font-size: 11px;
+}
+.colType {
+  fill: var(--muted);
+  font-size: 10.5px;
+}
+.keyPk,
+.keyFk {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.keyPk {
+  fill: var(--brass-text);
+}
+.keyFk {
+  fill: var(--accent-2-text);
+}
+.note {
+  fill: var(--brass-text);
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+}
+.noteMuted {
+  fill: var(--muted);
+  font-size: 10px;
+}
+
+/* Transaction boundary around orders + ledger_entries. */
+.txn {
+  fill: color-mix(in srgb, var(--brass) 4%, transparent);
+  stroke: color-mix(in srgb, var(--brass) 50%, transparent);
+  stroke-dasharray: 3 5;
+  stroke-linecap: round;
+  stroke-width: 1;
+}
+.txnTab {
+  fill: var(--surface);
+  stroke: color-mix(in srgb, var(--brass) 55%, transparent);
+  stroke-width: 1;
+}
+.txnLabel {
+  fill: var(--brass-text);
+  font-family: var(--font-code);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+/* The row being written inside the transaction. */
+.lockedRow {
+  fill: color-mix(in srgb, var(--lime) 11%, transparent);
+}
+.lockedFlash {
+  fill: color-mix(in srgb, var(--lime) 22%, transparent);
+  opacity: 0;
+  animation: row-flash 4.2s var(--ease-out) 3.05s infinite;
+  animation-play-state: var(--play, running);
+}
+.lockedBar {
+  fill: var(--lime);
+}
+
+/* Relations + junctions */
+.rel {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.25;
+  opacity: 0.75;
+}
+.relPeri {
+  color: var(--accent-2-text);
+  stroke: var(--accent-2-text);
+}
+.relLime {
+  color: var(--accent-text);
+  stroke: var(--accent-text);
+}
+.junction {
+  fill: var(--surface-2);
+  stroke-width: 1.5;
+}
+.junctionEnd {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* Packets: a short dash travelling the path (pathLength = 100). */
+.packet,
+.packetHalo {
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 7 200;
+  stroke-dashoffset: 8;
+  animation: packet 4.2s linear infinite;
+  animation-play-state: var(--play, running);
+}
+.packet {
+  stroke-width: 2.25;
+}
+.packetHalo {
+  stroke-width: 7;
+  opacity: 0.25;
+}
+.packetB {
+  animation-delay: 1.45s;
+}
+
+/* Lock badge */
+.lockBadge {
+  fill: var(--lime);
+  stroke: color-mix(in srgb, var(--on-lime) 22%, transparent);
+  stroke-width: 1;
+}
+.lockGlyph {
+  fill: none;
+  stroke: var(--on-lime);
+  stroke-linecap: round;
+  stroke-width: 1.6;
+}
+.lockBody {
+  fill: var(--on-lime);
+}
+.lockRing {
+  fill: none;
+  stroke: var(--lime);
+  stroke-width: 1.5;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: lock-ring 4.2s var(--ease-out) 3.05s infinite;
+  animation-play-state: var(--play, running);
+}
+
+:global(:root[data-theme='light']) .lockedRow {
+  fill: color-mix(in srgb, var(--accent-text) 9%, transparent);
+}
+:global(:root[data-theme='light']) .lockedFlash {
+  fill: color-mix(in srgb, var(--accent-text) 16%, transparent);
+}
+:global(:root[data-theme='light']) .lockedBar {
+  fill: var(--accent-text);
+}
+:global(:root[data-theme='light']) .lockBadge {
+  stroke: var(--lime-deep);
+}
+:global(:root[data-theme='light']) .lockRing {
+  stroke: var(--lime-deep);
+}
+:global(:root[data-theme='light']) .tbl {
+  fill: var(--surface);
+}
+:global(:root[data-theme='light']) .junction {
+  fill: var(--surface);
+}
+
+@keyframes packet {
+  0% {
+    stroke-dashoffset: 8;
+  }
+  38%,
+  100% {
+    stroke-dashoffset: -100;
+  }
+}
+@keyframes lock-ring {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  45%,
+  100% {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+@keyframes row-flash {
+  0% {
+    opacity: 1;
+  }
+  45%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ---------- Frontend · exploded layer stack ---------- */
+
+.layers {
+  --lift: 19px;
+  position: relative;
+  display: grid;
+  width: 214px;
+  height: 172px;
+  place-items: center;
+  pointer-events: none;
+  user-select: none;
+}
+:global([data-tk-card]:hover) .layers,
+:global([data-tk-card]:focus-within) .layers {
+  --lift: 31px;
+}
+
+.iso {
+  position: relative;
+  width: 118px;
+  height: 118px;
+  transform: translateY(16px) rotateX(58deg) rotateZ(-45deg);
+  transform-style: preserve-3d;
+  animation: iso-bob 7s var(--ease-in-out) infinite;
+  animation-play-state: var(--play, running);
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  transform: translateZ(calc(var(--z) * var(--lift)));
+  transition: transform 700ms var(--ease-expo);
+}
+
+/* z = 0 · design tokens plate */
+.layerTokens {
+  border: 1px solid color-mix(in srgb, var(--brass) 55%, transparent);
+  background: var(--surface-3);
+  box-shadow: 0 20px 32px -14px var(--shadow);
+}
+.gridLines {
+  position: absolute;
+  inset: 12px 12px 34px;
+  border-radius: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--brass) 38%, transparent) 0 1px,
+    transparent 1px 20px
+  );
+}
+.swatches {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  gap: 5px;
+}
+.swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+.swatch:nth-child(1) {
+  background: var(--lime);
+}
+.swatch:nth-child(2) {
+  background: var(--peri);
+}
+.swatch:nth-child(3) {
+  background: var(--brass);
+}
+.swatch:nth-child(4) {
+  background: var(--coral);
+}
+
+/* z = 1 · component boundaries */
+.layerParts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 24px 1fr;
+  gap: 7px;
+  padding: 11px;
+  border: 1px dashed color-mix(in srgb, var(--peri) 85%, transparent);
+  background: color-mix(in srgb, var(--peri) 16%, transparent);
+}
+.part {
+  border: 1px dashed color-mix(in srgb, var(--peri) 65%, transparent);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--peri) 8%, transparent);
+}
+.part:first-child {
+  grid-column: 1 / -1;
+}
+
+/* z = 2 · the interface (ivory ceramic tile) */
+.layerUi {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 11px;
+  border: 1px solid color-mix(in srgb, var(--brass) 50%, transparent);
+  background: var(--ivory);
+  box-shadow: 0 16px 28px -14px var(--shadow);
+}
+.uiDots {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 3px;
+}
+.uiDots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--on-ivory) 28%, transparent);
+}
+.uiTitle {
+  width: 64%;
+  height: 9px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--on-ivory) 88%, transparent);
+}
+.uiLine {
+  width: 86%;
+  height: 5px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--on-ivory) 22%, transparent);
+}
+.uiLineShort {
+  width: 58%;
+}
+.uiButton {
+  width: 42px;
+  height: 14px;
+  margin-top: auto;
+  border-radius: var(--r-pill);
+  background: var(--lime);
+  box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--on-lime) 18%, transparent);
+}
+
+:global(:root[data-theme='light']) .layerUi {
+  border-color: var(--line-strong);
+  background: var(--surface);
+}
+:global(:root[data-theme='light']) .layerTokens {
+  background: var(--surface-3);
+}
+
+@keyframes iso-bob {
+  0%,
+  100% {
+    transform: translateY(16px) rotateX(58deg) rotateZ(-45deg);
+  }
+  50% {
+    transform: translateY(10px) rotateX(58deg) rotateZ(-45deg);
+  }
+}
+
+/* ---------- Platform · CI pipeline ---------- */
+
+.pipeline {
+  display: grid;
+  gap: 16px;
+  padding: 14px 16px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--surface-2) 60%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+
+.pipeHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  overflow: hidden;
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.pipeCmd::before {
+  content: '$ ';
+  color: var(--brass-text);
+}
+.pipeFile {
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+}
+
+.pipeBody {
+  position: relative;
+}
+
+.stages {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.stage {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+.node {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--muted);
+  animation: stage-lit 4.8s linear infinite;
+  animation-delay: calc(var(--i) * 1s);
+  animation-play-state: var(--play, running);
+}
+.stageLive .node {
+  animation-name: stage-live;
+}
+.stageLabel {
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.08em;
+}
+
+/* Track between the first and last node centres (columns are equal). */
+.track {
+  position: absolute;
+  top: 17px;
+  right: 12.5%;
+  left: 12.5%;
+  height: 1px;
+  background: var(--line-strong);
+  container-type: inline-size;
+}
+.trackFill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, var(--brass));
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: track-fill 4.8s linear infinite;
+  animation-play-state: var(--play, running);
+}
+/* Zero-width carrier moved by the track's own width (100cqw), so nothing
+   ever extends past the card (a translated full-width box would). */
+.pulseCarrier {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  animation: track-carry 4.8s linear infinite;
+  animation-play-state: var(--play, running);
+}
+.pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  margin: -4px 0 0 -4.5px;
+  border-radius: 50%;
+  background: var(--brass);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--brass) 22%, transparent),
+    0 0 14px var(--brass);
+}
+
+@keyframes stage-lit {
+  0%,
+  26% {
+    border-color: color-mix(in srgb, var(--brass) 85%, transparent);
+    color: var(--brass-text);
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--brass) 14%, transparent),
+      0 0 22px -6px var(--brass);
+  }
+  50%,
+  100% {
+    border-color: var(--line-strong);
+    color: var(--muted);
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+@keyframes stage-live {
+  0%,
+  34% {
+    border-color: var(--lime);
+    background: var(--lime);
+    color: var(--on-lime);
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--lime) 18%, transparent),
+      0 0 26px -6px var(--glow-lime);
+  }
+  56%,
+  100% {
+    border-color: var(--line-strong);
+    background: var(--surface-2);
+    color: var(--muted);
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+@keyframes track-fill {
+  0% {
+    opacity: 1;
+    transform: scaleX(0);
+  }
+  62.5% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  85%,
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+}
+@keyframes track-carry {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  3% {
+    opacity: 1;
+  }
+  62.5% {
+    opacity: 1;
+    transform: translateX(100cqw);
+  }
+  68%,
+  100% {
+    opacity: 0;
+    transform: translateX(100cqw);
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+/* Phones: zoom the ERD onto orders → ledger_entries (the lock is the story). */
+@media (max-width: 640px) {
+  .schemaStage {
+    display: block;
+    padding: 6px 8px 14px 0;
+  }
+  .schemaSvg {
+    width: 148%;
+    max-width: none;
+    margin-left: -48%;
+    -webkit-mask-image: linear-gradient(90deg, transparent 32%, #000 44%);
+    mask-image: linear-gradient(90deg, transparent 32%, #000 44%);
+  }
+}
+
+/* ---------- Reduced motion: calm, finished states ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .packets,
+  .lockRing,
+  .lockedFlash,
+  .pulseCarrier {
+    display: none;
+  }
+  .iso {
+    animation: none;
+  }
+  .node {
+    border-color: color-mix(in srgb, var(--brass) 70%, transparent);
+    color: var(--brass-text);
+    animation: none;
+  }
+  .stageLive .node {
+    border-color: var(--lime);
+    background: var(--lime);
+    color: var(--on-lime);
+  }
+  .trackFill {
+    opacity: 0.7;
+    transform: none;
+    animation: none;
+  }
+}

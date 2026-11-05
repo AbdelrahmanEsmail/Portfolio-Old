@@ -1,0 +1,316 @@
+{
+  "reviewed": "2026-11-05",
+  "source": "../za-studio/src/content/portfolio.json",
+  "studioProjectCount": 27,
+  "locallyBackedCount": 17,
+  "excludedCount": 10,
+  "missingProjects": [],
+  "mapping": [
+    {
+      "zaSlug": "bee3a",
+      "zaTitle": "Bee3a",
+      "portfolioSlug": "bee3a",
+      "localSources": [
+        "../bee3a"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "saas-erp",
+      "zaTitle": "Multi-Tenant SaaS ERP",
+      "portfolioSlug": "saas-erp",
+      "localSources": [
+        "../adex-erp",
+        "../adex-erp-react"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "madkhol",
+      "zaTitle": "Madkhol — Investment App",
+      "portfolioSlug": null,
+      "localSources": [],
+      "status": "excluded",
+      "notes": "No matching application source directory found under ~/code. Za Studio case-study text and media alone do not establish local application source. The user explicitly requested local projects only."
+    },
+    {
+      "zaSlug": "yotell-health",
+      "zaTitle": "Yotell Health",
+      "portfolioSlug": "fiva-health",
+      "localSources": [
+        "../fiva_health_django",
+        "../adex/fiva_health_django"
+      ],
+      "status": "already-included",
+      "notes": "Yotell Health corresponds to the health-tracking Django backend stored as FIVA Health. It is distinct from the separately implemented Yotell social Flutter client."
+    },
+    {
+      "zaSlug": "ghaith-adex",
+      "zaTitle": "Ghaith Adex",
+      "portfolioSlug": "ghaith-adex",
+      "localSources": [
+        "../ghaith_adex_django",
+        "../adex/ghaith_adex_django"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "basicsengage",
+      "zaTitle": "BasicsEngage Platform",
+      "portfolioSlug": null,
+      "localSources": [],
+      "status": "excluded",
+      "notes": "No matching application source directory found under ~/code. Za Studio case-study text and media alone do not establish local application source. The user explicitly requested local projects only."
+    },
+    {
+      "zaSlug": "china-erp",
+      "zaTitle": "China ERP Systems",
+      "portfolioSlug": "china-erp",
+      "localSources": [
+        "../china-system-react",
+        "../adex/china-system-django"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "appgain-notify-server",
+      "zaTitle": "Appgain Notify Server",
+      "portfolioSlug": null,
+      "localSources": [],
+      "status": "excluded",
+      "notes": "No matching application source directory found under ~/code. Za Studio case-study text and media alone do not establish local application source. The user explicitly requested local projects only."
+    },
+    {
+      "zaSlug": "sahifatty",
+      "zaTitle": "Sahifatty",
+      "portfolioSlug": "sahifatty",
+      "localSources": [
+        "../sahifati-django",
+        "../SAHIFATI_API"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "aljadriya",
+      "zaTitle": "Aljadriya",
+      "portfolioSlug": "aljadriya",
+      "localSources": [
+        "../aljadriya-platform",
+        "../adex/aljadriya-platform"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "key-academy",
+      "zaTitle": "Key Academy",
+      "portfolioSlug": "key-academy",
+      "localSources": [
+        "../key-academy-front",
+        "../key-academy-django",
+        "../key_academy_app"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "sukoon",
+      "zaTitle": "Sukoon",
+      "portfolioSlug": "sukoon",
+      "localSources": [
+        "../sukoon"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "barcode-jackets",
+      "zaTitle": "Barcode Jackets",
+      "portfolioSlug": "barcode-jackets",
+      "localSources": [
+        "../jakets-project",
+        "../jaketets-mohammad-edits",
+        "../adex/jackets"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "negm-feed",
+      "zaTitle": "Negm Feed",
+      "portfolioSlug": null,
+      "localSources": [],
+      "status": "excluded",
+      "notes": "No matching application source directory found under ~/code. Za Studio case-study text and media alone do not establish local application source. The user explicitly requested local projects only."
+    },
+    {
+      "zaSlug": "peak-pharma",
+      "zaTitle": "Peak Pharma",
+      "portfolioSlug": null,
+      "localSources": [],
+      "status": "excluded",
+      "notes": "No matching application source directory found under ~/code. Za Studio case-study text and media alone do not establish local application source. The user explicitly requested local projects only."
+    },
+    {
+      "zaSlug": "connectgain",
+      "zaTitle": "ConnectGain",
+      "portfolioSlug": null,
+      "localSources": [],
+      "status": "excluded",
+      "notes": "No matching application source directory found under ~/code. Za Studio case-study text and media alone do not establish local application source. The user explicitly requested local projects only."
+    },
+    {
+      "zaSlug": "ikhair",
+      "zaTitle": "iKhair (Quantatil)",
+      "portfolioSlug": null,
+      "localSources": [],
+      "status": "excluded",
+      "notes": "No matching application source directory found under ~/code. Za Studio case-study text and media alone do not establish local application source. The user explicitly requested local projects only."
+    },
+    {
+      "zaSlug": "alzhafra-admin",
+      "zaTitle": "Alzhafra Admin",
+      "portfolioSlug": null,
+      "localSources": [],
+      "status": "excluded",
+      "notes": "No matching application source directory found under ~/code. Za Studio case-study text and media alone do not establish local application source. The user explicitly requested local projects only."
+    },
+    {
+      "zaSlug": "zhafra-attendees",
+      "zaTitle": "Zhafra Attendees",
+      "portfolioSlug": null,
+      "localSources": [],
+      "status": "excluded",
+      "notes": "No matching application source directory found under ~/code. Za Studio case-study text and media alone do not establish local application source. The user explicitly requested local projects only."
+    },
+    {
+      "zaSlug": "marrakesh-consumer",
+      "zaTitle": "Marrakesh Consumer",
+      "portfolioSlug": null,
+      "localSources": [],
+      "status": "excluded",
+      "notes": "No matching application source directory found under ~/code. Za Studio case-study text and media alone do not establish local application source. The user explicitly requested local projects only."
+    },
+    {
+      "zaSlug": "ai-call-center",
+      "zaTitle": "AI Call Center",
+      "portfolioSlug": "ai-call-center",
+      "localSources": [
+        "../Ai-call-center",
+        "../adex/Ai-call-center"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "jobbee",
+      "zaTitle": "Jobbee",
+      "portfolioSlug": "jobbee",
+      "localSources": [
+        "../DRF_NEXT_Jobs-portal"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "alpha-apartments",
+      "zaTitle": "Alpha Apartments",
+      "portfolioSlug": "realstate-management",
+      "localSources": [
+        "../DRF-React-RealStateManagement"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "ambassador360",
+      "zaTitle": "Ambassador360",
+      "portfolioSlug": "ambassador360",
+      "localSources": [
+        "../DRF_React_NextJS-Ambassador360"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "fei-health",
+      "zaTitle": "Fei",
+      "portfolioSlug": "fei",
+      "localSources": [
+        "../FeiAPI"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "game-hub",
+      "zaTitle": "Game Hub",
+      "portfolioSlug": "game-discovery",
+      "localSources": [
+        "../React-VideoGame-DiscoveryApp",
+        "../DRF-GameDiscovery-App"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    },
+    {
+      "zaSlug": "xdisplay-tahoe-bridge",
+      "zaTitle": "XDisplay Tahoe Bridge",
+      "portfolioSlug": "xdisplay-bridge",
+      "localSources": [
+        "../xdisplay-tahoe-bridge"
+      ],
+      "status": "already-included",
+      "notes": "Alias grouped with the existing product; do not create a duplicate entry."
+    }
+  ],
+  "recommendedZaStudioRevision": {
+    "slug": "za-studio",
+    "label": "Bilingual software & design studio",
+    "description": "A bilingual studio website with perspective-driven project navigation, per-project brand palettes, four themes, and reusable case studies combining galleries, architecture diagrams, and product stories.",
+    "overview": "Za Studio is the shared software-and-design studio website for Ahmed Magdy and Zeyad Salama. Its identity carries through a CSS 3D project staircase, layered route transitions, per-project palettes, and four coordinated themes. A typed bilingual content system builds case studies from galleries, architecture diagrams, metrics, and editorial blocks; Arabic layouts, keyboard access, and reduced-motion behavior are part of the implementation.",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "React Router",
+      "Vite",
+      "CSS 3D",
+      "Lenis"
+    ],
+    "highlights": [
+      {
+        "title": "A studio identity in motion",
+        "description": "Perspective typography, project stairs, layered navigation, and theme-aware illustrations make the identity part of the browsing experience."
+      },
+      {
+        "title": "One content system, many stories",
+        "description": "Typed English and Arabic content drives reusable galleries, diagrams, metrics, quotes, and product sections, with a palette for each case study."
+      },
+      {
+        "title": "Responsive and motion-aware",
+        "description": "Responsive routes, keyboard controls, Arabic text direction, and reduced-motion fallbacks support the same work across devices and visitor preferences."
+      }
+    ],
+    "businessSources": [
+      "../za-studio/src/content/portfolio.json",
+      "../za-studio/src/content/portfolio.ar.json",
+      "../za-studio/src/content/types.ts",
+      "../za-studio/src/routes/ProjectIndex.tsx",
+      "../za-studio/src/state/AppState.tsx",
+      "../za-studio/src/lib/scroll.tsx",
+      "../za-studio/src/styles/base.css",
+      "../za-studio/src/styles/motion.css"
+    ]
+  },
+  "correctionsToStudioClaims": [
+    "China ERP portfolio should retain company-wide shared records; Za Studio text says tenant-isolated but the local backend ADR supersedes that design.",
+    "RealState frontend currently contains landing/auth only. Za Studio admin screenshots and marketing descriptions must not be treated as evidence of the inspected client implementation.",
+    "FEI studio screenshots are explicitly rebuilt from a team design; label as reconstructed references if ever reused, not fresh original frontend captures.",
+    "XDisplay studio media are illustrations, not application screenshots; keep that distinction if ever reused."
+  ]
+}

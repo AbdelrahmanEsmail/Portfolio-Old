@@ -1,0 +1,2079 @@
+{
+  "updated": "2026-11-05",
+  "projects": [
+    {
+      "slug": "barcode-jackets",
+      "businessSources": [
+        "../adex/jackets/README.md",
+        "../adex/jackets/frontend/src/components/shared/studio/StudioPage.jsx",
+        "../adex/jackets/frontend/src/components/shared/studio/steps/ReviewStep.jsx"
+      ],
+      "notes": [
+        "Images pre-exist in older jakets-project checkout; current adex/jackets continues same product. No claim made that screenshots show current production release."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/barcode-jackets/za-studio/hero.webp",
+          "source": "../za-studio/public/media/barcode-jackets/hero.jpg",
+          "originalSha256": "a66035dbce5541723fde44efc0c03c1e4c497d8ea7dd2a9cad75fd7c9868b558",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/barcode-jackets/za-studio/feature.webp",
+          "source": "../za-studio/public/media/barcode-jackets/feature.jpg",
+          "originalSha256": "c6f61034aa15b01a260bf6a73395f503586e9a7689aa4576caa349bdd986913a",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/barcode-jackets/za-studio/app-01.webp",
+          "source": "../za-studio/public/media/barcode-jackets/app-01.jpg",
+          "originalSha256": "4e94eb7b4dea576bdeca1251d8c5b5c9879081480940003c5b6f2a41844e8c64",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/barcode-jackets/za-studio/app-02.webp",
+          "source": "../za-studio/public/media/barcode-jackets/app-02.jpg",
+          "originalSha256": "4468e33b78b9db0f0dda03aa4dcf11443b92eaeb52e9a75de85193533de69197",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/barcode-jackets/za-studio/app-03.webp",
+          "source": "../za-studio/public/media/barcode-jackets/app-03.jpg",
+          "originalSha256": "6f8ff60dfd0d59b2abe1f38733b5ae9c3d0d66f65d2c805b65d71edbe9906d60",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/barcode-jackets/za-studio/app-04.webp",
+          "source": "../za-studio/public/media/barcode-jackets/app-04.jpg",
+          "originalSha256": "4b0d61c80ac49e16e04f312a8d539bff63f9ec277cd0026d4157657588176ff1",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/barcode-jackets/designer-materials.webp",
+          "source": "../jakets-project/jaketets/tools/debug/qa/studio-body-leather.png",
+          "note": "Existing local screenshot of the real product UI from project QA folder. Visually inspected. No customer data visible. Screenshot reflects an older project checkout, not a fresh production capture."
+        },
+        {
+          "file": "/assets/projects/barcode-jackets/designer-artwork.webp",
+          "source": "../jakets-project/jaketets/tools/debug/qa/studio-designs-front.png",
+          "note": "Existing local screenshot of the real product UI from project QA folder. Visually inspected. No customer data visible. Screenshot reflects an older project checkout, not a fresh production capture."
+        },
+        {
+          "file": "/assets/projects/barcode-jackets/design-review.webp",
+          "source": "../jakets-project/jaketets/tools/debug/qa/studio-review.png",
+          "note": "Existing local screenshot of the real product UI from project QA folder. Visually inspected. No customer data visible. Screenshot reflects an older project checkout, not a fresh production capture."
+        },
+        {
+          "file": "/assets/projects/barcode-jackets/product-catalogue.webp",
+          "source": "../jakets-project/jaketets/tools/debug/qa/landing-models.png",
+          "note": "Existing local screenshot of the real product UI from project QA folder. Visually inspected. No customer data visible. Screenshot reflects an older project checkout, not a fresh production capture."
+        },
+        {
+          "file": "/assets/projects/barcode-jackets/mobile-designer.webp",
+          "source": "../jakets-project/jaketets/tools/debug/qa/phone-studio.png",
+          "note": "Existing local screenshot of the real product UI from project QA folder. Visually inspected. No customer data visible. Screenshot reflects an older project checkout, not a fresh production capture."
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "barcode-jackets",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "sukoon",
+      "businessSources": [
+        "../sukoon/Sukoon-API/frontend/landing/src/i18n/dictionaries.ts",
+        "../sukoon/sokoun/docs/verification/property-closure-2026-10-21/REPORT_AR.md",
+        "../sukoon/sokoun/docs/verification/end_to_end_closure/README.md"
+      ],
+      "notes": [
+        "App gallery includes real implemented app screenshots with QA/demo data, not screenshots of customer accounts.",
+        "3D tour is a prepared representative model, not an automatic real-estate scan.",
+        "Public landing copy mentions book viewings, but current mobile-readiness report says retired viewing-date scheduler remains retired. Prefer broad incoming requests wording over newly claiming scheduled live viewings.",
+        "No .env files, credentials, production customer records or logs read."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/sukoon/za-studio/hero.webp",
+          "source": "../za-studio/public/media/sukoon/hero.jpg",
+          "originalSha256": "c2b362083cc951d16db4ad2a18f1855b64a604da957917a6c4787585081e0990",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/sukoon/za-studio/feature.webp",
+          "source": "../za-studio/public/media/sukoon/feature.jpg",
+          "originalSha256": "44963c23d67b4f9aa684abff632626c53e9affa8d4109a2072e2588c24380aa5",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/sukoon/za-studio/landing-01.webp",
+          "source": "../za-studio/public/media/sukoon/landing-01.jpg",
+          "originalSha256": "13c201a1d78ce06361d5e843b4b2f86759fce5de66fdaed04f4af82b28addf4b",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/sukoon/za-studio/landing-02.webp",
+          "source": "../za-studio/public/media/sukoon/landing-02.jpg",
+          "originalSha256": "75e2840dd60336f9f9d2ee6acd1b0c06cad04a8452f4c3bf42ddfcd790caf647",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/sukoon/za-studio/landing-03.webp",
+          "source": "../za-studio/public/media/sukoon/landing-03.jpg",
+          "originalSha256": "3ea546b1d7b556759ee903ca73bbf1d7f8f7ef7e8e94ab4574932f3938f47f5e",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/sukoon/za-studio/landing-04.webp",
+          "source": "../za-studio/public/media/sukoon/landing-04.jpg",
+          "originalSha256": "4fd697141b2d4fa4bf4792108c338ccba65342acd5171231fce98ae050d43cef",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/sukoon/za-studio/app-01.webp",
+          "source": "../za-studio/public/media/sukoon/app-01.jpg",
+          "originalSha256": "9e0abb9caa301c7cd82d40ca90806f28a927954541d402f72b6de859a066b810",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/sukoon/za-studio/app-02.webp",
+          "source": "../za-studio/public/media/sukoon/app-02.jpg",
+          "originalSha256": "458422aca4e6183c7fd5da0e6581f7227524a62cbf30d7a8686d223f4a05795b",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/sukoon/za-studio/app-03.webp",
+          "source": "../za-studio/public/media/sukoon/app-03.jpg",
+          "originalSha256": "1b25428588ff83c679f0bbb23a459f82e54d5e1e776defca0a31aa618d7a7453",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/sukoon/public-website.webp",
+          "source": "https://sukoon.rent/en",
+          "note": "Public website captured with native browser DevTools on 2026-11-04 at 1280×800. Marketing page includes its own app preview; the other gallery images are actual app captures."
+        },
+        {
+          "file": "/assets/projects/sukoon/app-welcome.webp",
+          "source": "../sukoon/sokoun/docs/qa/mobile-readiness-2026-10-31/screens/welcome-en-390.png",
+          "note": "Actual Flutter-rendered app screen from fixture visual suite; not a design proposal."
+        },
+        {
+          "file": "/assets/projects/sukoon/owner-dashboard.webp",
+          "source": "../sukoon/sokoun/docs/ui-refactor/evidence/dashboards/owner-ar-light.png",
+          "note": "Actual rendered Flutter owner dashboard using Test account/demo data, visibly labeled."
+        },
+        {
+          "file": "/assets/projects/sukoon/virtual-tour-360.webp",
+          "source": "../sukoon/sokoun/docs/verification/property-closure-2026-10-21/ios-panorama-preview.png",
+          "note": "Actual running iOS simulator screenshot, explicit QA tour. Panorama uses CC0 Poly Haven media, not a real rental listing. REPORT_AR.md lines 12,19,43 and iOS verification section describe capture."
+        },
+        {
+          "file": "/assets/projects/sukoon/virtual-tour-3d.webp",
+          "source": "../sukoon/sokoun/docs/verification/property-closure-2026-10-21/ios-model-preview.png",
+          "note": "Actual running iOS simulator screenshot of a QA representative model, not a scan of a customer property. REPORT_AR.md lines 35-43 identifies locally prepared CC0 Kenney model."
+        },
+        {
+          "file": "/assets/projects/sukoon/rental-comparison.webp",
+          "source": "../sukoon/sokoun/docs/verification/end_to_end_closure/comparison-en.png",
+          "note": "Actual Flutter-rendered feature screen with synthetic data. end_to_end_closure/README.md explicitly documents synthetic disposable test fixtures and rendered screen capture."
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "sukoon",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "aljadriya",
+      "businessSources": [
+        "../aljadriya-platform/frontend/src/components/landing/LandingPage.tsx",
+        "../aljadriya-platform/frontend/src/components/landing/LandingSections.tsx",
+        "../aljadriya-platform/frontend/src/components/landing/Audiences.tsx",
+        "../aljadriya-platform/frontend/src/components/landing/Assistants.tsx",
+        "../aljadriya-platform/frontend/src/components/landing/Frames.tsx"
+      ],
+      "notes": [
+        "The repository/project identifier is Aljadriya; current frontend public landing copy uses Masar Academy branding. Consider Aljadriya / Masar Academy for clarity if preserving the portfolio project name.",
+        "Shipped promotional product screenshots contain sample learning content."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/aljadriya/za-studio/hero.webp",
+          "source": "../za-studio/public/media/aljadriya/hero.jpg",
+          "originalSha256": "d0cbc3ea4509bbdd2e5129c0c65fc946dce5e11d06edda50f4f85253b6007ff6",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/aljadriya/za-studio/feature.webp",
+          "source": "../za-studio/public/media/aljadriya/feature.jpg",
+          "originalSha256": "8f6926fa0afebadff4ae4fcc07ed34aaa5c65c2d92660c544d82430d5358e86b",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/aljadriya/za-studio/app-01.webp",
+          "source": "../za-studio/public/media/aljadriya/app-01.jpg",
+          "originalSha256": "ff152ba8f7f55968edb2f8ac7ce9d500b11ce853008a3fc6ae9a02063606efa0",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/aljadriya/za-studio/app-02.webp",
+          "source": "../za-studio/public/media/aljadriya/app-02.jpg",
+          "originalSha256": "3719c67ad49be6bd075eae84f91d977dbf9eb4a310ba35ec6364960f81c2af44",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/aljadriya/za-studio/app-03.webp",
+          "source": "../za-studio/public/media/aljadriya/app-03.jpg",
+          "originalSha256": "6abd7125b74bed29adc6ef3f42ab662460c4c93d62f1f95d72ec32d12fe2738c",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/aljadriya/za-studio/app-04.webp",
+          "source": "../za-studio/public/media/aljadriya/app-04.jpg",
+          "originalSha256": "83ffeb5e3342252b3c4540a5114b62bb3197ddfc4b05f028a0dae1e8ba98acf1",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/aljadriya/za-studio/app-05.webp",
+          "source": "../za-studio/public/media/aljadriya/app-05.jpg",
+          "originalSha256": "456d56462fe88c78b0c06f7fa00896e3aebb971155dc86bb72c39b267c75428e",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/aljadriya/learning-path.webp",
+          "source": "../aljadriya-platform/frontend/public/landing/shot-path.webp",
+          "note": "Existing real product UI screenshot bundled in the project public landing assets. Viewed visually; not a generated portfolio mockup. Promotional/example content shipped by the project, not extracted from a private customer session."
+        },
+        {
+          "file": "/assets/projects/aljadriya/course-catalog.webp",
+          "source": "../aljadriya-platform/frontend/public/landing/shot-explore.webp",
+          "note": "Existing real product UI screenshot bundled in the project public landing assets. Viewed visually; not a generated portfolio mockup. Promotional/example content shipped by the project, not extracted from a private customer session."
+        },
+        {
+          "file": "/assets/projects/aljadriya/course-detail.webp",
+          "source": "../aljadriya-platform/frontend/public/landing/shot-course.webp",
+          "note": "Existing real product UI screenshot bundled in the project public landing assets. Viewed visually; not a generated portfolio mockup. Promotional/example content shipped by the project, not extracted from a private customer session."
+        },
+        {
+          "file": "/assets/projects/aljadriya/mizo-lesson-assistant.webp",
+          "source": "../aljadriya-platform/frontend/public/landing/shot-mizo.webp",
+          "note": "Existing real product UI screenshot bundled in the project public landing assets. Viewed visually; not a generated portfolio mockup. Promotional/example content shipped by the project, not extracted from a private customer session."
+        },
+        {
+          "file": "/assets/projects/aljadriya/mobile-learning-path.webp",
+          "source": "../aljadriya-platform/frontend/public/landing/mobile-path.webp",
+          "note": "Existing real product UI screenshot bundled in the project public landing assets. Viewed visually; not a generated portfolio mockup. Promotional/example content shipped by the project, not extracted from a private customer session."
+        },
+        {
+          "file": "/assets/projects/aljadriya/mobile-waiso-assistant.webp",
+          "source": "../aljadriya-platform/frontend/public/landing/mobile-waiso.webp",
+          "note": "Existing real product UI screenshot bundled in the project public landing assets. Viewed visually; not a generated portfolio mockup. Promotional/example content shipped by the project, not extracted from a private customer session."
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "aljadriya",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "bee3a",
+      "businessSources": [
+        "../bee3a/apps/landing/src/locales/en.json",
+        "../bee3a/apps/landing/src/config.ts",
+        "../bee3a/apps/web/vite.config.ts",
+        "../bee3a/apps/web/src/router.tsx",
+        "../bee3a/apps/web/src/features/auth/LoginPage.tsx",
+        "../bee3a/packages/mock/src/seed.ts",
+        "../bee3a/packages/mock/src/market.ts",
+        "../za-studio/src/content/portfolio.json"
+      ],
+      "notes": [
+        "The browser-local fixture app is used for captures; no production customer session.",
+        "Existing demo previews matched against application components and source fixture data. No original capture script located; these are not new production captures."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/bee3a/za-studio/hero.webp",
+          "source": "../za-studio/public/media/bee3a/hero.jpg",
+          "originalSha256": "ed0cb511cfef38d45a6cad1da60f1bd4d7186e69fa0d0353e9a33ba6ef7a6c2a",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/bee3a/za-studio/feature.webp",
+          "source": "../za-studio/public/media/bee3a/feature.jpg",
+          "originalSha256": "7210e7a0a7c3dfeb5668df370627d0141b3a13c0dc36c4834b8f1c5f13734974",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/bee3a/za-studio/app-01.webp",
+          "source": "../za-studio/public/media/bee3a/app-01.jpg",
+          "originalSha256": "64cca1391cb2bc5580df9be2859c2d99ab9f7153363344ef7d82703d443f6aeb",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/bee3a/za-studio/app-02.webp",
+          "source": "../za-studio/public/media/bee3a/app-02.jpg",
+          "originalSha256": "fbef3128ebdac7a00fa1f32a23f73d6c88b0ba50134d4753b45ff95c760eb713",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/bee3a/za-studio/app-03.webp",
+          "source": "../za-studio/public/media/bee3a/app-03.jpg",
+          "originalSha256": "a30fd1bacc31d3f7e784f7b8f96cd680587093646e9cf5f4c6632080360920eb",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/bee3a/za-studio/app-04.webp",
+          "source": "../za-studio/public/media/bee3a/app-04.jpg",
+          "originalSha256": "a8fb4f2121e479671ae0a8fbc558c7a084a821139283236020062ad032b59d3f",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/bee3a/cover.webp",
+          "source": "../za-studio/public/media/bee3a/hero.jpg",
+          "note": "Existing composited previews of actual Bee3a demo product UI, copied from the user’s za-studio code assets. They were inspected and matched to Bee3a source components and seeded example data. Not newly captured and not asserted to represent current production."
+        },
+        {
+          "file": "/assets/projects/bee3a/point-of-sale.webp",
+          "source": "../za-studio/public/media/bee3a/app-01.jpg",
+          "note": "Existing composited previews of actual Bee3a demo product UI, copied from the user’s za-studio code assets. They were inspected and matched to Bee3a source components and seeded example data. Not newly captured and not asserted to represent current production."
+        },
+        {
+          "file": "/assets/projects/bee3a/sales-dashboard.webp",
+          "source": "../za-studio/public/media/bee3a/app-02.jpg",
+          "note": "Existing composited previews of actual Bee3a demo product UI, copied from the user’s za-studio code assets. They were inspected and matched to Bee3a source components and seeded example data. Not newly captured and not asserted to represent current production."
+        },
+        {
+          "file": "/assets/projects/bee3a/booking-calendar.webp",
+          "source": "../za-studio/public/media/bee3a/app-03.jpg",
+          "note": "Existing composited previews of actual Bee3a demo product UI, copied from the user’s za-studio code assets. They were inspected and matched to Bee3a source components and seeded example data. Not newly captured and not asserted to represent current production."
+        },
+        {
+          "file": "/assets/projects/bee3a/mobile-experience.webp",
+          "source": "../za-studio/public/media/bee3a/app-04.jpg",
+          "note": "Existing composited previews of actual Bee3a demo product UI, copied from the user’s za-studio code assets. They were inspected and matched to Bee3a source components and seeded example data. Not newly captured and not asserted to represent current production."
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "bee3a",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "sahifatty",
+      "businessSources": [
+        "https://sahifati.org/",
+        "https://apps.apple.com/us/app/sahifati-for-the-holy-quran/id6758934985"
+      ],
+      "notes": [
+        "Django README is a generic starter README; use official product copy instead.",
+        "The separate SAHIFATI_API repo is a NestJS/MongoDB API; avoid assuming all current product code is Django based only on folder name."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/sahifatty/za-studio/hero.webp",
+          "source": "../za-studio/public/media/sahifatty/hero.jpg",
+          "originalSha256": "648675df0078a654c8b7e408e38370252a62bf6e2e5edd5b21d1692fcd67e872",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/sahifatty/za-studio/feature.webp",
+          "source": "../za-studio/public/media/sahifatty/feature.jpg",
+          "originalSha256": "3ffa0bb0a4be45c0c80e1115c4abb4bf414d23a3850e638d810db65b376eb229",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/sahifatty/za-studio/portal-01.webp",
+          "source": "../za-studio/public/media/sahifatty/portal-01.jpg",
+          "originalSha256": "0c55565c464967ad30ca19542f26295095183d9a2e69d1b342988dd15024c0e6",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/sahifatty/za-studio/portal-02.webp",
+          "source": "../za-studio/public/media/sahifatty/portal-02.jpg",
+          "originalSha256": "079dbbb88990afb0b1420aa636a6f8c35ca1e2ec67eb7069aa2e97ff0c597fd0",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/sahifatty/za-studio/portal-03.webp",
+          "source": "../za-studio/public/media/sahifatty/portal-03.jpg",
+          "originalSha256": "4ea0e5797e3aea854144cb13cfed8b04e47ec2b1d52190823edaafd998c2dc33",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/sahifatty/za-studio/portal-04.webp",
+          "source": "../za-studio/public/media/sahifatty/portal-04.jpg",
+          "originalSha256": "58065b83186ec8d59f946168eb2d270ebc332b68fab046529bfa514bb718275f",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/sahifatty/sahifati-01.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/00/20/ce/0020ce42-c6e2-c063-f2ef-5fafb02f23db/01login1260__U00d7_2736.jpg/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/sahifatty/sahifati-02.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/bf/ca/e4/bfcae4b1-3168-5bdd-3097-2f4907ebd60d/02reading1260__U00d7_2736.jpg/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/sahifatty/sahifati-03.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/76/bb/af/76bbafa4-be7e-2699-bd3d-1f4d4b7ce0ac/03evalu1260__U00d7_2736.jpg/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/sahifatty/sahifati-04.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/32/ac/f6/32acf68d-b9c3-5fd9-d65c-4fdb21861d05/04evalu1260__U00d7_2736.jpg/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/sahifatty/cover.webp",
+          "derivedFrom": [
+            "/assets/projects/sahifatty/sahifati-02.webp",
+            "/assets/projects/sahifatty/sahifati-03.webp",
+            "/assets/projects/sahifatty/sahifati-04.webp"
+          ],
+          "note": "Simple arrangement of three authentic screenshots on a neutral background. No generated UI."
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "sahifatty",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "ghaith-adex",
+      "businessSources": [
+        "https://apps.apple.com/us/app/id6795517365",
+        "https://apps.apple.com/us/app/id6796311081",
+        "https://play.google.com/store/apps/details?id=com.adex.aquacloud.junaidi",
+        "https://play.google.com/store/apps/details?id=com.adex.aquacloud.junaidi.driver"
+      ],
+      "notes": [
+        "Published screenshots currently use Al Junaidi Water branding, despite portfolio engineering title Ghaith Adex. State that relationship clearly.",
+        "Customer 03 visibly contains test product copy; prefer customer 01, 05, 08 and 09 for gallery.",
+        "Driver 01 is an empty daily-routes state; authentic but no populated driver-route screenshot in the store."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/ghaith-adex/za-studio/hero.webp",
+          "source": "../za-studio/public/media/ghaith-adex/hero.jpg",
+          "originalSha256": "8b1133b78196390ef4915922c2259fa82f87915ac1f088078cb0a5f804c59e66",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/za-studio/feature.webp",
+          "source": "../za-studio/public/media/ghaith-adex/feature.jpg",
+          "originalSha256": "4db3de44fcae2a27ba312e9d61e2a0ab142870b4caeea946b90398c7bd87c7e9",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/za-studio/customer-01.webp",
+          "source": "../za-studio/public/media/ghaith-adex/customer-01.jpg",
+          "originalSha256": "12ac4c2eb56cfb9522d35a7dcd1b3227dff8df4a5fdb706e76f9aff17713b2cd",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/za-studio/customer-02.webp",
+          "source": "../za-studio/public/media/ghaith-adex/customer-02.jpg",
+          "originalSha256": "cecfd610f363d38daea1096ef881fdd1770c8e8a9329ea6107b76ea50b875026",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/za-studio/driver-01.webp",
+          "source": "../za-studio/public/media/ghaith-adex/driver-01.jpg",
+          "originalSha256": "7e36cc49cdadcd8315e031ca429dae7c43ae70719699c81afba288f88f2238c8",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/ghaith-adex/customer-01.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/b8/a0/8a/b8a08a23-e03b-18bc-110e-ac355054f377/Simulator_Screenshot_-_iPhone_17_Pro_Max_-_2026-08-07_at_18.04.55.png/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/customer-02.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b3/12/51/b31251bc-0d0a-9f3b-ed83-0f1cd2afc983/Simulator_Screenshot_-_iPhone_17_Pro_Max_-_2026-08-07_at_18.04.40.png/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/customer-05.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/40/73/7d/40737db4-bb5d-efe2-6bf2-17d50a77aeb6/Simulator_Screenshot_-_iPhone_17_Pro_Max_-_2026-08-07_at_18.05.12.png/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/customer-08.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/13/3b/f8/133bf894-01fd-ced5-3c96-e76e811f086d/Simulator_Screenshot_-_iPhone_17_Pro_Max_-_2026-08-07_at_18.04.59.png/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/customer-09.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/40/b3/5f/40b35f94-025c-6c42-6cec-eca419fd0078/Simulator_Screenshot_-_iPhone_17_Pro_Max_-_2026-08-07_at_18.05.01.png/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/driver-01.webp",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/6a/9e/2f/6a9e2f41-5f1e-fa1f-7657-ad826c59fe8e/Simulator_Screenshot_-_iPhone_Air_-_2026-07-30_at_17.20.17.png/1260x2736bb.jpg",
+          "note": "Official publisher App Store screenshot, resized and compressed to WebP without recreating the UI."
+        },
+        {
+          "file": "/assets/projects/ghaith-adex/cover.webp",
+          "derivedFrom": [
+            "/assets/projects/ghaith-adex/customer-01.webp",
+            "/assets/projects/ghaith-adex/customer-05.webp",
+            "/assets/projects/ghaith-adex/customer-08.webp"
+          ],
+          "note": "Simple arrangement of three authentic screenshots on a neutral background. No generated UI."
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "ghaith-adex",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "saas-erp",
+      "businessSources": [
+        "../adex-erp-react/src/locales/en/landing.json",
+        "../adex-erp-react/src/locales/en/nav.json",
+        "../adex-erp-react/src/routes/appRoutes.jsx",
+        "../za-studio/src/content/portfolio.json"
+      ],
+      "notes": [
+        "Code folder adex-erp-react and matching adex-erp backend are newly present and correct.",
+        "adex/adex_mathaq_django is a different food/delivery backend; do not use for this ERP project.",
+        "Source landing currently brands itself UnifiedCore. Prefer portfolio engineering title unless user wants product brand.",
+        "Internal finance/HR pages are authenticated and API-backed. Do not capture private production financial or employee data.",
+        "Existing demo previews matched against application components and source fixture data. No original capture script located; these are not new production captures."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/saas-erp/za-studio/hero.webp",
+          "source": "../za-studio/public/media/saas-erp/hero.jpg",
+          "originalSha256": "c95e156a8c71ad45cadd9442d2585ec09f860cf3d8f770f3a0a82894f5038e5e",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/saas-erp/za-studio/feature.webp",
+          "source": "../za-studio/public/media/saas-erp/feature.jpg",
+          "originalSha256": "1d83c56c10d6ee218c62fdb90d47615c3af6111184b0d02fcfed61a3fd16ce69",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/saas-erp/za-studio/erp-01.webp",
+          "source": "../za-studio/public/media/saas-erp/erp-01.jpg",
+          "originalSha256": "0e25a9bad6c994ce34973a996ce568492df9dd88987d3b8f096d690f071a8492",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/saas-erp/za-studio/erp-02.webp",
+          "source": "../za-studio/public/media/saas-erp/erp-02.jpg",
+          "originalSha256": "0519b7a571802bf1f76cf46d58a49adc17626f4b39dc4b63e60ab3db51576c00",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/saas-erp/za-studio/erp-03.webp",
+          "source": "../za-studio/public/media/saas-erp/erp-03.jpg",
+          "originalSha256": "2740ed0ceeb5a88c121bb0288f347a30daa17836142af2f54f3353cbe391ce1b",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/saas-erp/za-studio/erp-04.webp",
+          "source": "../za-studio/public/media/saas-erp/erp-04.jpg",
+          "originalSha256": "3a9037c6473c5b9d64525a6922304e47515741f9da0d60711e044a06c3066975",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/saas-erp/za-studio/erp-05.webp",
+          "source": "../za-studio/public/media/saas-erp/erp-05.jpg",
+          "originalSha256": "b6d38865d707311370ac83286daf75cdf43c0827ccc3473141492b3398e44af5",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/saas-erp/za-studio/erp-06.webp",
+          "source": "../za-studio/public/media/saas-erp/erp-06.jpg",
+          "originalSha256": "f235eb115b313f662e10360f935d0a3c4c631374166aa0e98e962ed39918f387",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/saas-erp/za-studio/erp-07.webp",
+          "source": "../za-studio/public/media/saas-erp/erp-07.jpg",
+          "originalSha256": "9e9057679dc2c5719a66f4723e6ed66fc1dca53c9a2d58b6da4f3ef0dd575a83",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/saas-erp/za-studio/erp-08.webp",
+          "source": "../za-studio/public/media/saas-erp/erp-08.jpg",
+          "originalSha256": "9af9a365a16c422ccfa4ed222bc28d3c5e239b0b4ef0bfb5c957f1d3b0f09a62",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/saas-erp/za-studio/erp-09.webp",
+          "source": "../za-studio/public/media/saas-erp/erp-09.jpg",
+          "originalSha256": "8358ba315b2a2f81bde2bf6841a966bc0e8df9860149e29e43a2ed84863002d7",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/saas-erp/za-studio/app-01.webp",
+          "source": "../za-studio/public/media/saas-erp/app-01.jpg",
+          "originalSha256": "5811815c59d848fa35deb5bb0edbd9e50e9c0a8676725a599843d9c07eaf1a8e",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/saas-erp/za-studio/app-04.webp",
+          "source": "../za-studio/public/media/saas-erp/app-04.jpg",
+          "originalSha256": "5fb0c7a3a0801449f3814b1a7891fad9f06d734376782152e06df4cab25447c3",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/saas-erp/erp-dashboard-preview.webp",
+          "source": "../za-studio/public/media/saas-erp/hero.jpg",
+          "note": "Existing raster app previews from za-studio. UI structure, controls, copy and styles strongly correspond to the real adex-erp-react source; actual source screenshots are placed in browser/phone presentation frames. No independent capture session or capture script located. Reused as existing demo app previews, not newly captured live screens.",
+          "dataset": "Nile Valley Trading demo tenant, as explicitly described in za-studio/src/content/portfolio.json. Visible Demo names, warehouse/category labels, .test emails and zero-filled contact numbers correspond to backend seed_demo_data.py."
+        },
+        {
+          "file": "/assets/projects/saas-erp/erp-sales-invoices.webp",
+          "source": "../za-studio/public/media/saas-erp/app-01.jpg",
+          "note": "Existing raster app previews from za-studio. UI structure, controls, copy and styles strongly correspond to the real adex-erp-react source; actual source screenshots are placed in browser/phone presentation frames. No independent capture session or capture script located. Reused as existing demo app previews, not newly captured live screens.",
+          "dataset": "Nile Valley Trading demo tenant, as explicitly described in za-studio/src/content/portfolio.json. Visible Demo names, warehouse/category labels, .test emails and zero-filled contact numbers correspond to backend seed_demo_data.py."
+        },
+        {
+          "file": "/assets/projects/saas-erp/erp-inventory-overview.webp",
+          "source": "../za-studio/public/media/saas-erp/app-02.jpg",
+          "note": "Existing raster app previews from za-studio. UI structure, controls, copy and styles strongly correspond to the real adex-erp-react source; actual source screenshots are placed in browser/phone presentation frames. No independent capture session or capture script located. Reused as existing demo app previews, not newly captured live screens.",
+          "dataset": "Nile Valley Trading demo tenant, as explicitly described in za-studio/src/content/portfolio.json. Visible Demo names, warehouse/category labels, .test emails and zero-filled contact numbers correspond to backend seed_demo_data.py."
+        },
+        {
+          "file": "/assets/projects/saas-erp/erp-items-catalog.webp",
+          "source": "../za-studio/public/media/saas-erp/app-03.jpg",
+          "note": "Existing raster app previews from za-studio. UI structure, controls, copy and styles strongly correspond to the real adex-erp-react source; actual source screenshots are placed in browser/phone presentation frames. No independent capture session or capture script located. Reused as existing demo app previews, not newly captured live screens.",
+          "dataset": "Nile Valley Trading demo tenant, as explicitly described in za-studio/src/content/portfolio.json. Visible Demo names, warehouse/category labels, .test emails and zero-filled contact numbers correspond to backend seed_demo_data.py."
+        },
+        {
+          "file": "/assets/projects/saas-erp/erp-purchase-orders.webp",
+          "source": "../za-studio/public/media/saas-erp/app-04.jpg",
+          "note": "Existing raster app previews from za-studio. UI structure, controls, copy and styles strongly correspond to the real adex-erp-react source; actual source screenshots are placed in browser/phone presentation frames. No independent capture session or capture script located. Reused as existing demo app previews, not newly captured live screens.",
+          "dataset": "Nile Valley Trading demo tenant, as explicitly described in za-studio/src/content/portfolio.json. Visible Demo names, warehouse/category labels, .test emails and zero-filled contact numbers correspond to backend seed_demo_data.py."
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "saas-erp",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "china-erp",
+      "businessSources": [
+        "../adex/china-system-django/docs/index.md",
+        "../adex/china-system-django/docs/architecture.md",
+        "../adex/china-system-django/docs/adr/0004-shared-company-wide-data.md"
+      ],
+      "notes": [
+        "Avoid old tenant-isolated/per-user-isolated branding: ADR-0004 supersedes ADR-0003 and business records are shared company-wide across staff.",
+        "Retain API/data-import/reporting story but remove unsupported 50K-row scale metric unless independently validated.",
+        "Existing fictional dashboardSeed business records, refreshed dates, fictional admin session, local-only transport.",
+        "Monthly revenue fixture values normalized to the same currency units as dashboard totals."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/china-erp/za-studio/hero.webp",
+          "source": "../za-studio/public/media/china-erp/hero.jpg",
+          "originalSha256": "a058374c79aa820cc20b0f7b59d036b7788aca74294fa6259cf660d620790472",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/china-erp/za-studio/feature.webp",
+          "source": "../za-studio/public/media/china-erp/feature.jpg",
+          "originalSha256": "496b005e01c27dfbab9abc7e645ac287b7ff8c5cff9e16b62a2727f5ebb64c2b",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/china-erp/za-studio/ch-01.webp",
+          "source": "../za-studio/public/media/china-erp/ch-01.jpg",
+          "originalSha256": "a1c7bff0bf2a572707045e494b980ac814b7d1ca4a807f632e260a3304521e98",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/china-erp/za-studio/ch-02.webp",
+          "source": "../za-studio/public/media/china-erp/ch-02.jpg",
+          "originalSha256": "9bbe4ee77f9d219aac7351b722662506eae9f2e6272d64dff24f20d031f8e004",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/china-erp/za-studio/ch-03.webp",
+          "source": "../za-studio/public/media/china-erp/ch-03.jpg",
+          "originalSha256": "08e9c8365472ed0139b89b7309f95e1639f04cc7736d164ca31ff9aa46868644",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/china-erp/za-studio/ch-04.webp",
+          "source": "../za-studio/public/media/china-erp/ch-04.jpg",
+          "originalSha256": "5ee154f8cf4dba46d12281de0d23731189a649df1d79664aad2d8658ba33d961",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/china-erp/za-studio/ch-05.webp",
+          "source": "../za-studio/public/media/china-erp/ch-05.jpg",
+          "originalSha256": "98b41546fdfa7dd7102b657a2d28827ec5e45bcdd43e5f588d96210d87738ee1",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/china-erp/za-studio/ch-06.webp",
+          "source": "../za-studio/public/media/china-erp/ch-06.jpg",
+          "originalSha256": "a39199362d71c3a20ed3d2f8b1bd948e9ab080249939e91865ce4087cfeeeb48",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/china-erp/za-studio/ch-07.webp",
+          "source": "../za-studio/public/media/china-erp/ch-07.jpg",
+          "originalSha256": "ab9e5850b11f7eb45cf736acedc5bb942ab8dd0915cc6af2fbe5fb23abefafa7",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/china-erp/za-studio/ch-08.webp",
+          "source": "../za-studio/public/media/china-erp/ch-08.jpg",
+          "originalSha256": "d065c8d8324ef45568db044761927ba77a7c78d4bed376924df681deb51277b1",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/china-erp/za-studio/ch-09.webp",
+          "source": "../za-studio/public/media/china-erp/ch-09.jpg",
+          "originalSha256": "67e06dd8cf0de603e0a6a645b731aac196ed763620caf08ea50302fd61d08116",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/china-erp/za-studio/app-03.webp",
+          "source": "../za-studio/public/media/china-erp/app-03.jpg",
+          "originalSha256": "e5ebea2ad21c87b9e621fceeec3fdc05efcfa56ea379b768a9790338830103c6",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/china-erp/dashboard.webp",
+          "source": "../china-system-react",
+          "route": "http://127.0.0.1:4331/dashboard",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Existing fictional dashboardSeed business records, refreshed dates, fictional admin session, local-only transport.",
+          "note": "Original application interface populated with fictional demonstration data."
+        },
+        {
+          "file": "/assets/projects/china-erp/trading-activity.webp",
+          "source": "../china-system-react/src/features/dashboard",
+          "route": "http://127.0.0.1:4331/dashboard",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright, isolated local preview, 1440 × 1000, DPR 1; full viewport preserved.",
+          "dataset": "Existing fictional trading dashboard invoices and activity; actual original dashboard sections.",
+          "note": "Original project interface captured in an isolated local preview.",
+          "width": 1440,
+          "height": 1000
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "china-erp",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "key-academy",
+      "businessSources": [
+        "../key-academy-front"
+      ],
+      "notes": [
+        "Fictional student, four courses, 118 completed lessons, enrollment and progress fixtures; original React components."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/key-academy/za-studio/hero.webp",
+          "source": "../za-studio/public/media/key-academy/hero.jpg",
+          "originalSha256": "5c5c6b1b36c22ab94fb90934740320d8aa40d5001e8a9e34ddf16c43e029c301",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/key-academy/za-studio/app-01.webp",
+          "source": "../za-studio/public/media/key-academy/app-01.jpg",
+          "originalSha256": "b9fa1b30a502944c262960f00c59fafa6bd0f699c203aa6374956bd0f15a443b",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/key-academy/za-studio/app-02.webp",
+          "source": "../za-studio/public/media/key-academy/app-02.jpg",
+          "originalSha256": "c856bb87811d4a6ada2c14fd035e36bcc2aaffbbacd5025fe1bebb994eaa484d",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/key-academy/za-studio/app-03.webp",
+          "source": "../za-studio/public/media/key-academy/app-03.jpg",
+          "originalSha256": "49f332fd7b3d4f0a635fe56da126738977f9921f60e6005c729d41ad4b853c45",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/key-academy/za-studio/app-04.webp",
+          "source": "../za-studio/public/media/key-academy/app-04.jpg",
+          "originalSha256": "af7c9c554df89d24cc942a10c9e51966433a37aa5af1277ab698884079b1d390",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/key-academy/student-courses.webp",
+          "source": "../key-academy-front",
+          "route": "http://127.0.0.1:4311/dashboard/my-courses",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Fictional student, four courses, 118 completed lessons, enrollment and progress fixtures; original React components.",
+          "note": "Original application interface populated with fictional demonstration data."
+        },
+        {
+          "file": "/assets/projects/key-academy/browse-courses.webp",
+          "source": "../key-academy-front",
+          "route": "http://127.0.0.1:4311/dashboard/browse-courses",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Fictional student, four courses, 118 completed lessons, enrollment and progress fixtures; original React components.",
+          "note": "Original application interface populated with fictional demonstration data."
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "key-academy",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "nourseen-store",
+      "businessSources": [
+        "../Nourseen/NourseenStore"
+      ],
+      "notes": [
+        "Eight fictional products and 96 fictional orders, realistic catalog and sales totals. Original storefront and merchant components."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/nourseen-store/storefront.webp",
+          "source": "../Nourseen/NourseenStore",
+          "route": "http://127.0.0.1:4312/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Eight fictional products and 96 fictional orders, realistic catalog and sales totals. Original storefront and merchant components.",
+          "note": "Original application interface populated with fictional demonstration data."
+        },
+        {
+          "file": "/assets/projects/nourseen-store/products.webp",
+          "source": "../Nourseen/NourseenStore",
+          "route": "http://127.0.0.1:4312/products",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Eight fictional products and 96 fictional orders, realistic catalog and sales totals. Original storefront and merchant components.",
+          "note": "Original application interface populated with fictional demonstration data."
+        },
+        {
+          "file": "/assets/projects/nourseen-store/merchant-workspace.webp",
+          "source": "../Nourseen/NourseenStore",
+          "route": "http://127.0.0.1:4312/admin",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Eight fictional products and 96 fictional orders, realistic catalog and sales totals. Original storefront and merchant components.",
+          "note": "Original application interface populated with fictional demonstration data."
+        }
+      ]
+    },
+    {
+      "slug": "assignment-reports-auditor",
+      "businessSources": [
+        "../reports_el7ag/web_app.py"
+      ],
+      "notes": [
+        "96 invented learners across four CSV assessment exports, processed through the original upload and reporting logic; 384 records, 40 result rows and 63 outstanding assessments."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/assignment-reports-auditor/assessment-report.webp",
+          "source": "../reports_el7ag/web_app.py",
+          "route": "http://127.0.0.1:4313/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "96 invented learners across four CSV assessment exports, processed through the original upload and reporting logic; 384 records, 40 result rows and 63 outstanding assessments.",
+          "note": "Original application interface populated with fictional demonstration data."
+        },
+        {
+          "file": "/assets/projects/assignment-reports-auditor/classroom-review.webp",
+          "source": "../reports_el7ag/web_app.py",
+          "route": "http://127.0.0.1:4313/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright, isolated local preview, 1440 × 1000, DPR 1; full viewport preserved.",
+          "dataset": "Original processor and filtering controls applied to synthetic learner records.",
+          "note": "Original project interface captured in an isolated local preview.",
+          "width": 1440,
+          "height": 1000
+        }
+      ]
+    },
+    {
+      "slug": "jobbee",
+      "businessSources": [
+        "../DRF_NEXT_Jobs-portal/client"
+      ],
+      "notes": [
+        "Six fictional current roles, employers, salary ranges, and listing counts supplied locally to the original Next.js pages."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/jobbee/za-studio/hero.webp",
+          "source": "../za-studio/public/media/jobbee/hero.jpg",
+          "originalSha256": "9074220c95715f444bf89a271131a9da60eac294a801df1d9477590a7c7ee178",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/jobbee/za-studio/feature.webp",
+          "source": "../za-studio/public/media/jobbee/feature.jpg",
+          "originalSha256": "e9b4a4052285a6608002e44131afb7cc075685737f76fbad7143abf87d24c30d",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/jobbee/za-studio/app-01.webp",
+          "source": "../za-studio/public/media/jobbee/app-01.jpg",
+          "originalSha256": "120c710e3bb2927f88655513f93e5f4a4e999e795f1ea0b63b2638a1f74c2067",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/jobbee/za-studio/app-02.webp",
+          "source": "../za-studio/public/media/jobbee/app-02.jpg",
+          "originalSha256": "007784edeeaa54817e87181a4276bd3d1903f74692bd3e08ccbea8e0c2973e6d",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/jobbee/za-studio/app-03.webp",
+          "source": "../za-studio/public/media/jobbee/app-03.jpg",
+          "originalSha256": "d6e556b615521a323bad412cc2f30af237789f0a64ae3a8d59534e5d61ccecd4",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/jobbee/za-studio/app-04.webp",
+          "source": "../za-studio/public/media/jobbee/app-04.jpg",
+          "originalSha256": "3c0518e0c4d5207f1ba432872abd3264229cb54d3205c69859f7d509d138dca3",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/jobbee/za-studio/app-05.webp",
+          "source": "../za-studio/public/media/jobbee/app-05.jpg",
+          "originalSha256": "bbdb0a7ef6717f2fead09d11b26d867dbced3619ff9829e2587112b6793e312e",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/jobbee/za-studio/app-06.webp",
+          "source": "../za-studio/public/media/jobbee/app-06.jpg",
+          "originalSha256": "88608891867507ea151aa6e700d26f610195f92b7c943433c0e604eb20320a13",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/jobbee/za-studio/app-07.webp",
+          "source": "../za-studio/public/media/jobbee/app-07.jpg",
+          "originalSha256": "2dfc1f3ba0cf73f7dc950f19f61cd0664f28b2ca8a3fe63491aa99116103f461",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/jobbee/job-listings.webp",
+          "source": "../DRF_NEXT_Jobs-portal/client",
+          "route": "http://127.0.0.1:4321/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Six fictional current roles, employers, salary ranges, and listing counts supplied locally to the original Next.js pages.",
+          "note": "Original application interface populated with fictional demonstration data."
+        },
+        {
+          "file": "/assets/projects/jobbee/engineering-search.webp",
+          "source": "../DRF_NEXT_Jobs-portal/client/pages/index.js",
+          "route": "http://127.0.0.1:4321/?key_word=engineer",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright, isolated local preview, 1440 × 1000, DPR 1; full viewport preserved.",
+          "dataset": "Original search listing with fictional employers and professional job descriptions.",
+          "note": "Original project interface captured in an isolated local preview.",
+          "width": 1440,
+          "height": 1000
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "jobbee",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "realstate-management",
+      "businessSources": [
+        "../DRF-React-RealStateManagement/client"
+      ],
+      "notes": [
+        "Actual implemented Alpha Apartments landing page. No operational dashboard is implemented in this client; original image and layout, corrected landing subheading, system font fallback.",
+        "Final source verification: /login renders only a Login heading and /register only Register Page; neither contains a completed authentication form."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/realstate-management/za-studio/hero.webp",
+          "source": "../za-studio/public/media/alpha-apartments/hero.jpg",
+          "originalSha256": "1a3353dcd600df7564286d33e3a27d938cd5770ff3aa4c4af5e16a020a984ff7",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/realstate-management/za-studio/feature.webp",
+          "source": "../za-studio/public/media/alpha-apartments/feature.jpg",
+          "originalSha256": "d8e62744cbf69ecfa142b4781ea201134b8a5c0d170a1e7e8398e2d09cb88d17",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/realstate-management/za-studio/app-01.webp",
+          "source": "../za-studio/public/media/alpha-apartments/app-01.jpg",
+          "originalSha256": "a0c9d822fd38b22d946718bf113750d6cdeecea0cc4891fb68c9f1477bd76b22",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/realstate-management/za-studio/app-02.webp",
+          "source": "../za-studio/public/media/alpha-apartments/app-02.jpg",
+          "originalSha256": "8c3ce2f0e3d33937beac76754a7c4ba945df52dc9b88aad7770d9b38c776fc9b",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/realstate-management/za-studio/app-03.webp",
+          "source": "../za-studio/public/media/alpha-apartments/app-03.jpg",
+          "originalSha256": "cb8d74c4e1ba40106a6e61568549379fd2f12e9abe9dcdb3a4862b83940fcefe",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/realstate-management/za-studio/app-05.webp",
+          "source": "../za-studio/public/media/alpha-apartments/app-05.jpg",
+          "originalSha256": "1ab4b9f0a5296fe18be4a9dc654521ed4bb745ce3da1a46c2bf99552d4e3c2d9",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/realstate-management/za-studio/app-06.webp",
+          "source": "../za-studio/public/media/alpha-apartments/app-06.jpg",
+          "originalSha256": "1631d52ddc038a4509faac4f94fa39b56ea578a249b29566c6b7478baa2336ea",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/realstate-management/za-studio/app-07.webp",
+          "source": "../za-studio/public/media/alpha-apartments/app-07.jpg",
+          "originalSha256": "952514d430883b50bb822e715bde07bc7829e2c08453415603697f652d832745",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/realstate-management/za-studio/app-08.webp",
+          "source": "../za-studio/public/media/alpha-apartments/app-08.jpg",
+          "originalSha256": "1de6029b7c8150e9b2a6bdca883e9db83f16b705e0f924ba4425c558483823f9",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/realstate-management/za-studio/app-04.webp",
+          "source": "../za-studio/public/media/alpha-apartments/app-04.jpg",
+          "originalSha256": "603496483c2c52951fe6df766f20b4c9d3a5f9d8ad851ef540c4d7b76ec40472",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/realstate-management/community-home.webp",
+          "source": "../DRF-React-RealStateManagement/client",
+          "route": "http://127.0.0.1:4322/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Actual implemented Alpha Apartments landing page. No operational dashboard is implemented in this client; original image and layout, corrected landing subheading, system font fallback.",
+          "note": "Actual implemented interface and existing public content."
+        },
+        {
+          "file": "/assets/projects/realstate-management/maintenance-source.webp",
+          "source": [
+            "../DRF-React-RealStateManagement/core_apps/apartments/models.py:11",
+            "../DRF-React-RealStateManagement/core_apps/issues/models.py:19"
+          ],
+          "route": "http://127.0.0.1:4344/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome / Playwright; local source/documentation page with complete content preserved; based strictly on the named local files.",
+          "dataset": "Exact original source excerpts, with file and line numbers. No customer data or reconstructed dashboard.",
+          "note": "Clearly labeled source/documentation reference, not a customer-facing product screen.",
+          "width": 1440,
+          "height": 1000
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "alpha-apartments",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "ambassador360",
+      "businessSources": [
+        "../DRF_React_NextJS-Ambassador360/react-admin"
+      ],
+      "notes": [
+        "Six fictional lifestyle products and five fictional ambassador profiles, reserved example.com emails, locally supplied SVG product thumbnails. Actual React/MUI components served with Vite because the original CRA dependency lock is inconsistent."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/ambassador360/za-studio/hero.webp",
+          "source": "../za-studio/public/media/ambassador360/hero.jpg",
+          "originalSha256": "e8abb4e6bed16f615777eda156b23c071ab83a1487682eeaede0989d6d471b41",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/ambassador360/za-studio/feature.webp",
+          "source": "../za-studio/public/media/ambassador360/feature.jpg",
+          "originalSha256": "8df7743d1029147667e747ee70aed64d3b88c8e16180fd91b4b07022cff2d858",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/ambassador360/za-studio/app-01.webp",
+          "source": "../za-studio/public/media/ambassador360/app-01.jpg",
+          "originalSha256": "d6c2566630e031e140725cbb18c11875e7d731d1d7ecb82417b8d7312e036db5",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/ambassador360/za-studio/app-02.webp",
+          "source": "../za-studio/public/media/ambassador360/app-02.jpg",
+          "originalSha256": "4cf75813bf99626f90536d885b4b5d7d7f22a179a11de576f87ec7a6507b42af",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/ambassador360/za-studio/app-03.webp",
+          "source": "../za-studio/public/media/ambassador360/app-03.jpg",
+          "originalSha256": "b1048bea65db52042f0601dcfce56af6a753a505198fbfce8af5addefe0aa857",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/ambassador360/za-studio/app-04.webp",
+          "source": "../za-studio/public/media/ambassador360/app-04.jpg",
+          "originalSha256": "02cd2f1b7462b195427804b5c1f8109bad65c7d6b6549a3b3462d4f1113dca30",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/ambassador360/products.webp",
+          "source": "../DRF_React_NextJS-Ambassador360/react-admin",
+          "route": "http://127.0.0.1:4323/products",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Six fictional lifestyle products and five fictional ambassador profiles, reserved example.com emails, locally supplied SVG product thumbnails. Actual React/MUI components served with Vite because the original CRA dependency lock is inconsistent.",
+          "note": "Original application interface populated with fictional demonstration data."
+        },
+        {
+          "file": "/assets/projects/ambassador360/ambassadors.webp",
+          "source": "../DRF_React_NextJS-Ambassador360/react-admin",
+          "route": "http://127.0.0.1:4323/users",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Six fictional lifestyle products and five fictional ambassador profiles, reserved example.com emails, locally supplied SVG product thumbnails. Actual React/MUI components served with Vite because the original CRA dependency lock is inconsistent.",
+          "note": "Original application interface populated with fictional demonstration data."
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "ambassador360",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "za-studio",
+      "businessSources": [
+        "../za-studio/src/content/portfolio.json",
+        "../za-studio/src/content/portfolio.ar.json",
+        "../za-studio/src/content/types.ts",
+        "../za-studio/src/routes/ProjectIndex.tsx",
+        "../za-studio/src/state/AppState.tsx",
+        "../za-studio/src/lib/scroll.tsx",
+        "../za-studio/src/styles/base.css",
+        "../za-studio/src/styles/motion.css"
+      ],
+      "notes": [
+        "Original populated studio content and all original media; no changes to app components, design, or content."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/za-studio/studio-home.webp",
+          "source": "../za-studio",
+          "route": "http://127.0.0.1:4350/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; 1440 × 1000 viewport, DPR1; full viewport preserved, original bundled typefaces loaded.",
+          "dataset": "Original populated public studio content and assets. No user records, accounts, or remote service calls.",
+          "note": "Replaces the prior capture made with Vite blocking symlinked font files. Isolated fs allow-list fixed font loading; Space Grotesk Variable, IBM Plex Sans Arabic, and Za Display fonts confirmed loaded. No original app files changed.",
+          "replacement": true
+        },
+        {
+          "file": "/assets/projects/za-studio/selected-work.webp",
+          "source": "../za-studio",
+          "route": "http://127.0.0.1:4350/work",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; 1440 × 1000 viewport, DPR1; full viewport preserved, original bundled typefaces loaded.",
+          "dataset": "Original populated public studio content and assets. No user records, accounts, or remote service calls.",
+          "note": "Replaces the prior capture made with Vite blocking symlinked font files. Isolated fs allow-list fixed font loading; Space Grotesk Variable, IBM Plex Sans Arabic, and Za Display fonts confirmed loaded. No original app files changed.",
+          "replacement": true
+        },
+        {
+          "file": "/assets/projects/za-studio/studio-services.webp",
+          "source": "../za-studio/src/routes/SectionPage.tsx",
+          "route": "http://127.0.0.1:4350/services",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; 1440 × 1000 viewport, DPR 1; unmodified original page, full viewport capture.",
+          "dataset": "Original public studio content. No user records, account calls, or remote services. Original components, content, and styles unchanged.",
+          "note": "Original project interface captured in an isolated local preview.",
+          "width": 1440,
+          "height": 1000
+        },
+        {
+          "file": "/assets/projects/za-studio/studio-case-study.webp",
+          "source": "../za-studio/src/components/modules.tsx",
+          "route": "http://127.0.0.1:4350/work/bee3a",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; 1440 × 1000 browser viewport, DPR 1; complete original architecture module captured at its natural dimensions without scaling.",
+          "dataset": "Original public studio content. No user records, account calls, or remote services. Original components, content, and styles unchanged.",
+          "note": "Original project interface captured in an isolated local preview.",
+          "width": 1440,
+          "height": 847
+        }
+      ]
+    },
+    {
+      "slug": "game-discovery",
+      "businessSources": [
+        "../React-VideoGame-DiscoveryApp"
+      ],
+      "notes": [
+        "Local genre fixture artwork from src/data/genres.ts shown as representative genre collections, with fictional scores and platform values. Original React/Chakra layout. No live catalog API request or stored credential was used."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/game-discovery/za-studio/hero.webp",
+          "source": "../za-studio/public/media/game-hub/hero.jpg",
+          "originalSha256": "185948f125dcb2fec055e33fbf6bfa01a11fb841944647cb973cd0c0a231dd2e",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/game-discovery/za-studio/feature.webp",
+          "source": "../za-studio/public/media/game-hub/feature.jpg",
+          "originalSha256": "dd183a54016744125e5a645eb0c0b12c4ab3cc0e9bc0678b955e13254bd833c6",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/game-discovery/za-studio/app-01.webp",
+          "source": "../za-studio/public/media/game-hub/app-01.jpg",
+          "originalSha256": "ca387281ceefd73f3491a9cdc03cd9d346353421c393fe1f510e085eec4cf9c4",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/game-discovery/za-studio/app-02.webp",
+          "source": "../za-studio/public/media/game-hub/app-02.jpg",
+          "originalSha256": "48342d789c1c697536b2aba2d9621c5c774be33fa8942395aefb9a26d0abaaac",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/game-discovery/game-catalog.webp",
+          "source": "../React-VideoGame-DiscoveryApp",
+          "route": "http://127.0.0.1:4335/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Local genre fixture artwork from src/data/genres.ts shown as representative genre collections, with fictional scores and platform values. Original React/Chakra layout. No live catalog API request or stored credential was used.",
+          "note": "Original application interface populated with fictional demonstration data."
+        },
+        {
+          "file": "/assets/projects/game-discovery/light-theme.webp",
+          "source": "../React-VideoGame-DiscoveryApp/src/components/GenreList.tsx",
+          "route": "http://127.0.0.1:4335/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright, isolated local preview, 1440 × 1000, DPR 1; full viewport preserved.",
+          "dataset": "Existing genre artwork and representative local collection fixtures; no external API key used.",
+          "note": "Original project interface captured in an isolated local preview.",
+          "width": 1440,
+          "height": 1000
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "game-hub",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "react-revision",
+      "businessSources": [
+        "../react-revision"
+      ],
+      "notes": [
+        "Original component and state exercise, with fictional names and contact values in its local list. This is a learning exercise, not a production product."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/react-revision/component-list.webp",
+          "source": "../react-revision",
+          "route": "http://127.0.0.1:4336/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Original component and state exercise, with fictional names and contact values in its local list. This is a learning exercise, not a production product.",
+          "note": "Original application interface populated with fictional demonstration data."
+        },
+        {
+          "file": "/assets/projects/react-revision/updated-component-list.webp",
+          "source": "../react-revision/src/components/App/App.js",
+          "route": "http://127.0.0.1:4336/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright, isolated local preview, 1440 × 1000, DPR 1; full viewport preserved.",
+          "dataset": "Original local state/delete behavior with fictional names and contact values.",
+          "note": "Original project interface captured in an isolated local preview.",
+          "width": 1440,
+          "height": 1000
+        }
+      ]
+    },
+    {
+      "slug": "ai-call-center",
+      "businessSources": [
+        "../Ai-call-center/callcenter/templates/callcenter/call.html"
+      ],
+      "notes": [
+        "Actual Django template and CSS rendered with fictional café conversation, menu items, prices, and a confirmed order. Read-only template preview, without AI, audio, or microphone calls."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/ai-call-center/za-studio/hero.webp",
+          "source": "../za-studio/public/media/ai-call-center/hero.jpg",
+          "originalSha256": "df035c9aed88e36319fd1052bc63c07ed71339d961a930046fe44784d69cd05b",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/ai-call-center/za-studio/feature.webp",
+          "source": "../za-studio/public/media/ai-call-center/feature.jpg",
+          "originalSha256": "53d783f7c3887c887dee560f832d6168069540b4664e7a87ab4adb096249fa36",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/ai-call-center/za-studio/app-01.webp",
+          "source": "../za-studio/public/media/ai-call-center/app-01.jpg",
+          "originalSha256": "baf1af7e6ae486d547998c375b63a9245eccfaacbce46198653d522bd195ac00",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/ai-call-center/order-conversation.webp",
+          "source": "../Ai-call-center/callcenter/templates/callcenter/call.html",
+          "route": "http://127.0.0.1:4341/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Actual Django template and CSS rendered with fictional café conversation, menu items, prices, and a confirmed order. Read-only template preview, without AI, audio, or microphone calls.",
+          "note": "Original application interface populated with fictional demonstration data."
+        },
+        {
+          "file": "/assets/projects/ai-call-center/arabic-order-draft.webp",
+          "source": "../Ai-call-center/callcenter/templates/callcenter/call.html",
+          "route": "http://127.0.0.1:4341/?lang=ar",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright, isolated local preview, 1440 × 1000, DPR 1; full viewport preserved.",
+          "dataset": "Original Django RTL template and CSS, fictional conversation and order. No AI/audio/microphone calls.",
+          "note": "Original project interface captured in an isolated local preview.",
+          "width": 1440,
+          "height": 1000
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "ai-call-center",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "fiva-health",
+      "businessSources": [
+        "../fiva_health_django/apps"
+      ],
+      "notes": [
+        "Read-only API documentation generated from existing URL routes and view methods; selected examples use verified serializer fields and fictional values. Not a customer dashboard."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/fiva-health/za-studio/hero.webp",
+          "source": "../za-studio/public/media/yotell-health/hero.jpg",
+          "originalSha256": "ef34387420942ac35fe19a66a7c07881d01e887638d96bb38ba2a17f7458c64c",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/fiva-health/za-studio/app-01.webp",
+          "source": "../za-studio/public/media/yotell-health/app-01.jpg",
+          "originalSha256": "db4853bab2564c9c93b34aa6b6e2d90e27d6dbd9341ea82e3c7cde7763b4c7ec",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/fiva-health/za-studio/app-02.webp",
+          "source": "../za-studio/public/media/yotell-health/app-02.jpg",
+          "originalSha256": "0958420f0064ea9c05e8cbb71f865344a47ad5f73b85054a216a27e78ea9043a",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/fiva-health/za-studio/app-03.webp",
+          "source": "../za-studio/public/media/yotell-health/app-03.jpg",
+          "originalSha256": "11fb9525268758514836bdb200e6a3205cdaee186144e691302b1ced596aec3a",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/fiva-health/za-studio/app-04.webp",
+          "source": "../za-studio/public/media/yotell-health/app-04.jpg",
+          "originalSha256": "41f68ce9e005d78ce26dbef60a6400acfca9815ce2248c2109c1dc6e9a2e17d3",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/fiva-health/za-studio/app-05.webp",
+          "source": "../za-studio/public/media/yotell-health/app-05.jpg",
+          "originalSha256": "7a49e5edbd20e916bc347f57e79627dcfd106afc89ab04eb19f876ffe1a30fdc",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project preview, reused as supplied rather than described as a new production capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/fiva-health/api-reference.webp",
+          "source": "../fiva_health_django/apps",
+          "route": "http://127.0.0.1:4342/fiva/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Read-only API documentation generated from existing URL routes and view methods; selected examples use verified serializer fields and fictional values. Not a customer dashboard.",
+          "note": "Source-derived technical reference; not a shipped product interface."
+        },
+        {
+          "file": "/assets/projects/fiva-health/water-goal-reference.webp",
+          "source": "../fiva_health_django/apps/water/urls.py; ../fiva_health_django/apps/water/views/water_goal.py; source serializers",
+          "route": "http://127.0.0.1:4343/api/fiva-detail/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome / Playwright; 1440 × 1000 viewport, DPR 1; local source/reference pages, full document preserved; selected API endpoint detail uses the original Swagger reference with other operations omitted.",
+          "dataset": "Read-only source-derived API reference with fictional examples matched to serializer or existing schema fields. Interactive requests disabled.",
+          "note": "Read-only source-derived API reference.",
+          "width": 1440,
+          "height": 1233
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "yotell-health",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      },
+      "title": "Yotell"
+    },
+    {
+      "slug": "mathaq",
+      "businessSources": [
+        "../adex/adex_mathaq_django/apps"
+      ],
+      "notes": [
+        "Read-only API documentation generated from existing URL routes and view methods; selected examples use verified serializer fields and fictional values. Not a customer dashboard."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/mathaq/api-reference.webp",
+          "source": "../adex/adex_mathaq_django/apps",
+          "route": "http://127.0.0.1:4342/mathaq/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Read-only API documentation generated from existing URL routes and view methods; selected examples use verified serializer fields and fictional values. Not a customer dashboard.",
+          "note": "Source-derived technical reference; not a shipped product interface."
+        },
+        {
+          "file": "/assets/projects/mathaq/cart-reference.webp",
+          "source": "../adex/adex_mathaq_django/apps/delivery/urls.py; ../adex/adex_mathaq_django/apps/delivery/views.py; source serializers",
+          "route": "http://127.0.0.1:4343/api/mathaq-detail/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome / Playwright; 1440 × 1000 viewport, DPR 1; local source/reference pages, full document preserved; selected API endpoint detail uses the original Swagger reference with other operations omitted.",
+          "dataset": "Read-only source-derived API reference with fictional examples matched to serializer or existing schema fields. Interactive requests disabled.",
+          "note": "Read-only source-derived API reference.",
+          "width": 1440,
+          "height": 1525
+        }
+      ]
+    },
+    {
+      "slug": "fei",
+      "businessSources": [
+        "../FeiAPI/schema.yml"
+      ],
+      "notes": [
+        "Read-only rendering of the existing OpenAPI schema snapshot, which covers account and registration endpoints only; fictional registration examples. Not a customer dashboard."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/fei/za-studio/hero.webp",
+          "source": "../za-studio/public/media/fei-health/hero.jpg",
+          "originalSha256": "c1825275ff49341be7d1da8df57b37d0cc0f8bff8b5e291b162207b0a5a66e3d",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio reconstructed app-design preview, explicitly captioned.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/fei/za-studio/feature.webp",
+          "source": "../za-studio/public/media/fei-health/feature.jpg",
+          "originalSha256": "1d9abc917d100413644721c4f81ffced6f1a141bfa029e755416c03f3bef8fd7",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio reconstructed app-design preview, explicitly captioned.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/fei/za-studio/app-01.webp",
+          "source": "../za-studio/public/media/fei-health/app-01.jpg",
+          "originalSha256": "7d2a1de820edf67c058acb5ad219c42b11acc97ae094f01c37cb7fee6220386e",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio reconstructed app-design preview, explicitly captioned.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/fei/api-reference.webp",
+          "source": "../FeiAPI/schema.yml",
+          "route": "http://127.0.0.1:4342/fei/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright; isolated local preview; 1440 × 1000 viewport, DPR 1; full viewport preserved, no UI repainting.",
+          "dataset": "Read-only rendering of the existing OpenAPI schema snapshot, which covers account and registration endpoints only; fictional registration examples. Not a customer dashboard.",
+          "note": "Source-derived technical reference; not a shipped product interface."
+        },
+        {
+          "file": "/assets/projects/fei/registration-reference.webp",
+          "source": "../FeiAPI/schema.yml",
+          "route": "http://127.0.0.1:4343/api/fei-detail/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome / Playwright; 1440 × 1000 viewport, DPR 1; local source/reference pages, full document preserved; selected API endpoint detail uses the original Swagger reference with other operations omitted.",
+          "dataset": "Read-only source-derived API reference with fictional examples matched to serializer or existing schema fields. Interactive requests disabled.",
+          "note": "Read-only source-derived API reference.",
+          "width": 1440,
+          "height": 1386
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "fei-health",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    },
+    {
+      "slug": "yotell",
+      "businessSources": [
+        "../yotell_app/pubspec.yaml",
+        "../yotell_app/lib/app/router/routes.dart",
+        "../yotell_app/lib/presentation/views/auth/onboarding/onboarding_screen.dart",
+        "../yotell_app/lib/app/localization/localization_service.dart"
+      ],
+      "notes": [
+        "Original onboarding rendered with the original Flutter theme, localization, shared components, and assets in an isolated web preview. Service/account initialization bypassed; no accounts, conversations, or remote data used.",
+        "Dependency downloads and six SDK-pinned transitive/test package adjustments were confined to the preview copy and task-local Flutter/pub caches. No original files changed. This capture does not assert a verified public release or the marketing claims within the original onboarding copy."
+      ],
+      "assets": [
+        {
+          "file": "/assets/projects/yotell/onboarding.webp",
+          "source": "../yotell_app/lib/presentation/views/auth/onboarding/onboarding_screen.dart",
+          "route": "http://127.0.0.1:4337/",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright, 393 × 913 viewport, DPR 1; original Flutter onboarding, locally bundled renderer assets, no external requests.",
+          "dataset": "Existing onboarding copy and assets. No user records; offline template preview.",
+          "note": "Actual implemented mobile onboarding in an isolated browser build, not an end-to-end service session."
+        },
+        {
+          "file": "/assets/projects/yotell/account-login.webp",
+          "source": "../yotell_app/lib/presentation/views/auth/login/login_screen.dart",
+          "route": "http://127.0.0.1:4337/?screen=login",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome via Playwright, local-only preview, 393 × 913, DPR 1. Full viewport preserved.",
+          "dataset": "Actual original Flutter LoginScreen, LoginHeader, LoginForm, and LoginBottomSheet, with original theme and localization. LoginController initialized with empty local storage; service bootstrapping bypassed. No credentials, network login, Firebase, audio, or remote records used. A throwing Firebase-options stub allows compilation without credentials. Icon tree shaking disabled because of an existing invalid font subset.",
+          "note": "Original project interface captured in an isolated local preview.",
+          "width": 393,
+          "height": 913
+        }
+      ],
+      "excludedFromPortfolio": true
+    },
+    {
+      "slug": "react-commerce-lab",
+      "businessSources": [
+        "../React-Ecommerce/ecommerce-front/src/main.tsx",
+        "../React-Ecommerce/ecommerce-front/package.json"
+      ],
+      "notes": [],
+      "assets": [
+        {
+          "file": "/assets/projects/react-commerce-lab/frontend-source.webp",
+          "source": "../React-Ecommerce/ecommerce-front/src/main.tsx; ../React-Ecommerce/ecommerce-front/package.json",
+          "route": "http://127.0.0.1:4343/commerce-foundation.html",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome / Playwright; local source/documentation page with complete content preserved; based strictly on the named local files.",
+          "dataset": "Documentation/source excerpt based on the named local files; explicitly labeled source reference, not product UI.",
+          "note": "Clearly labeled source/documentation reference, not a customer-facing product screen.",
+          "width": 1440,
+          "height": 1144
+        },
+        {
+          "file": "/assets/projects/react-commerce-lab/workspace-reference.webp",
+          "source": "../React-Ecommerce/ecommerce-front/package.json; ../React-Ecommerce/ecommerce-backend/package.json; local source filenames",
+          "route": "http://127.0.0.1:4343/commerce-workspace.html",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome / Playwright; local source/documentation page with complete content preserved; based strictly on the named local files.",
+          "dataset": "Documentation/source excerpt based on the named local files; explicitly labeled source reference, not product UI.",
+          "note": "Clearly labeled source/documentation reference, not a customer-facing product screen.",
+          "width": 1440,
+          "height": 1124
+        }
+      ]
+    },
+    {
+      "slug": "xdisplay-bridge",
+      "businessSources": [
+        "../xdisplay-tahoe-bridge/README.md"
+      ],
+      "notes": [],
+      "assets": [
+        {
+          "file": "/assets/projects/xdisplay-bridge/za-studio/hero.webp",
+          "source": "../za-studio/public/media/xdisplay-tahoe-bridge/hero.jpg",
+          "originalSha256": "83443acfe1a3aa651d1065bfa0822934a97f020f08ac9e5428ce08f1ad8b8882",
+          "width": 3200,
+          "height": 1000,
+          "note": "Existing Za Studio project illustration, explicitly labeled; not an application capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        },
+        {
+          "file": "/assets/projects/xdisplay-bridge/za-studio/feature.webp",
+          "source": "../za-studio/public/media/xdisplay-tahoe-bridge/feature.jpg",
+          "originalSha256": "f242b3f32886a3a2da21674fee87c003e720589b56e547ac60e06b3371af5593",
+          "width": 1920,
+          "height": 1080,
+          "note": "Existing Za Studio project illustration, explicitly labeled; not an application capture.",
+          "method": "Original source image converted to WebP at original dimensions, without cropping, repainting, or changing interface content."
+        }
+      ],
+      "archivedAssets": [
+        {
+          "file": "/assets/projects/xdisplay-bridge/compatibility-reference.webp",
+          "source": "../xdisplay-tahoe-bridge/README.md",
+          "route": "http://127.0.0.1:4343/xdisplay-compatibility.html",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome / Playwright; local source/documentation page with complete content preserved; based strictly on the named local files.",
+          "dataset": "Documentation/source excerpt based on the named local files; explicitly labeled source reference, not product UI.",
+          "note": "Clearly labeled source/documentation reference, not a customer-facing product screen.",
+          "width": 1440,
+          "height": 1000
+        },
+        {
+          "file": "/assets/projects/xdisplay-bridge/mode-synchronization-reference.webp",
+          "source": "../xdisplay-tahoe-bridge/XDisplay-Tahoe-Synced-r18-README.md",
+          "route": "http://127.0.0.1:4343/xdisplay-mode-sync.html",
+          "captured": "2026-11-05",
+          "method": "Headless Chrome / Playwright; local source/documentation page with complete content preserved; based strictly on the named local files.",
+          "dataset": "Documentation/source excerpt based on the named local files; explicitly labeled source reference, not product UI.",
+          "note": "Clearly labeled source/documentation reference, not a customer-facing product screen.",
+          "width": 1440,
+          "height": 1100
+        }
+      ],
+      "mediaSource": {
+        "repository": "../za-studio",
+        "project": "xdisplay-tahoe-bridge",
+        "content": "../za-studio/src/content/portfolio.json",
+        "updated": "2026-11-05",
+        "selection": "All unique hero, feature, and gallery images referenced by the matching Za Studio project."
+      }
+    }
+  ],
+  "currentMediaPolicy": {
+    "primarySource": "../za-studio/public/media",
+    "retainedProjects": [
+      "nourseen-store",
+      "za-studio",
+      "assignment-reports-auditor"
+    ],
+    "reason": "User requested keeping existing images for these projects because Za Studio has no matching media set."
+  },
+  "archivedReferenceOnly": [
+    {
+      "slug": "react-commerce-lab",
+      "reason": "The implemented entry point is a minimal hello placeholder; gallery images are explicitly labeled source references to the frontend and development workspace."
+    },
+    {
+      "slug": "xdisplay-bridge",
+      "reason": "Packaged display utility without a verified interface capture; gallery images are documentation references based on its README and r18 release notes. Utility was not launched."
+    }
+  ]
+}
