@@ -21,7 +21,7 @@ export function About() {
             <span className="eyebrow-index">01</span>About
           </p>
           <h2 id="about-heading" className={`heading ${styles.heading}`}>
-            From the first interaction to the last <em>transaction.</em>
+            Clear interfaces. Dependable <em>systems.</em>
           </h2>
         </header>
 
@@ -59,15 +59,14 @@ export function About() {
 
           <div className={styles.text} data-reveal style={delay(120)}>
             <p className={`lead ${styles.lead}`}>
-              I&apos;m a software engineer building full-stack web applications with React, Next.js, TypeScript,
-              Python, Django, and PostgreSQL. I turn complex requirements into clear interfaces and dependable
-              systems.
+              I&apos;m a software engineer turning business requirements into software that&apos;s clear to use
+              and dependable to run. I work across the interface, APIs, and data model with React, Next.js,
+              TypeScript, Python, Django, and PostgreSQL.
             </p>
             <p className={styles.body}>
-              I&apos;ve worked across multi-tenant SaaS, ERP, finance, delivery, education, e-commerce, and real
-              estate—connecting responsive interfaces with secure authentication, real-time features,
-              transactional workflows, and production-ready APIs. I care about how a product feels to use as much
-              as how reliably it runs.
+              My work spans business operations, commerce, learning, delivery, and property discovery. I connect
+              responsive interfaces with secure accounts, real-time updates, and transaction-safe workflows,
+              paying attention to both the user experience and the systems behind it.
             </p>
           </div>
 

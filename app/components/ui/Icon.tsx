@@ -2,6 +2,7 @@ import type { SVGProps } from 'react';
 
 // Stroke icons drawn on a 24×24 grid (Lucide-compatible geometry).
 const paths = {
+  share: <><circle cx="6" cy="12" r="3" /><circle cx="18" cy="5" r="3" /><circle cx="18" cy="19" r="3" /><path d="m8.6 10.5 6.8-4m-6.8 7 6.8 4" /></>,
   'arrow-up-right': <><path d="M7 7h10v10" /><path d="M7 17 17 7" /></>,
   'arrow-right': <><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></>,
   'arrow-down': <><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></>,

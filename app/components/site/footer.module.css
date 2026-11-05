@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Footer — the closing note: signal-line top edge, a huge Arabic signature
+   Footer — the closing note: signal-line top edge, a large account-handle
    watermark, brand + tagline, index, elsewhere, and a back-to-top.
    ========================================================================== */
 
@@ -109,8 +109,9 @@
   left: 50%;
   margin: 0;
   color: transparent;
-  font-family: var(--font-ar);
-  font-size: clamp(4.5rem, 15vw, 13.5rem);
+  font-family: var(--font-code);
+  font-size: clamp(2.1rem, 12vw, 11rem);
+  letter-spacing: -0.07em;
   font-weight: 600;
   line-height: 1.25;
   white-space: nowrap;

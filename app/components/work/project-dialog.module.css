@@ -208,7 +208,7 @@
   padding: 32px;
 }
 .content[data-gallery] {
-  height: 100%;
+  min-height: 100%;
 }
 .storyGrid {
   display: grid;
@@ -216,21 +216,13 @@
   align-items: start;
   gap: 32px;
 }
+.storyGrid[data-no-media] {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 980px;
+  margin-inline: auto;
+}
 .storyGrid[data-gallery] {
   grid-template-columns: minmax(0, 1fr);
-  height: 100%;
-  min-height: 320px;
-}
-.storyGrid[data-gallery] .gallery {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.storyGrid[data-gallery] .figure {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  min-height: 0;
 }
 .gallery {
   min-width: 0;
@@ -290,49 +282,52 @@
   position: relative;
   aspect-ratio: 3 / 2;
   overflow: hidden;
-  background: #10110e;
+  background: color-mix(in srgb, var(--bg) 35%, var(--surface-2));
 }
 .viewer[data-expanded] {
   aspect-ratio: auto;
-  flex: 1;
-  min-height: 160px;
+  /* The full capture fits in one viewport; chrome/captions can scroll below. */
+  height: clamp(200px, calc(100svh - 480px), 620px);
 }
 .screen {
-  object-fit: contain;
+  padding: clamp(14px, 2.2vw, 28px);
+  object-fit: scale-down;
+  object-position: center;
   animation: screen-in 300ms ease both;
 }
+.viewerTools {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--line);
+  background: var(--surface-2);
+}
 .imageKind {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  padding: 5px 9px;
-  border: 1px solid rgba(236, 232, 220, 0.18);
-  border-radius: 6px;
-  background: rgba(11, 12, 10, 0.8);
-  color: #ece8dc;
+  color: var(--muted);
   font-family: var(--font-code);
   font-size: 0.5625rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 .expandButton {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
   display: inline-flex;
   align-items: center;
   gap: 9px;
   min-height: 40px;
   padding: 0 14px;
-  border: 1px solid rgba(236, 232, 220, 0.25);
+  border: 1px solid var(--line-strong);
   border-radius: 999px;
-  background: rgba(11, 12, 10, 0.85);
-  color: #ece8dc;
+  background: var(--surface);
+  color: var(--ink);
   font-size: 0.75rem;
   transition: background-color 180ms ease;
 }
 .expandButton:hover {
-  background: #26291f;
+  background: var(--surface-3);
 }
 .caption {
   display: flex;
@@ -631,8 +626,8 @@
   .masthead { padding: 4px 18px 18px; }
   .category { font-size: 0.625rem; }
   .title { font-size: clamp(1.8rem, 7.2vw, 2.4rem); }
-  .tabs { padding-inline: 18px; }
-  .tabs > button { flex: 1; padding-inline: 12px; }
+  .tabs { padding-inline: 6px; }
+  .tabs > button { flex: 1; min-width: 0; gap: 6px; padding-inline: 8px; font-size: 0.75rem; white-space: nowrap; }
   .content { padding: 20px 18px 28px; }
   .footer { gap: 12px; padding: 10px 18px max(10px, env(safe-area-inset-bottom)); }
   .footer button { gap: 8px; }
@@ -642,8 +637,13 @@
   .navLabel { font-size: 0.5rem; }
   .galleryControls { gap: 8px; padding: 8px; }
   .galleryControls > .iconButton { width: 40px; height: 40px; }
-  .imageKind { top: 10px; left: 10px; font-size: 0.5rem; }
-  .expandButton { right: 10px; bottom: 10px; min-height: 36px; padding-inline: 10px; font-size: 0.6875rem; }
+  .imageKind { font-size: 0.5rem; }
+  .expandButton { min-height: 36px; padding-inline: 10px; font-size: 0.6875rem; }
+}
+@media (max-width: 360px) {
+  .tabs > button > svg { display: none; }
+  .tabs > button { gap: 4px; padding-inline: 6px; }
+  .tabs > button > span { padding-inline: 4px; font-size: 0.5625rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .shell, .content, .screen, .dialog::backdrop, .dialog[data-closing] .shell { animation: none; }

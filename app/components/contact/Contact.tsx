@@ -30,11 +30,10 @@ export function Contact() {
                 <span className="eyebrow-index">05</span>Let&apos;s connect
               </p>
               <h2 id="contact-title" className={`heading ${styles.heading}`}>
-                Have a system to build—or an idea to make <em>real?</em>
+                Let&apos;s build something <em>useful.</em>
               </h2>
               <p className={styles.intro}>
-                I&apos;m open to software engineering and full-stack roles, ambitious products, and thoughtful
-                collaborations.
+                I&apos;m open to software engineering and full-stack roles, product work, and remote collaboration.
               </p>
 
               <div className={styles.emailRow} data-reveal style={delay(160)}>
@@ -53,7 +52,7 @@ export function Contact() {
               <div className={styles.bottom}>
                 <dl className={styles.meta}>
                   <div className={styles.metaItem}>
-                    <dt className={styles.metaLabel}>Local time · Mansoura</dt>
+                    <dt className={styles.metaLabel}>Local time · Egypt</dt>
                     <dd className={styles.metaValue}>
                       <LocalTime timeZone={site.timeZone} />
                     </dd>

@@ -1,7 +1,8 @@
-import { navigation, site } from '../../content';
+import { asset, navigation, site } from '../../content';
 import { Icon, type IconName } from '../ui/Icon';
 import { Avatar } from './Avatar';
 import { CurrentYear } from './CurrentYear';
+import { FieldGuide } from './FieldGuide';
 import styles from './footer.module.css';
 
 /** Evaluated on the server (build time for the static export); the client island corrects it. */
@@ -20,7 +21,8 @@ const elsewhere: ElsewhereLink[] = [
   { label: 'Résumé', href: site.resume, icon: 'file', external: true },
 ];
 
-export function Footer() {
+export function Footer({ home = true }: { home?: boolean }) {
+  const sectionHref = (hash: string) => home ? hash : `${asset('/')}${hash}`;
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.signal}`} aria-hidden="true">
@@ -32,13 +34,15 @@ export function Footer() {
         </span>
       </div>
 
-      <p className={styles.signature} lang="ar" dir="rtl" aria-hidden="true">
-        {site.nameArabic}
+      <p className={styles.signature} aria-hidden="true">
+        {site.handle}
       </p>
+
+      {home ? <FieldGuide /> : null}
 
       <div className={`container ${styles.grid}`}>
         <div className={styles.intro}>
-          <a className={styles.brand} href="#top">
+          <a className={styles.brand} href={sectionHref('#top')}>
             <Avatar size={36} />
             {site.name}
           </a>
@@ -64,7 +68,7 @@ export function Footer() {
           <ul className={styles.links}>
             {navigation.map((item) => (
               <li key={item.href}>
-                <a className={styles.link} href={item.href}>
+                <a className={styles.link} href={sectionHref(item.href)}>
                   <span className={styles.index} aria-hidden="true">
                     {item.index}
                   </span>

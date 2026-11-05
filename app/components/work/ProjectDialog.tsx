@@ -5,18 +5,33 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProp
 import { createPortal } from 'react-dom';
 import { accentHex, projects } from '../../content';
 import { projectDetails, type ProjectScreen } from '../../project-details';
+import { projectArchitectures } from '../../project-architecture';
 import { lockScroll, prefersReducedMotion } from '../site/chrome';
 import { Icon } from '../ui/Icon';
 import { PROJECT_OPEN_EVENT, type ProjectOpenDetail } from './events';
 import { useProjectTransition } from './useProjectTransition';
+import { GalleryPreview } from './GalleryPreview';
+import { ArchitectureDiagram } from './ArchitectureDiagram';
 import styles from './project-dialog.module.css';
 
 const pad = (value: number) => String(value).padStart(2, '0');
+type ProjectView = 'story' | 'gallery' | 'architecture';
+const viewOrder: ProjectView[] = ['story', 'gallery', 'architecture'];
+const screenLabels: Record<NonNullable<ProjectScreen['kind']>, string> = {
+  screen: 'Product screen',
+  'app-store': 'App Store screenshot',
+  demo: 'Demo screen',
+  photo: 'Product photo',
+  reference: 'API reference',
+  source: 'Source reference',
+  studio: 'Za Studio preview',
+  illustration: 'Project illustration',
+};
 
 export function ProjectDialog() {
   const [active, setActive] = useState<ProjectOpenDetail | null>(null);
   const [closing, setClosing] = useState(false);
-  const [view, setView] = useState<'story' | 'gallery'>('story');
+  const [view, setView] = useState<ProjectView>('story');
   const [screen, setScreen] = useState(0);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const shellRef = useRef<HTMLDivElement>(null);
@@ -31,7 +46,8 @@ export function ProjectDialog() {
   const backdropPressRef = useRef(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pendingProjectRef = useRef<string | null>(null);
-  const pendingViewRef = useRef<'story' | 'gallery'>('story');
+  const pendingViewRef = useRef<ProjectView>('story');
+  const galleryScrollUntilRef = useRef(0);
   const { swap, cancel: cancelSwap } = useProjectTransition(contentRef, mastheadRef, footerRef);
 
   const index = projects.findIndex((project) => project.slug === active?.slug);
@@ -65,6 +81,7 @@ export function ProjectDialog() {
       cancelSwap();
       pendingProjectRef.current = detail.slug;
       pendingViewRef.current = 'story';
+      galleryScrollUntilRef.current = 0;
       if (closeTimer.current) clearTimeout(closeTimer.current);
       closeTimer.current = null;
       triggerRef.current = detail.trigger ?? (document.activeElement instanceof HTMLElement ? document.activeElement : null);
@@ -110,6 +127,17 @@ export function ProjectDialog() {
     bodyRef.current?.scrollTo({ top: 0, behavior: 'instant' });
   }, [active?.slug, view]);
 
+  useEffect(() => {
+    const body = bodyRef.current;
+    if (!isOpen || !body) return;
+    // A trackpad's remaining momentum must not push the newly opened gallery away.
+    const holdOpeningGesture = (event: WheelEvent) => {
+      if (performance.now() < galleryScrollUntilRef.current && !event.ctrlKey && event.deltaY > 0 && Math.abs(event.deltaY) >= Math.abs(event.deltaX)) event.preventDefault();
+    };
+    body.addEventListener('wheel', holdOpeningGesture, { passive: false, capture: true });
+    return () => body.removeEventListener('wheel', holdOpeningGesture, true);
+  }, [isOpen]);
+
   useLayoutEffect(() => {
     const tabs = tabsRef.current;
     if (!isOpen || !tabs) return;
@@ -129,6 +157,7 @@ export function ProjectDialog() {
   if (!project || !active) return null;
 
   const details = projectDetails[project.slug];
+  const architecture = projectArchitectures[project.slug];
   const screens: ProjectScreen[] = details?.screens.length
     ? details.screens
     : project.image ? [{ src: project.image, alt: project.imageAlt, caption: project.title }] : [];
@@ -143,18 +172,21 @@ export function ProjectDialog() {
     const target = projects[((pendingIndex < 0 ? index : pendingIndex) + direction + projects.length) % projects.length];
     pendingProjectRef.current = target.slug;
     pendingViewRef.current = 'story';
+    galleryScrollUntilRef.current = 0;
     void swap(() => {
       setScreen(0);
       setView('story');
       setActive((current) => current ? { ...current, slug: target.slug } : null);
     }, direction, 'project');
   };
-  const changeView = (nextView: 'story' | 'gallery') => {
+  const changeView = (nextView: ProjectView) => {
     if (closing || pendingViewRef.current === nextView) return;
     const targetSlug = pendingProjectRef.current ?? active.slug;
     const target = projects.find((item) => item.slug === targetSlug);
     if (nextView === 'gallery' && !projectDetails[targetSlug]?.screens.length && !target?.image) return;
+    if (nextView === 'architecture' && !projectArchitectures[targetSlug]) return;
     const changesProject = targetSlug !== active.slug;
+    const direction = viewOrder.indexOf(nextView) > viewOrder.indexOf(pendingViewRef.current) ? 1 : -1;
     pendingViewRef.current = nextView;
     // The in-gallery launch button is replaced with the content; keep focus in a stable control.
     tabsRef.current?.querySelector<HTMLButtonElement>(`button[data-view="${nextView}"]`)?.focus({ preventScroll: true });
@@ -165,7 +197,7 @@ export function ProjectDialog() {
         setActive((current) => current ? { ...current, slug: targetSlug } : null);
       }
       setView(nextView);
-    }, nextView === 'gallery' ? 1 : -1, changesProject ? 'project' : 'view');
+    }, direction, changesProject ? 'project' : 'view');
   };
   const changeScreen = (delta: number) => setScreen((value) => (value + delta + screens.length) % screens.length);
 
@@ -211,7 +243,7 @@ export function ProjectDialog() {
             </div>
             <span className={styles.projectNumber} aria-hidden="true">{pad(index + 1)}<span> / {pad(projects.length)}</span></span>
           </div>
-          <p id="project-dialog-description" className="visually-hidden">Project overview, engineering highlights, image gallery, and live links.</p>
+          <p id="project-dialog-description" className="visually-hidden">Project overview, engineering highlights, image gallery, system architecture, and live links.</p>
           <div ref={tabsRef} className={styles.tabs} role="group" aria-label="Project view">
             <span className={styles.tabIndicator} aria-hidden="true" />
             <button type="button" data-view="story" aria-pressed={view === 'story'} onClick={() => changeView('story')}>
@@ -220,28 +252,33 @@ export function ProjectDialog() {
             {screens.length > 0 ? <button type="button" data-view="gallery" aria-pressed={view === 'gallery'} onClick={() => changeView('gallery')}>
               <Icon name="layout" size={15} /> Gallery <span>{pad(screens.length)}</span>
             </button> : null}
-            <span className={styles.tabNote}>A closer look, layer by layer.</span>
+            {architecture ? <button type="button" data-view="architecture" aria-pressed={view === 'architecture'} onClick={() => changeView('architecture')}>
+              <Icon name="share" size={15} /> Architecture
+            </button> : null}
+            <span className={styles.tabNote}>{project.kind === 'Experiment' ? 'An experiment, with room to explore.' : 'Context, decisions, and product details.'}</span>
           </div>
         </header>
 
         <div ref={bodyRef} className={styles.body}>
           <div ref={contentRef} key={`${project.slug}-${view}`} className={styles.content} data-gallery={view === 'gallery' ? '' : undefined}>
-            <div className={styles.storyGrid} data-gallery={view === 'gallery' ? '' : undefined}>
-              <section className={styles.gallery} aria-label={`${project.title} gallery`}>
-                {selected ? <>
+            <div className={styles.storyGrid} data-gallery={view === 'gallery' ? '' : undefined} data-no-media={!selected ? '' : undefined}>
+              {selected && view !== 'architecture' ? <section className={styles.gallery} aria-label={`${project.title} gallery`}>
+                <>
                 <div className={styles.browserBar}>
                   <span className={styles.windowDots} aria-hidden="true"><i /><i /><i /></span>
                   <span>{hostname}</span>
                   <Icon name={project.liveUrl ? 'globe' : 'smartphone'} size={14} />
                 </div>
                 <figure className={styles.figure}>
-                  <div className={styles.viewer} data-expanded={view === 'gallery' ? '' : undefined}>
-                    <Image key={selected.src} src={selected.src} alt={selected.alt} fill sizes="(max-width: 800px) 92vw, 900px" className={styles.screen} />
-                    <span className={styles.imageKind}>{
-                      selected.kind === 'app-store' ? 'App Store screenshot'
-                        : selected.kind === 'demo' ? 'Demo screen'
-                          : selected.kind === 'photo' ? 'Product photo' : 'Product screen'
-                    }</span>
+                  <GalleryPreview expanded={view === 'gallery'} disabled={closing} onExpand={(input) => {
+                    if (pendingProjectRef.current !== active.slug) return;
+                    if (input === 'wheel') galleryScrollUntilRef.current = performance.now() + (prefersReducedMotion() ? 220 : 620);
+                    changeView('gallery');
+                  }}>
+                    <Image key={selected.src} src={selected.src} alt={selected.alt} fill style={{ objectFit: 'scale-down' }} sizes="(max-width: 800px) 84vw, 900px" className={styles.screen} />
+                  </GalleryPreview>
+                  <div className={styles.viewerTools}>
+                    <span className={styles.imageKind}>{screenLabels[selected.kind ?? 'screen']}</span>
                     {view === 'story' ? (
                       <button type="button" className={styles.expandButton} onClick={() => changeView('gallery')} aria-label="Expand project gallery">
                         Open gallery <Icon name="arrow-up-right" size={16} />
@@ -269,16 +306,12 @@ export function ProjectDialog() {
                     <button type="button" className={styles.iconButton} onClick={() => changeScreen(1)} aria-label="Next image"><Icon name="arrow-right" /></button>
                   </div>
                 ) : null}
-                </> : <div className={styles.previewUnavailable}>
-                  <Icon name="layers" size={32} />
-                  <h3>Screenshots unavailable</h3>
-                  <p>Read the project overview and product highlights.</p>
-                </div>}
-              </section>
+                </>
+              </section> : null}
 
               {view === 'story' ? (
                 <section className={styles.story} aria-label="Project overview">
-                  <p className={styles.sectionLabel}><span>01</span> The overview</p>
+                  <p className={styles.sectionLabel}><span>01</span> The brief</p>
                   <p className={styles.overview}>{details?.overview ?? project.description}</p>
                   <dl className={styles.stats}>
                     {project.stats.map((stat) => (
@@ -313,7 +346,7 @@ export function ProjectDialog() {
 
             {view === 'story' && details?.highlights.length ? (
               <section className={styles.highlights} aria-labelledby="project-highlights-title">
-                <h3 id="project-highlights-title" className={styles.sectionLabel}><span>02</span> Inside the build</h3>
+                <h3 id="project-highlights-title" className={styles.sectionLabel}><span>02</span> The build</h3>
                 <div className={styles.highlightGrid}>
                   {details.highlights.map((highlight, highlightIndex) => (
                     <article key={highlight.title}>
@@ -325,6 +358,7 @@ export function ProjectDialog() {
                 </div>
               </section>
             ) : null}
+            {view !== 'gallery' && architecture ? <ArchitectureDiagram architecture={architecture} standalone={view === 'architecture'} /> : null}
           </div>
         </div>
 

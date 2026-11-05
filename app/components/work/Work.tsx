@@ -1,16 +1,14 @@
 import type { CSSProperties } from 'react';
-import { projects, site } from '../../content';
+import { asset, homeProjectSlugs, projects } from '../../content';
 import { Icon } from '../ui/Icon';
 import { ProjectCard } from './ProjectCard';
 import { ProjectStack } from './ProjectStack';
 import { ProjectDialog } from './ProjectDialog';
 import styles from './work.module.css';
 
-const NUMBER_WORDS = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
-const countWord = (count: number) => NUMBER_WORDS[count] ?? String(count);
-
 export function Work() {
   const total = projects.length;
+  const showcase = homeProjectSlugs.map((slug) => projects.find((project) => project.slug === slug)!);
 
   return (
     <section id="work" className="section" aria-labelledby="work-title">
@@ -21,7 +19,7 @@ export function Work() {
               <span className="eyebrow-index">02</span>Selected work
             </p>
             <h2 className="heading" id="work-title">
-              Engineering the complete <em>experience.</em>
+              Built for the work <em>people do.</em>
             </h2>
           </div>
           <p
@@ -29,16 +27,18 @@ export function Work() {
             data-reveal=""
             style={{ '--delay': '120ms' } as CSSProperties}
           >
-            {countWord(total)} software products across multi-tenant SaaS, financial platforms, commerce,
-            and real-time products.
+            Five selected builds, from business operations to mobile experiences.
+            {' '}Explore the full collection of {total} projects for the interfaces, systems, and decisions behind them.
           </p>
         </header>
 
+        <p className={styles.showcaseLabel}>{String(showcase.length).padStart(2, '0')} selected <span aria-hidden="true">/</span> {total} projects in the collection</p>
         <ProjectStack
-          items={projects.map((project, index) => ({
+          showFilters={false}
+          items={showcase.map((project) => ({
             slug: project.slug,
             categories: project.categories,
-            card: <ProjectCard project={project} index={index} total={total} />,
+            card: <ProjectCard project={project} index={projects.indexOf(project)} total={total} />,
           }))}
         />
         <ProjectDialog />
@@ -46,22 +46,16 @@ export function Work() {
         <div className={styles.outro} data-reveal="">
           <div>
             <p className={styles.outroTitle}>
-              Want the <em>full story?</em>
+              More work. <em>More ground covered.</em>
             </p>
-            <p className={styles.outroText}>Roles, dates, and responsibilities — all in the résumé.</p>
+            <p className={styles.outroText}>Browse all {total} projects, with product galleries and engineering notes.</p>
           </div>
           <div className={styles.outroActions}>
-            <a className="btn btn-primary" href={site.resume} target="_blank" rel="noopener noreferrer">
-              Résumé
-              <span className="visually-hidden"> (PDF, opens in a new tab)</span>
+            <a className="btn btn-primary" href={asset('/projects/')}>
+              View all {total} projects
               <span className="btn-icon">
                 <Icon name="arrow-up-right" size={16} />
               </span>
-            </a>
-            <a className="btn btn-ghost" href={site.github} target="_blank" rel="noopener noreferrer">
-              <Icon name="github" size={18} />
-              GitHub
-              <span className="visually-hidden"> (opens in a new tab)</span>
             </a>
           </div>
         </div>

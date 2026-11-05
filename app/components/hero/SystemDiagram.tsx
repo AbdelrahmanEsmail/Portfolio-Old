@@ -136,7 +136,7 @@ export function SystemDiagram() {
             <div className={styles.photoBar} aria-hidden="true">
               <span className={styles.photoBarDot} />
               <span className={styles.photoBarText}>
-                <span className={styles.photoBarUser}>zeyad@mansoura</span> <span className={styles.photoBarPath}>~</span> online
+                <span className={styles.photoBarUser}>demo-23home@egypt</span> <span className={styles.photoBarPath}>~</span> online
               </span>
               <span className={styles.caret} />
             </div>

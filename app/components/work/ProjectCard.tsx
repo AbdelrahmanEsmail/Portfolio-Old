@@ -37,7 +37,7 @@ function ProjectLinks({ project }: { project: Project }) {
         aria-controls="project-dialog"
         aria-label={`Explore ${project.title}`}
       >
-        Explore project
+        View case study
         <span className="btn-icon">
           <Icon name="arrow-up-right" size={16} />
         </span>
@@ -81,21 +81,9 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
       style={{ '--accent': accentHex[project.accent] } as CSSProperties}
     >
       <div className={styles.media} data-empty={!project.image ? '' : undefined}>
-        {project.image ? <Image
-          className={styles.image}
-          src={project.image}
-          alt={project.imageAlt}
-          width={1536}
-          height={1024}
-          sizes="(min-width: 1440px) 680px, (min-width: 1024px) 52vw, 94vw"
-        /> : <div className={styles.mediaUnavailable}>
-          <Icon name="layers" size={38} />
-          <span>{project.label}</span>
-          <strong>{project.title}</strong>
-          <small>Screenshots unavailable</small>
-        </div>}
         <div className={styles.mediaTop} aria-hidden="true">
           <span className={styles.tag}>
+            <span className={styles.filePrefix}>FILE</span>
             {pad(index + 1)}
             <span className={styles.tagMuted}>/ {pad(total)}</span>
           </span>
@@ -106,6 +94,21 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
               </span>
             ))}
           </span>
+        </div>
+        <div className={styles.mediaStage}>
+          {project.image ? <Image
+            className={styles.image}
+            src={project.image}
+            alt={project.imageAlt}
+            fill
+            style={{ objectFit: 'scale-down' }}
+            sizes="(min-width: 1440px) 640px, (min-width: 1024px) 48vw, 88vw"
+          /> : <div className={styles.mediaUnavailable}>
+            <Icon name="layers" size={38} />
+            <span>{project.label}</span>
+            <strong>{project.title}</strong>
+            <small>Screenshots unavailable</small>
+          </div>}
         </div>
         {address ? (
           <div className={styles.mediaBottom} aria-hidden="true">

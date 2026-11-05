@@ -1,0 +1,226 @@
+{
+  "reviewed": "2026-11-05",
+  "directories": [
+    {
+      "directory": "Ai-call-center",
+      "projects": [
+        "ai-call-center"
+      ]
+    },
+    {
+      "directory": "DRF-GameDiscovery-App",
+      "projects": [
+        "game-discovery"
+      ]
+    },
+    {
+      "directory": "DRF-React-RealStateManagement",
+      "projects": [
+        "realstate-management"
+      ]
+    },
+    {
+      "directory": "DRF_NEXT_Jobs-portal",
+      "projects": [
+        "jobbee"
+      ]
+    },
+    {
+      "directory": "DRF_React_NextJS-Ambassador360",
+      "projects": [
+        "ambassador360"
+      ]
+    },
+    {
+      "directory": "FeiAPI",
+      "projects": [
+        "fei"
+      ]
+    },
+    {
+      "directory": "Nourseen",
+      "projects": [
+        "nourseen-store"
+      ]
+    },
+    {
+      "directory": "Portfolio-Website",
+      "projects": [],
+      "reason": "The current portfolio; not duplicated as another case study."
+    },
+    {
+      "directory": "React-Ecommerce",
+      "projects": [],
+      "excludedProjects": [
+        {
+          "slug": "react-commerce-lab",
+          "reason": "Removed from the portfolio at the user’s request."
+        }
+      ],
+      "reason": "Excluded from the portfolio at the user’s request; local source retained."
+    },
+    {
+      "directory": "React-VideoGame-DiscoveryApp",
+      "projects": [
+        "game-discovery"
+      ]
+    },
+    {
+      "directory": "SAHIFATI_API",
+      "projects": [
+        "sahifatty"
+      ]
+    },
+    {
+      "directory": "adex",
+      "projects": [
+        "ai-call-center",
+        "aljadriya",
+        "china-erp",
+        "ghaith-adex",
+        "fiva-health",
+        "barcode-jackets"
+      ],
+      "excludedProjects": [
+        {
+          "slug": "mathaq",
+          "reason": "Removed from the portfolio at the user’s request."
+        }
+      ]
+    },
+    {
+      "directory": "adex-erp",
+      "projects": [
+        "saas-erp"
+      ]
+    },
+    {
+      "directory": "adex-erp-react",
+      "projects": [
+        "saas-erp"
+      ]
+    },
+    {
+      "directory": "aljadriya-platform",
+      "projects": [
+        "aljadriya"
+      ]
+    },
+    {
+      "directory": "bee3a",
+      "projects": [
+        "bee3a"
+      ]
+    },
+    {
+      "directory": "china-system-react",
+      "projects": [
+        "china-erp"
+      ]
+    },
+    {
+      "directory": "fiva_health_django",
+      "projects": [
+        "fiva-health"
+      ]
+    },
+    {
+      "directory": "ghaith_adex_django",
+      "projects": [
+        "ghaith-adex"
+      ]
+    },
+    {
+      "directory": "jaketets-mohammad-edits",
+      "projects": [
+        "barcode-jackets"
+      ]
+    },
+    {
+      "directory": "jakets-project",
+      "projects": [
+        "barcode-jackets"
+      ]
+    },
+    {
+      "directory": "key-academy-django",
+      "projects": [
+        "key-academy"
+      ]
+    },
+    {
+      "directory": "key-academy-front",
+      "projects": [
+        "key-academy"
+      ]
+    },
+    {
+      "directory": "key_academy_app",
+      "projects": [
+        "key-academy"
+      ]
+    },
+    {
+      "directory": "node_modules",
+      "projects": [],
+      "reason": "Dependencies, not a project."
+    },
+    {
+      "directory": "react-revision",
+      "projects": [],
+      "excludedProjects": [
+        {
+          "slug": "react-revision",
+          "reason": "Removed from the portfolio at the user’s request."
+        }
+      ],
+      "reason": "Excluded from the portfolio at the user’s request; local source retained."
+    },
+    {
+      "directory": "reports_el7ag",
+      "projects": [
+        "assignment-reports-auditor"
+      ]
+    },
+    {
+      "directory": "sahifati-backups",
+      "projects": [],
+      "reason": "Backups of an existing product."
+    },
+    {
+      "directory": "sahifati-django",
+      "projects": [
+        "sahifatty"
+      ]
+    },
+    {
+      "directory": "sukoon",
+      "projects": [
+        "sukoon"
+      ]
+    },
+    {
+      "directory": "xdisplay-tahoe-bridge",
+      "projects": [
+        "xdisplay-bridge"
+      ]
+    },
+    {
+      "directory": "yotell_app",
+      "projects": [],
+      "reason": "Yotell social app excluded from the portfolio at the user’s request. The health product now uses the Yotell display name.",
+      "excludedProjects": [
+        {
+          "slug": "yotell",
+          "reason": "Social app removed at the user’s request; distinct from the displayed health product."
+        }
+      ]
+    },
+    {
+      "directory": "za-studio",
+      "projects": [
+        "za-studio"
+      ]
+    }
+  ]
+}

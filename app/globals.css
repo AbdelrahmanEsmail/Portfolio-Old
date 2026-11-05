@@ -281,18 +281,18 @@ samp {
 }
 .eyebrow::before {
   content: '';
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   flex: none;
-  border-radius: 50%;
-  background: var(--accent-text);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-text) 16%, transparent);
+  border: 1px solid var(--brass-text);
+  background: color-mix(in srgb, var(--brass-text) 15%, transparent);
+  transform: rotate(45deg);
 }
 .eyebrow-index {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  color: var(--accent-text);
+  color: var(--brass-text);
 }
 .eyebrow-index::after {
   content: '';
@@ -516,6 +516,7 @@ samp {
   --line: var(--inv-line);
   --line-strong: color-mix(in srgb, var(--inv-ink) 24%, transparent);
   --accent-text: var(--inv-accent);
+  --brass-text: color-mix(in srgb, var(--inv-ink) 75%, var(--inv-accent));
   background: var(--inv-bg);
   color: var(--inv-ink);
 }

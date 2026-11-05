@@ -89,7 +89,7 @@ export function SystemLog({ lines, className, style }: SystemLogProps) {
         <span className={styles.logTitle}>system.log</span>
         <span className={styles.logLive}>
           <span className={styles.logLiveDot} />
-          live
+          demo
         </span>
       </div>
       <ol className={styles.logRows}>

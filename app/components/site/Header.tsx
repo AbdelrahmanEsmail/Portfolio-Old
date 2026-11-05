@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, type CSSProperties, type MouseEvent } from 'react';
-import { navigation, site } from '../../content';
+import { asset, navigation, site } from '../../content';
 import { Icon } from '../ui/Icon';
 import { openCommandPalette, PALETTE_OPEN_EVENT } from '../ui/events';
 import { toggleTheme, useTheme } from '../ui/theme';
@@ -52,7 +52,8 @@ function inertSiblings(keep: HTMLElement): () => void {
   return () => changed.forEach((element) => (element.inert = false));
 }
 
-export function Header() {
+export function Header({ home = true }: { home?: boolean }) {
+  const sectionHref = (hash: string) => home ? hash : `${asset('/')}${hash}`;
   const theme = useTheme();
   const isApple = useIsApple();
   const [active, setActive] = useState<string | null>(null);
@@ -281,7 +282,7 @@ export function Header() {
   return (
     <header ref={rootRef} className={styles.root} data-menu={menuOpen ? 'open' : 'closed'}>
       <div ref={dockRef} className={styles.dock}>
-        <a className={styles.brand} href="#top" onClick={() => announceNavigation('top')}>
+        <a className={styles.brand} href={sectionHref('#top')} onClick={() => announceNavigation('top')}>
           <span className={styles.avatarWrap}>
             <Avatar size={34} />
             <span className={styles.online} aria-hidden="true" />
@@ -302,10 +303,11 @@ export function Header() {
                 <li key={item.href}>
                   <a
                     className={styles.navLink}
-                    href={item.href}
+                    href={sectionHref(item.href)}
                     aria-current={active === id ? 'location' : undefined}
                     onClick={() => announceNavigation(id)}
                   >
+                    <span className={styles.navIndex} aria-hidden="true">{item.index}</span>
                     {item.label}
                   </a>
                 </li>
@@ -371,7 +373,7 @@ export function Header() {
       <div id={MENU_ID} className={styles.sheet}>
         <nav aria-label="Menu">
           <p className={`label ${styles.sheetLabel}`} aria-hidden="true">
-            Index
+            Field guide
           </p>
           <ol className={styles.sheetList}>
             {navigation.map((item, index) => {
@@ -380,7 +382,7 @@ export function Header() {
                 <li key={item.href} className={styles.sheetItem} style={{ '--i': index } as CSSProperties}>
                   <a
                     className={styles.sheetLink}
-                    href={item.href}
+                    href={sectionHref(item.href)}
                     aria-current={active === id ? 'location' : undefined}
                     onClick={() => onSheetLink(id)}
                   >

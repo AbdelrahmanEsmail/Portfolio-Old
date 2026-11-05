@@ -13,14 +13,15 @@ const delay = (ms: number) => ({ '--d': `${ms}ms` }) as CSSProperties;
 /** Back-to-front order of the decorative copies stacked behind "depth.". */
 const DEPTH_LAYERS = [4, 3, 2, 1];
 
-/** "Mansoura, EG" → city + ", EG" (the country is dropped on very narrow screens). */
-const [city, ...countryParts] = site.locationShort.split(',');
-const country = countryParts.length ? `,${countryParts.join(',')}` : '';
-
 export function Hero() {
   return (
     <HeroShell id="top" className={styles.hero} labelledBy="hero-title">
       <div className={styles.ambient} aria-hidden="true">
+        <svg className={styles.contours} viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <g fill="none" stroke="currentColor" strokeWidth="0.65">
+            {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => <path key={i} d="M-160 590C90 140 350 850 610 420S1020 30 1390 230" transform={`translate(${i * 12} ${i * 23})`} />)}
+          </g>
+        </svg>
         <div className={styles.glowLime} />
         <div className={styles.glowPeri} />
         <div className={styles.floor}>
@@ -30,14 +31,14 @@ export function Hero() {
 
       <div className={`container ${styles.inner}`}>
         <div className={styles.copy}>
+          <p className={`${styles.fieldNote} ${styles.enter}`} style={delay(0)}><span aria-hidden="true">◇</span> ZS / Software engineering <span className={styles.fieldNoteRule} /></p>
           <p className={`${styles.status} ${styles.enter}`} style={delay(40)}>
             <span className="status-dot" aria-hidden="true" />
             <span>Available for new roles</span>
             <span className={styles.statusDivider} aria-hidden="true" />
             <span className={styles.statusPlace}>
               <span>
-                {city}
-                {country ? <span className={styles.country}>{country}</span> : null}
+                {site.locationShort}
               </span>
               <LocalTime timeZone={site.timeZone} className={styles.time} />
             </span>
@@ -73,9 +74,9 @@ export function Hero() {
           </h1>
 
           <p className={`${styles.intro} ${styles.enter}`} style={delay(420)}>
-            I&rsquo;m {site.firstName}, a software engineer building across the full stack with{' '}
-            <span className={styles.hl}>React, Next.js, TypeScript, and Django</span> — from responsive interfaces
-            to reliable APIs and data systems.
+            I&rsquo;m {site.firstName}. I build{' '}
+            <span className={styles.hl}>web and mobile products</span>, connecting clear interfaces
+            with the APIs, data, and business rules that make them work.
           </p>
 
           <div className={`${styles.actions} ${styles.enter}`} style={delay(540)}>

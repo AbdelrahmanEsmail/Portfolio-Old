@@ -21,12 +21,12 @@ export function Experience() {
               <span className="eyebrow-index">03</span>Experience
             </p>
             <h2 id="experience-heading" className={`heading ${styles.heading}`}>
-              A path built through <em>practice.</em>
+              Experience across the <em>stack.</em>
             </h2>
           </div>
           <p className={styles.intro} data-reveal style={delay(120)}>
-            From infrastructure and systems administration to full-stack product development, each role sharpened
-            how I connect the interface, application logic, and data into dependable software.
+            My background in infrastructure, systems administration, and product development shapes how I build:
+            clear interfaces, explicit application rules, and dependable data.
           </p>
         </header>
 

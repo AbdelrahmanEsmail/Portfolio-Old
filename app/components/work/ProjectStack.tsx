@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, type CSSProperties, type MouseEvent, type ReactNode } from 'react';
-import { projectFilters, type ProjectCategory, type ProjectFilter } from '../../content';
+import { asset, projectFilters, projects, type ProjectCategory, type ProjectFilter } from '../../content';
 import { openProject, PROJECT_REVEAL_EVENT } from './events';
 import styles from './work.module.css';
 
@@ -63,7 +63,7 @@ function scrollToProject(slug: string) {
  * Filter chips + the project list. Cards are rendered on the server and passed
  * in; this island only owns the filter state and the stack's safety nets.
  */
-export function ProjectStack({ items }: { items: StackItem[] }) {
+export function ProjectStack({ items, showFilters = true }: { items: StackItem[]; showFilters?: boolean }) {
   const [filter, setFilter] = useState<ProjectFilter>('All');
   const [status, setStatus] = useState('');
   const listRef = useRef<HTMLOListElement>(null);
@@ -197,11 +197,16 @@ export function ProjectStack({ items }: { items: StackItem[] }) {
       if (match) {
         const slug = decodeURIComponent(match[1]);
         const target = items.find((item) => item.slug === slug);
+        if (!target && projects.some((project) => project.slug === slug)) {
+          window.location.replace(`${asset('/projects/')}#project-${encodeURIComponent(slug)}`);
+          return;
+        }
         if (target && !matches(target, filter)) reveal(slug);
       }
     };
     window.addEventListener(PROJECT_REVEAL_EVENT, onReveal);
     window.addEventListener('hashchange', onHashChange);
+    onHashChange();
     return () => {
       window.removeEventListener(PROJECT_REVEAL_EVENT, onReveal);
       window.removeEventListener('hashchange', onHashChange);
@@ -218,9 +223,9 @@ export function ProjectStack({ items }: { items: StackItem[] }) {
 
   return (
     <>
-      <div className={styles.toolbar} data-reveal="">
+      {showFilters ? <div className={styles.toolbar} data-reveal="">
         <div className={styles.filters} role="group" aria-label="Filter projects by category">
-          {projectFilters.map((option) => {
+          {projectFilters.filter((option) => option === 'All' || countFor(option) > 0).map((option) => {
             const count = countFor(option);
             return (
               <button
@@ -251,9 +256,9 @@ export function ProjectStack({ items }: { items: StackItem[] }) {
         <p className="visually-hidden" role="status" aria-live="polite">
           {status}
         </p>
-      </div>
+      </div> : null}
 
-      <div className={styles.stack}>
+      <div className={styles.stack} style={{ '--depth': Math.max(0, visible.length - 1) } as CSSProperties}>
         <ol ref={listRef} className={styles.list} role="list" onClick={onProjectClick}>
           {items.map((item) => {
             const position = visible.indexOf(item);

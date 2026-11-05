@@ -132,12 +132,12 @@ export function Toolkit() {
               <span className="eyebrow-index">04</span>Toolkit
             </p>
             <h2 id="stack-title" className="heading">
-              The tools to build the <em>whole product.</em>
+              Tools for the <em>whole product.</em>
             </h2>
           </div>
           <p className={styles.intro} data-reveal style={delay(120)}>
-            React, Next.js, and TypeScript for the interface. Python, Django, and PostgreSQL for the systems
-            behind it. Docker and CI/CD to bring everything into production.
+            Web and mobile with React, Next.js, TypeScript, Flutter, and React Native. Services and data with
+            Python, Django, Node.js, and PostgreSQL. Docker and CI/CD for delivery.
           </p>
         </header>
 

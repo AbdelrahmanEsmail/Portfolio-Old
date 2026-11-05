@@ -13,7 +13,7 @@ import {
   type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from 'react';
-import { accentHex, navigation, projects, site } from '../../content';
+import { accentHex, asset, navigation, projects, site } from '../../content';
 import { Icon, type IconName } from '../ui/Icon';
 import { copyText, openCommandPalette, PALETTE_OPEN_EVENT, toast } from '../ui/events';
 import { toggleTheme, useTheme, type Theme } from '../ui/theme';
@@ -63,6 +63,10 @@ const urlLabel = (url: string) => {
 // ---------- Command actions (run after the dialog has closed) ----------
 
 function goTo(id: string) {
+  if (!document.getElementById(id)) {
+    window.location.href = id.startsWith('project-') ? `${asset('/projects/')}#${id}` : `${asset('/')}#${id}`;
+    return;
+  }
   announceNavigation(id);
   if (!scrollToId(id, { focus: true }) && id.startsWith('project-')) {
     // The card is hidden by the Work filter: reset it to "All" and land on the card.
@@ -119,7 +123,7 @@ function buildCommands(theme: Theme): IndexedCommand[] {
         id: `project-${project.slug}`,
         group: 'Projects',
         title: project.title,
-        hint: project.liveUrl ? domain(project.liveUrl) : 'Android & iOS apps',
+        hint: project.liveUrl ? domain(project.liveUrl) : project.appLinks?.length ? 'Android & iOS apps' : project.label,
         accent: accentHex[project.accent],
         keywords: [project.label, ...project.technologies, ...project.categories, project.slug].join(' '),
         run: () => goTo(`project-${project.slug}`),

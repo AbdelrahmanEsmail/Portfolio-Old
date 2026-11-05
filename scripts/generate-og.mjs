@@ -49,7 +49,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
     <text x="853" y="494" fill="#c5f24a" font-size="14">●</text>
     <text x="873" y="494" fill="#ece8dc" font-size="14">Build the whole product.</text>
   </g>
-  <text x="64" y="585" fill="#9b998e" font-family="Arial, sans-serif" font-size="13" letter-spacing="2">MANSOURA, EGYPT</text>
+  <text x="64" y="585" fill="#9b998e" font-family="Arial, sans-serif" font-size="13" letter-spacing="2">EGYPT</text>
   <text x="1136" y="585" fill="#c5f24a" font-family="Arial, sans-serif" font-size="13" letter-spacing="2" text-anchor="end">OPEN TO SOFTWARE ENGINEERING ROLES</text>
 </svg>`;
 
